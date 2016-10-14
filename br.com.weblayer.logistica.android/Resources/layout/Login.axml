@@ -9,18 +9,8 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:id="@+id/linearLayout1">
-    <!--    <TextView
-        android:id="@+id/text_id"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:capitalize="characters"
-        android:text="hello_world"
-        android:textColor="@android:color/background_light"
-        android:textColorHighlight="@android:color/background_light"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="50dp" />-->
         <TextView
             android:text="Servidor"
             android:layout_width="match_parent"
