@@ -10,6 +10,7 @@ namespace br.com.weblayer.logistica.android
     {
 
 		EditText edtServidor, edtUsuario, edtSenha;
+		TextView lblmensagem;
 		Button btnEntrar;
 
         protected override void OnCreate(Bundle bundle)
@@ -23,6 +24,7 @@ namespace br.com.weblayer.logistica.android
 			edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
 			edtSenha  = FindViewById<EditText>(Resource.Id.edtSenha);
 			btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
+			lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
 
 			btnEntrar.Click += (object sender, EventArgs e) =>
 			{
@@ -34,9 +36,13 @@ namespace br.com.weblayer.logistica.android
 		{ 
 			var usuariomanager = new UsuarioManager();
 
+			lblmensagem.Text= "";
+
 			var usuario = usuariomanager.ExecutarLogin("servidor", "login", "senha");
 			if (usuario == null)
 			{
+				lblmensagem.Text=usuariomanager.mensagem;
+
 				//usuario não encontrado, login não efetuado		
 				//exibir msg de erro
 				//usuariomanager.mensagem
