@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using br.com.weblayer.logistica.core;
 
 namespace br.com.weblayer.logistica.android
 {
@@ -38,8 +39,8 @@ namespace br.com.weblayer.logistica.android
 
 			lblmensagem.Text= "";
 
-			var usuario = usuariomanager.ExecutarLogin("servidor", "login", "senha");
-			if (usuario == null)
+			var retorno = usuariomanager.ExecutarLogin(edtServidor.Text, edtUsuario.Text, edtSenha.Text);
+			if (!retorno)
 			{
 				lblmensagem.Text=usuariomanager.mensagem;
 

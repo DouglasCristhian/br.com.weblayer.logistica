@@ -20,7 +20,8 @@
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtServidor" />
+            android:id="@+id/edtServidor"
+            android:text="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx" />
         <TextView
             android:text="Usuario"
             android:layout_width="match_parent"

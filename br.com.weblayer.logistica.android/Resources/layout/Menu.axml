@@ -17,9 +17,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnMenuInformaEntrega" />
         <Button
-            android:text="Verificar Performance"
+            android:text="Performance de Entrega"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnVerPerformance" />
+            android:id="@+id/btnPerformanceEntrega" />
+        <Button
+            android:text="Simular Frete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSimularFrete" />
     </LinearLayout>
 </LinearLayout>

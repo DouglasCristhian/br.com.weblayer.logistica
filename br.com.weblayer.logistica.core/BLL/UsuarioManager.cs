@@ -1,32 +1,49 @@
-﻿public class UsuarioManager
-{ 
+﻿using System.Collections.Generic;
 
-	public string mensagem
-	{
-		get;
-		set;
-	}
-
-
-	public Usuario ExecutarLogin(string servidor, string login, string senha)
+namespace br.com.weblayer.logistica.core
+{
+	public class UsuarioManager
 	{
 
-		//Acessar serviço remoto e validar usuário.
+		public string mensagem
+		{
+			get;
+			set;
+		}
 
-		//Login ok
-		/*
-		var usuario = new Usuario();
-		usuario.login = login;
-		usuario.senha = senha;
-		usuario.nome = "Nome retornado do banco de dados";
-		mensagem = "login realizado com sucesso!";
-		return usuario;
-		*/
+		public bool ExecutarLogin(string servidor, string login, string senha)
+		{
 
-		//Login erro 
-		mensagem = "Usuário/Senha inválidos!";
-		return null;
+
+			try
+			{
+				//Acessar serviço remoto e validar usuário.
+				WebService.Performance service = new WebService.Performance();
+				service.Url = servidor;
+				string retorno = service.Login(login, senha);
+
+				List<Usuario> Usuarios= Newtonsoft.Json.JsonConvert.DeserializeObject<List<Usuario>>(retorno);
+
+				var usuario = Usuarios[0];
+
+				if (usuario.id_empresa == 0)
+				{
+					mensagem = usuario.ds_perfil;
+					return false;
+				}
+
+				//gravar dados sobre o usuário
+
+				return true;
+
+			}
+			catch (System.Exception ex)
+			{
+				mensagem = ex.Message;
+				return false;
+			}
+
+		}
 
 	}
-
 }

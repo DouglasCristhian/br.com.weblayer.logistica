@@ -67,7 +67,10 @@ namespace br.com.weblayer.logistica.android
 			public const int btnMenuInformaEntrega = 2131034121;
 			
 			// aapt resource value: 0x7f05000a
-			public const int btnVerPerformance = 2131034122;
+			public const int btnPerformanceEntrega = 2131034122;
+			
+			// aapt resource value: 0x7f05000b
+			public const int btnSimularFrete = 2131034123;
 			
 			// aapt resource value: 0x7f050006
 			public const int edtSenha = 2131034118;
