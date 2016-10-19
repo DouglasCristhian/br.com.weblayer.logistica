@@ -113,7 +113,7 @@ namespace br.com.weblayer.logistica.android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Buscanota = 2130903040;
+			public const int buscanota = 2130903040;
 			
 			// aapt resource value: 0x7f030001
 			public const int Informaentrega = 2130903041;
