@@ -1,19 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using br.com.weblayer.logistica.core.Model;
+using System.Collections.Generic;
 
-namespace br.com.weblayer.logistica.core
+namespace br.com.weblayer.logistica.core.BLL
 {
 	public class UsuarioManager
 	{
+		private static UsuarioManager instance;
+
+		private UsuarioManager() { }
+
+		public static UsuarioManager Instance
+		{
+			get
+			{
+				if (instance == null)
+					lock (typeof(UsuarioManager))
+						if (instance == null) instance = new UsuarioManager();
+
+				return instance;
+			}
+		}
 
 		public string mensagem
 		{
 			get;
 			set;
 		}
+		public Usuario usuario
+		{
+			get;
+			set; 
+		}
 
 		public bool ExecutarLogin(string servidor, string login, string senha)
 		{
-
 
 			try
 			{
@@ -24,15 +44,13 @@ namespace br.com.weblayer.logistica.core
 
 				List<Usuario> Usuarios= Newtonsoft.Json.JsonConvert.DeserializeObject<List<Usuario>>(retorno);
 
-				var usuario = Usuarios[0];
+				usuario = Usuarios[0];
 
 				if (usuario.id_empresa == 0)
 				{
 					mensagem = usuario.ds_perfil;
 					return false;
 				}
-
-				//gravar dados sobre o usuário
 
 				return true;
 

@@ -40,7 +40,7 @@ namespace br.com.weblayer.logistica.android
 
 		private void ExecutarLogin()
 		{ 
-			var usuariomanager = new UsuarioManager();
+			var usuariomanager = UsuarioManager.Instance;
 
 			lblmensagem.Text= "";
 
@@ -48,17 +48,10 @@ namespace br.com.weblayer.logistica.android
 			if (!retorno)
 			{
 				lblmensagem.Text=usuariomanager.mensagem;
-
-				//usuario não encontrado, login não efetuado		
-				//exibir msg de erro
-				//usuariomanager.mensagem
 			}
 			else
 			{
-				//login ocorreu com sucesso
-				//mudar para próxima tela
 				StartActivity(typeof(MenuActivity));
-
 			}
 		}
 
