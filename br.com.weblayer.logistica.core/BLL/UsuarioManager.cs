@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace br.com.weblayer.logistica.core
+namespace br.com.weblayer.logistica.core.BLL
 {
 	public class UsuarioManager
 	{
