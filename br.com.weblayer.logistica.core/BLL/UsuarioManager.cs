@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using br.com.weblayer.logistica.core.Model;
+using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.core.BLL
 {
