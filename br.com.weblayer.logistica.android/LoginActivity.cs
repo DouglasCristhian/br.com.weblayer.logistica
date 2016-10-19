@@ -35,7 +35,7 @@ namespace br.com.weblayer.logistica.android
 
 		private void ExecutarLogin()
 		{ 
-			var usuariomanager = new UsuarioManager();
+			var usuariomanager = UsuarioManager.Instance;
 
 			lblmensagem.Text= "";
 

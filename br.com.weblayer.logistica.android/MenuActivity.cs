@@ -16,11 +16,18 @@ namespace br.com.weblayer.logistica.android
 	[Activity]
 	public class MenuActivity : Activity
 	{
+		TextView lblusuario;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.Menu);
+
+			lblusuario = FindViewById<TextView>(Resource.Id.lblUsuario);
+
+			lblusuario.Text = br.com.weblayer.logistica.core.UsuarioManager.Instance.usuario.ds_empresa;
+
 		}
 	}
 }
