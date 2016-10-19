@@ -11,6 +11,12 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Nome do Usuario"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblUsuario" />
         <Button
             android:text="Informar Entrega"
             android:layout_width="match_parent"
