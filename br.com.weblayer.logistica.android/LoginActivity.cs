@@ -2,6 +2,8 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
+using Android.Preferences;
 using br.com.weblayer.logistica.core;
 
 namespace br.com.weblayer.logistica.android
@@ -9,7 +11,7 @@ namespace br.com.weblayer.logistica.android
     [Activity(MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
-
+		public static string MyPREFERENCES = "MyPrefs";
 		EditText edtServidor, edtUsuario, edtSenha;
 		TextView lblmensagem;
 		Button btnEntrar;
@@ -18,8 +20,7 @@ namespace br.com.weblayer.logistica.android
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Login);
+            SetContentView (Resource.Layout.Login);
 
 			edtServidor = FindViewById<EditText>(Resource.Id.edtServidor);
 			edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
@@ -27,8 +28,12 @@ namespace br.com.weblayer.logistica.android
 			btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
 			lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
 
+			RestoreForm();
+
 			btnEntrar.Click += (object sender, EventArgs e) =>
 			{
+				SaveForm();
+
 				ExecutarLogin();
 			};
 		}
@@ -48,6 +53,35 @@ namespace br.com.weblayer.logistica.android
 			{
 				StartActivity(typeof(MenuActivity));
 			}
+		}
+
+		private void RestoreForm()
+		{ 
+
+			var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+			var somePref = prefs.GetString("Login", "");
+			edtUsuario.Text = somePref;
+
+			somePref = prefs.GetString("Senha", "");
+			edtSenha.Text = somePref;
+
+			somePref = prefs.GetString("Servidor", "");
+			edtServidor.Text = somePref;
+
+
+		}
+
+		private void SaveForm()
+		{ 
+		
+			var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldWriteable);
+			var prefEditor = prefs.Edit();
+			prefEditor.PutString("Login", edtUsuario.Text);
+			prefEditor.PutString("Senha", edtSenha.Text);
+			prefEditor.PutString("Servidor", edtServidor.Text);
+
+			prefEditor.Commit();
+		
 		}
 
     }
