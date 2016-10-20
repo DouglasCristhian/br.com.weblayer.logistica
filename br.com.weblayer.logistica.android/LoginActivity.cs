@@ -5,10 +5,11 @@ using Android.OS;
 using Android.Content;
 using Android.Preferences;
 using br.com.weblayer.logistica.core;
+using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android
 {
-    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(MainLauncher = false, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
 		public static string MyPREFERENCES = "MyPrefs";
