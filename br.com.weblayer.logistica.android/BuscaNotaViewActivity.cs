@@ -11,26 +11,49 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using br.com.weblayer.logistica.core.BLL;
+using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android
 {
     [Activity(MainLauncher = true)]
     public class BuscaNotaViewActivity : Activity
 	{
-		ListView lstNota;
+		ListView ListViewNota;
+        List<NotaFiscal> ListaNotas;
 
-		protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.buscanotaview);
 
-            lstNota = FindViewById<ListView>(Resource.Id.NotaListView);
+            Button btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
 
-            var ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
+            ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
-            lstNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
+            //btnPesquisar.Click += BtnPesquisar_Click;
+                        
+            ListViewNota.Clickable = true;
 
-		}
-	}
+            ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
+
+            ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
+
+            ListViewNota.ItemClick += OnListItemClick;
+
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
+            ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
+        }
+
+        void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var ListViewNotaClick = sender as ListView;
+            var t = ListaNotas[e.Position];
+            Toast.MakeText(this, t.ds_cliente, ToastLength.Short).Show();
+        }
+    }
 }

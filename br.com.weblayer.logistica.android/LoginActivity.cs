@@ -80,8 +80,7 @@ namespace br.com.weblayer.logistica.android
 			prefEditor.PutString("Login", edtUsuario.Text);
 			prefEditor.PutString("Senha", edtSenha.Text);
 			prefEditor.PutString("Servidor", edtServidor.Text);
-
-			prefEditor.Commit();
+            prefEditor.Commit();
 		
 		}
 
