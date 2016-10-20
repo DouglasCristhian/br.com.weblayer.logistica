@@ -14,22 +14,22 @@ using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android
 {
-	[Activity]
-	public class MenuActivity : Activity
+    [Activity(MainLauncher = true)]
+    public class BuscaNotaViewActivity : Activity
 	{
-		TextView lblusuario;
-
+		ListView lstNota;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
-			SetContentView(Resource.Layout.Menu);
+			SetContentView(Resource.Layout.buscanotaview);
 
-			lblusuario = FindViewById<TextView>(Resource.Id.lblUsuario);
+            lstNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
-			lblusuario.Text = UsuarioManager.Instance.usuario.ds_empresa;
+            var ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
 
+            lstNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
 
 		}
 	}
