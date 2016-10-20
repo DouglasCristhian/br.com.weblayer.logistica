@@ -63,6 +63,9 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f050007
 			public const int NotaListView = 2131034119;
 			
+			// aapt resource value: 0x7f05001d
+			public const int btnConfirmarEntrega = 2131034141;
+			
 			// aapt resource value: 0x7f05000f
 			public const int btnEntrar = 2131034127;
 			
@@ -87,20 +90,41 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f05000c
 			public const int edtUsuario = 2131034124;
 			
+			// aapt resource value: 0x7f05001b
+			public const int lblDataEntrega = 2131034139;
+			
+			// aapt resource value: 0x7f050015
+			public const int lblNome = 2131034133;
+			
+			// aapt resource value: 0x7f050019
+			public const int lblNotaSerie = 2131034137;
+			
 			// aapt resource value: 0x7f050011
 			public const int lblUsuario = 2131034129;
+			
+			// aapt resource value: 0x7f050017
+			public const int lblValor = 2131034135;
 			
 			// aapt resource value: 0x7f050008
 			public const int linearLayout1 = 2131034120;
 			
-			// aapt resource value: 0x7f050001
-			public const int txtCliente = 2131034113;
+			// aapt resource value: 0x7f050003
+			public const int txtCliente = 2131034115;
+			
+			// aapt resource value: 0x7f05001c
+			public const int txtDataa = 2131034140;
 			
 			// aapt resource value: 0x7f050010
 			public const int txtMensagem = 2131034128;
 			
-			// aapt resource value: 0x7f050003
-			public const int txtNumNota = 2131034115;
+			// aapt resource value: 0x7f050016
+			public const int txtNomeCliente = 2131034134;
+			
+			// aapt resource value: 0x7f05001a
+			public const int txtNotaSerie = 2131034138;
+			
+			// aapt resource value: 0x7f050002
+			public const int txtNumNota = 2131034114;
 			
 			// aapt resource value: 0x7f050005
 			public const int txtNumerodaNota = 2131034117;
@@ -111,8 +135,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f05000d
 			public const int txtSenha = 2131034125;
 			
-			// aapt resource value: 0x7f050002
-			public const int txtSerie = 2131034114;
+			// aapt resource value: 0x7f050004
+			public const int txtSerie = 2131034116;
 			
 			// aapt resource value: 0x7f050009
 			public const int txtServidor = 2131034121;
@@ -120,8 +144,11 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f05000b
 			public const int txtUsuario = 2131034123;
 			
-			// aapt resource value: 0x7f050004
-			public const int txtValor = 2131034116;
+			// aapt resource value: 0x7f050001
+			public const int txtValor = 2131034113;
+			
+			// aapt resource value: 0x7f050018
+			public const int txtValorNota = 2131034136;
 			
 			static Id()
 			{
@@ -150,6 +177,9 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f030004
 			public const int Menu = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int NotaView = 2130903045;
 			
 			static Layout()
 			{

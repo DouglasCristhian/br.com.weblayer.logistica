@@ -23,22 +23,15 @@ namespace br.com.weblayer.logistica.android
 
         protected override void OnCreate(Bundle savedInstanceState)
 		{
-			base.OnCreate(savedInstanceState);
-
+			base.OnCreate(savedInstanceState); 
 			SetContentView(Resource.Layout.buscanotaview);
 
             Button btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
 
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
-
-            //btnPesquisar.Click += BtnPesquisar_Click;
-                        
             ListViewNota.Clickable = true;
 
-            ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
-
-            ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
-
+            btnPesquisar.Click += BtnPesquisar_Click;                        
             ListViewNota.ItemClick += OnListItemClick;
 
         }
@@ -49,11 +42,19 @@ namespace br.com.weblayer.logistica.android
             ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
         }
 
-        void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
+        private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        { 
             var ListViewNotaClick = sender as ListView;
             var t = ListaNotas[e.Position];
-            Toast.MakeText(this, t.ds_cliente, ToastLength.Short).Show();
+
+            Intent intent = new Intent();
+            intent.SetClass(this, typeof(NotaActivity));
+            
+            //Passa a string do objeto para a próxima tela
+            intent.PutExtra("JsonNota", Newtonsoft.Json.JsonConvert.SerializeObject(t));
+
+            StartActivity(intent);
+
         }
     }
 }
