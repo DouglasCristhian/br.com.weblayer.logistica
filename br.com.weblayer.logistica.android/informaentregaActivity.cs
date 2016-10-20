@@ -14,7 +14,7 @@ using br.com.weblayer.logistica.core.Model;
 namespace br.com.weblayer.logistica.android
 {
     [Activity(Label = "NotaActivity")]
-    public class NotaActivity : Activity
+    public class InformaEntregaActivity : Activity
     {
         private TextView txtNomeCliente;
         private TextView txtValor;

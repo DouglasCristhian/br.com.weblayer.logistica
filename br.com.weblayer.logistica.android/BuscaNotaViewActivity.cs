@@ -48,7 +48,7 @@ namespace br.com.weblayer.logistica.android
             var t = ListaNotas[e.Position];
 
             Intent intent = new Intent();
-            intent.SetClass(this, typeof(NotaActivity));
+            intent.SetClass(this, typeof(InformaEntregaActivity));
             
             //Passa a string do objeto para a próxima tela
             intent.PutExtra("JsonNota", Newtonsoft.Json.JsonConvert.SerializeObject(t));
