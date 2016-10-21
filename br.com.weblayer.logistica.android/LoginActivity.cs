@@ -6,14 +6,16 @@ using Android.Content;
 using Android.Preferences;
 using br.com.weblayer.logistica.core;
 using br.com.weblayer.logistica.core.BLL;
+using System.Threading;
 
 namespace br.com.weblayer.logistica.android
 {
-    [Activity(MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
 		public static string MyPREFERENCES = "MyPrefs";
-		EditText edtServidor, edtUsuario, edtSenha;
+
+        EditText edtServidor, edtUsuario, edtSenha;
 		TextView lblmensagem;
 		Button btnEntrar;
 
@@ -23,30 +25,79 @@ namespace br.com.weblayer.logistica.android
 
             SetContentView (Resource.Layout.Login);
 
-			edtServidor = FindViewById<EditText>(Resource.Id.edtServidor);
-			edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
-			edtSenha  = FindViewById<EditText>(Resource.Id.edtSenha);
-			btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
-			lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
+            FindViews();
 
-			RestoreForm();
+            RestoreForm();
 
-			btnEntrar.Click += (object sender, EventArgs e) =>
-			{
-				SaveForm();
-
-				ExecutarLogin();
-			};
+            btnEntrar.Click += BtnEntrar_Click;
 		}
 
-		private void ExecutarLogin()
-		{ 
-			var usuariomanager = UsuarioManager.Instance;
+        private void FindViews()
+        {
+            edtServidor = FindViewById<EditText>(Resource.Id.edtServidor);
+            edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
+            edtSenha = FindViewById<EditText>(Resource.Id.edtSenha);
+            btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
+            lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
+        }
+
+        private bool ValidateViews()
+        {
+            var validacao = true;
+            if (edtServidor.Length() == 0)
+            {
+                validacao = false;
+                edtServidor.Error = "Endereço do servidor inválido!";
+            }
+
+            if (edtUsuario.Length() == 0)
+            {
+                validacao = false;
+                edtUsuario.Error = "Usuário inválido!";
+            }
+
+            if (edtSenha.Length() == 0)
+            {
+                validacao = false;
+                edtSenha.Error = "Senha inválida!";
+            }
+            
+            return validacao;
+
+        }
+
+        private void BtnEntrar_Click(object sender, EventArgs e)
+        {
+
+            SaveForm();
+
+            if (!ValidateViews())
+                return;
+
+            var progressDialog = ProgressDialog.Show(this, "Por favor aguarde...", "Verificando os dados...", true);
+            new Thread(new ThreadStart(delegate
+            {
+                System.Threading.Thread.Sleep(1000);
+
+                //LOAD METHOD TO GET ACCOUNT INFO
+                RunOnUiThread(() => ExecutarLogin());
+                
+                //HIDE PROGRESS DIALOG
+                RunOnUiThread(() => progressDialog.Hide());
+            })).Start();
+
+        }
+
+        private void ExecutarLogin()
+		{
+
+            var usuariomanager = UsuarioManager.Instance;
 
 			lblmensagem.Text= "";
 
 			var retorno = usuariomanager.ExecutarLogin(edtServidor.Text, edtUsuario.Text, edtSenha.Text);
-			if (!retorno)
+
+            if (!retorno)
 			{
 				lblmensagem.Text=usuariomanager.mensagem;
 			}

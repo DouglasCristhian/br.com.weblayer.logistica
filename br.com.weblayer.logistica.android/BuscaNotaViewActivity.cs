@@ -15,7 +15,7 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android
 {
-    [Activity(MainLauncher = true)]
+    [Activity(MainLauncher = false, Label = "Busca Nota Fiscal")]
     public class BuscaNotaViewActivity : Activity
 	{
 		ListView ListViewNota;
@@ -36,10 +36,15 @@ namespace br.com.weblayer.logistica.android
 
         }
 
-        private void BtnPesquisar_Click(object sender, EventArgs e)
+        private void FillList()
         {
             ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
             ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            FillList();
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -53,8 +58,22 @@ namespace br.com.weblayer.logistica.android
             //Passa a string do objeto para a próxima tela
             intent.PutExtra("JsonNota", Newtonsoft.Json.JsonConvert.SerializeObject(t));
 
-            StartActivity(intent);
+            StartActivityForResult(intent,0);
 
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+
+                var mensagem  = data.GetStringExtra("mensagem");
+                Toast.MakeText(this, mensagem, ToastLength.Long).Show();
+                
+                FillList();
+
+            }
         }
     }
 }

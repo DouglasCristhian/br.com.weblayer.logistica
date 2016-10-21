@@ -54,9 +54,16 @@ namespace br.com.weblayer.logistica.android
             
 
             row.FindViewById<TextView>(Resource.Id.txtCliente).Text= mItems[position].ds_cliente;
-            row.FindViewById<TextView>(Resource.Id.txtNumNota).Text ="Nº Nota: " + mItems[position].ds_numeronota;
+            row.FindViewById<TextView>(Resource.Id.txtNumNota).Text = "Nº Nota: " + mItems[position].ds_numeronota;
             row.FindViewById<TextView>(Resource.Id.txtSerie).Text = "Série: " + mItems[position].ds_serienota;
             row.FindViewById<TextView>(Resource.Id.txtValor).Text = "Valor: R$" + mItems[position].ds_valor;
+
+            if (mItems[position].dt_entrega.HasValue)
+                row.FindViewById<TextView>(Resource.Id.txtDataEntrega).Text = "Entrega: " + mItems[position].dt_entrega.Value.ToString("dd/MM/yyyy");
+            else
+                row.FindViewById<TextView>(Resource.Id.txtDataEntrega).Text = "Entrega: Pendente";
+
+           
 
             return row;
 
