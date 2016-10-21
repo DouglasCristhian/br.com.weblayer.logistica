@@ -2,52 +2,137 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
+using Android.Preferences;
+using br.com.weblayer.logistica.core;
+using br.com.weblayer.logistica.core.BLL;
+using System.Threading;
 
 namespace br.com.weblayer.logistica.android
 {
     [Activity(MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
+		public static string MyPREFERENCES = "MyPrefs";
 
-		EditText edtServidor, edtUsuario, edtSenha;
+        EditText edtServidor, edtUsuario, edtSenha;
+		TextView lblmensagem;
 		Button btnEntrar;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Login);
+            SetContentView (Resource.Layout.Login);
 
-			edtServidor = FindViewById<EditText>(Resource.Id.edtServidor);
-			edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
-			edtSenha  = FindViewById<EditText>(Resource.Id.edtSenha);
-			btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
+            FindViews();
 
-			btnEntrar.Click += (object sender, EventArgs e) =>
-			{
-				ExecutarLogin();
-			};
+            RestoreForm();
+
+            btnEntrar.Click += BtnEntrar_Click;
 		}
 
-		private void ExecutarLogin()
-		{ 
-			var usuariomanager = new UsuarioManager();
+        private void FindViews()
+        {
+            edtServidor = FindViewById<EditText>(Resource.Id.edtServidor);
+            edtUsuario = FindViewById<EditText>(Resource.Id.edtUsuario);
+            edtSenha = FindViewById<EditText>(Resource.Id.edtSenha);
+            btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
+            lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
+        }
 
-			var usuario = usuariomanager.ExecutarLogin("servidor", "login", "senha");
-			if (usuario == null)
+        private bool ValidateViews()
+        {
+            var validacao = true;
+            if (edtServidor.Length() == 0)
+            {
+                validacao = false;
+                edtServidor.Error = "Endereço do servidor inválido!";
+            }
+
+            if (edtUsuario.Length() == 0)
+            {
+                validacao = false;
+                edtUsuario.Error = "Usuário inválido!";
+            }
+
+            if (edtSenha.Length() == 0)
+            {
+                validacao = false;
+                edtSenha.Error = "Senha inválida!";
+            }
+            
+            return validacao;
+
+        }
+
+        private void BtnEntrar_Click(object sender, EventArgs e)
+        {
+
+            SaveForm();
+
+            if (!ValidateViews())
+                return;
+
+            var progressDialog = ProgressDialog.Show(this, "Por favor aguarde...", "Verificando os dados...", true);
+            new Thread(new ThreadStart(delegate
+            {
+                System.Threading.Thread.Sleep(1000);
+
+                //LOAD METHOD TO GET ACCOUNT INFO
+                RunOnUiThread(() => ExecutarLogin());
+                
+                //HIDE PROGRESS DIALOG
+                RunOnUiThread(() => progressDialog.Hide());
+            })).Start();
+
+        }
+
+        private void ExecutarLogin()
+		{
+
+            var usuariomanager = UsuarioManager.Instance;
+
+			lblmensagem.Text= "";
+
+			var retorno = usuariomanager.ExecutarLogin(edtServidor.Text, edtUsuario.Text, edtSenha.Text);
+
+            if (!retorno)
 			{
-				//usuario não encontrado, login não efetuado		
-				//exibir msg de erro
-				//usuariomanager.mensagem
+				lblmensagem.Text=usuariomanager.mensagem;
 			}
 			else
 			{
-				//login ocorreu com sucesso
-				//mudar para próxima tela
 				StartActivity(typeof(MenuActivity));
-
 			}
+		}
+
+		private void RestoreForm()
+		{ 
+
+			var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+			var somePref = prefs.GetString("Login", "");
+			edtUsuario.Text = somePref;
+
+			somePref = prefs.GetString("Senha", "");
+			edtSenha.Text = somePref;
+
+			somePref = prefs.GetString("Servidor", "");
+			edtServidor.Text = somePref;
+
+
+		}
+
+		private void SaveForm()
+		{ 
+		
+			var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldWriteable);
+			var prefEditor = prefs.Edit();
+			prefEditor.PutString("Login", edtUsuario.Text);
+			prefEditor.PutString("Senha", edtSenha.Text);
+			prefEditor.PutString("Servidor", edtServidor.Text);
+            prefEditor.Commit();
+		
 		}
 
     }

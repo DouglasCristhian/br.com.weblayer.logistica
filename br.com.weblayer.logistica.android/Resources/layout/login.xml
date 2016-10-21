@@ -11,21 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">
+
         <TextView
             android:text="Servidor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtServidor" />
+
         <EditText
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtServidor" />
+            android:id="@+id/edtServidor"
+            android:text="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx" />
+
         <TextView
-            android:text="Usuario"
+            android:text="Usuário"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtUsuario" />
+
         <EditText
             android:inputType="text"
             android:layout_width="match_parent"
@@ -46,5 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnEntrar" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtMensagem"
+            android:textColor="#fff50d0d" />
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <TextView
+      android:id="@+id/lblNome"   
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textSize="17sp"
+      android:text="Nome"/>
+  
+  <TextView
+    android:id="@+id/txtNomeCliente"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:text="--"/>
+
+  <TextView
+    android:id="@+id/lblValor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:textSize="18sp"
+    android:text="Valor"/>
+
+  <TextView
+    android:id="@+id/txtValorNota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:text="--"/>
+
+  <TextView
+    android:id="@+id/lblNota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:textSize="18sp"
+    android:text="Nota/Série"/>
+
+  <TextView
+    android:id="@+id/txtNota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:text=""/>
+  
+  <TextView
+    android:id="@+id/lblDataEntrega"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:textSize="18sp"
+    android:text="Data da Entrega"/>
+  
+  <TextView
+    android:id="@+id/txtDataEntrega"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:textSize="18sp"
+    android:text=""/>
+  
+  <Button
+    android:id="@+id/btnConfirmarEntrega"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:textSize="18sp"
+    android:text="Confirmar Entrega"
+      tools:visibility="visible" />
+
+  <TextView
+     android:id="@+id/lblMensagem"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:textSize="17sp"
+     android:text="Mensagem"
+      android:textColor="@android:color/holo_red_dark" />
+  
+</LinearLayout>
