@@ -1,21 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+using System.Threading;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-using System.Threading;
 
-namespace br.com.weblayer.logistica.android
+using br.com.weblayer.logistica.core.Model;
+using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
+
+namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(Label = "Infomar Entrega")]
-    public class InformaEntregaActivity : Activity
+    public class Activity_InformaEntrega : Activity
     {
         private TextView txtNomeCliente;
         private TextView txtValor;
@@ -30,7 +27,7 @@ namespace br.com.weblayer.logistica.android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.InformaEntregaView);
+            SetContentView(Resource.Layout.Activity_InformaEntrega);
 
             //string da nota
             var jsonnota = Intent.GetStringExtra("JsonNota");
@@ -91,7 +88,7 @@ namespace br.com.weblayer.logistica.android
                 if (retorno)
                 {
                     //volto para a tela que chamou passando sucesso!
-                    Intent myIntent = new Intent(this, typeof(InformaEntregaActivity));
+                    Intent myIntent = new Intent(this, typeof(Activity_InformaEntrega));
                     myIntent.PutExtra("mensagem", notamanager.mensagem);
                     SetResult(Result.Ok, myIntent);
                     Finish();
@@ -115,12 +112,12 @@ namespace br.com.weblayer.logistica.android
         private void EventtxtData_Click(object sender, EventArgs e)
         {
             //Call Fragment
-            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            DatePickerHelper frag = DatePickerHelper.NewInstance(delegate (DateTime time)
             {
                 txtData.Text = time.ToShortDateString();
             });
 
-            frag.Show(FragmentManager, DatePickerFragment.TAG);
+            frag.Show(FragmentManager, DatePickerHelper.TAG);
         }
         
         private void BtnConfirmarEntrega_Click(object sender, EventArgs e)

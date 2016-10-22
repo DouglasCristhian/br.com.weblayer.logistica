@@ -1,18 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
-namespace br.com.weblayer.logistica.android
+namespace br.com.weblayer.logistica.android.Helpers
 {
-    public class DatePickerFragment : DialogFragment,
+    public class DatePickerHelper : DialogFragment,
 
                                       DatePickerDialog.IOnDateSetListener
 
@@ -20,7 +12,7 @@ namespace br.com.weblayer.logistica.android
 
         // TAG can be any string of your choice.
 
-        public static readonly string TAG = "X:" + typeof(DatePickerFragment).Name.ToUpper();
+        public static readonly string TAG = "X:" + typeof(DatePickerHelper).Name.ToUpper();
 
 
 
@@ -30,11 +22,11 @@ namespace br.com.weblayer.logistica.android
 
 
 
-        public static DatePickerFragment NewInstance(Action<DateTime> onDateSelected)
+        public static DatePickerHelper NewInstance(Action<DateTime> onDateSelected)
 
         {
 
-            DatePickerFragment frag = new DatePickerFragment();
+            DatePickerHelper frag = new DatePickerHelper();
 
             frag._dateSelectedHandler = onDateSelected;
 
@@ -66,7 +58,7 @@ namespace br.com.weblayer.logistica.android
 
 
 
-        public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+        public void OnDateSet(Android.Widget.DatePicker view, int year, int monthOfYear, int dayOfMonth)
 
         {
 

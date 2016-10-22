@@ -1,21 +1,14 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
+
 using br.com.weblayer.logistica.core.BLL;
 
-namespace br.com.weblayer.logistica.android
+namespace br.com.weblayer.logistica.android.Activities
 {
 	[Activity]
-	public class MenuActivity : Activity
+	public class Activity_Menu : Activity
 	{
 
         TextView lblusuario;
@@ -28,7 +21,7 @@ namespace br.com.weblayer.logistica.android
 		{
 			base.OnCreate(savedInstanceState);
 
-			SetContentView(Resource.Layout.Menu);
+			SetContentView(Resource.Layout.Activity_Menu);
 
             FindViews();
 
@@ -43,7 +36,7 @@ namespace br.com.weblayer.logistica.android
         private void BtnInformarEntrega_Click(object sender, EventArgs e)
         {
 
-            StartActivity(typeof(BuscaNotaViewActivity));
+            StartActivity(typeof(Activity_BuscaNotaView));
         }
 
         private void FindViews()

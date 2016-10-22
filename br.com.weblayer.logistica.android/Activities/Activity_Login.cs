@@ -1,17 +1,15 @@
 ﻿using System;
-using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Content;
-using Android.Preferences;
-using br.com.weblayer.logistica.core;
-using br.com.weblayer.logistica.core.BLL;
 using System.Threading;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Widget;
+using br.com.weblayer.logistica.core.BLL;
 
-namespace br.com.weblayer.logistica.android
+namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(MainLauncher = true, Icon = "@drawable/icon")]
-    public class LoginActivity : Activity
+    public class Activity_Login : Activity
     {
 		public static string MyPREFERENCES = "MyPrefs";
 
@@ -23,7 +21,7 @@ namespace br.com.weblayer.logistica.android
         {
             base.OnCreate(bundle);
 
-            SetContentView (Resource.Layout.Login);
+            SetContentView (Resource.Layout.Activity_Login);
 
             FindViews();
 
@@ -103,7 +101,7 @@ namespace br.com.weblayer.logistica.android
 			}
 			else
 			{
-				StartActivity(typeof(MenuActivity));
+				StartActivity(typeof(Activity_Menu));
 			}
 		}
 

@@ -1,24 +1,18 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+
 using br.com.weblayer.logistica.core.Model;
 
-namespace br.com.weblayer.logistica.android
+namespace br.com.weblayer.logistica.android.Adapters
 {
-    public class NotaFiscalListAdapter : BaseAdapter<NotaFiscal>
+    public class Adapter_NotaFiscal_ListView : BaseAdapter<NotaFiscal>
     {
         public List<NotaFiscal> mItems;
         public Context mContext;
 
-        public NotaFiscalListAdapter(Context context, List<NotaFiscal> items)
+        public Adapter_NotaFiscal_ListView(Context context, List<NotaFiscal> items)
         {
             mItems = items;
             mContext = context;
@@ -50,7 +44,7 @@ namespace br.com.weblayer.logistica.android
             View row = convertView;
 
             if (row == null)
-                  row = LayoutInflater.From(mContext).Inflate(Resource.Layout.buscanotarowview, null, false);
+                  row = LayoutInflater.From(mContext).Inflate(Resource.Layout.Adapter_NotaFiscal_ListView, null, false);
             
 
             row.FindViewById<TextView>(Resource.Id.txtCliente).Text= mItems[position].ds_cliente;

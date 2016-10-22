@@ -60,22 +60,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatePickerFragment.cs" />
-    <Compile Include="LoginActivity.cs" />
-    <Compile Include="BuscaNotaViewActivity.cs" />
-    <Compile Include="InformaEntregaActivity.cs" />
-    <Compile Include="NotaFiscalListAdapter.cs" />
+    <Compile Include="Helpers\DatePickerHelper.cs" />
+    <Compile Include="Activities\Activity_Login.cs" />
+    <Compile Include="Activities\Activity_BuscaNotaView.cs" />
+    <Compile Include="Activities\Activity_InformaEntrega.cs" />
+    <Compile Include="Adapters\Adapter_NotaFiscal_ListView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MenuActivity.cs" />
+    <Compile Include="Activities\Activity_Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\layout\Login.xml" />
-    <AndroidResource Include="Resources\layout\Menu.xml" />
+    <AndroidResource Include="Resources\layout\Activity_Login.xml" />
+    <AndroidResource Include="Resources\layout\Activity_Menu.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
@@ -91,19 +91,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\buscanotaview.xml">
+    <AndroidResource Include="Resources\layout\Activity_BuscaNotaView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\buscanotarowview.xml">
+    <AndroidResource Include="Resources\layout\Adapter_NotaFiscal_ListView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\InformaEntregaView.xml">
+    <AndroidResource Include="Resources\layout\Activity_InformaEntrega.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fragments\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

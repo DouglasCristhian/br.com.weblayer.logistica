@@ -1,22 +1,17 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
+using br.com.weblayer.logistica.android.Adapters;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
 
-namespace br.com.weblayer.logistica.android
+namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(MainLauncher = false, Label = "Busca Nota Fiscal")]
-    public class BuscaNotaViewActivity : Activity
+    public class Activity_BuscaNotaView : Activity
 	{
 		ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
@@ -24,7 +19,7 @@ namespace br.com.weblayer.logistica.android
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState); 
-			SetContentView(Resource.Layout.buscanotaview);
+			SetContentView(Resource.Layout.Activity_BuscaNotaView);
 
             Button btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
 
@@ -39,7 +34,7 @@ namespace br.com.weblayer.logistica.android
         private void FillList()
         {
             ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
-            ListViewNota.Adapter = new NotaFiscalListAdapter(this, ListaNotas);
+            ListViewNota.Adapter = new Adapter_NotaFiscal_ListView(this, ListaNotas);
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
@@ -53,7 +48,7 @@ namespace br.com.weblayer.logistica.android
             var t = ListaNotas[e.Position];
 
             Intent intent = new Intent();
-            intent.SetClass(this, typeof(InformaEntregaActivity));
+            intent.SetClass(this, typeof(Activity_InformaEntrega));
             
             //Passa a string do objeto para a próxima tela
             intent.PutExtra("JsonNota", Newtonsoft.Json.JsonConvert.SerializeObject(t));
