@@ -8,7 +8,7 @@ using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(MainLauncher = false, Icon = "@drawable/icon")]
     public class Activity_Login : Activity
     {
 		public static string MyPREFERENCES = "MyPrefs";

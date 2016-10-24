@@ -15,7 +15,7 @@
     android:text="Número da Nota:" />
 
   <EditText
-    android:id="@+id/txtNumerodaNota"
+    android:id="@+id/txtNumNota"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"

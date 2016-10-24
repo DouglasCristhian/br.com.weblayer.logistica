@@ -17,7 +17,7 @@ namespace br.com.weblayer.logistica.core.BLL
 
         public string mensagem
         {
-            get;
+            get; 
             set;
         }
 

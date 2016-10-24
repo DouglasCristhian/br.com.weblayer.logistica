@@ -10,24 +10,44 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = false, Label = "Busca Nota Fiscal")]
+    [Activity(MainLauncher = true, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+
     public class Activity_BuscaNotaView : Activity
 	{
 		ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
+        Button btnPesquisar;
+        EditText txtNumNota;
 
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState); 
 			SetContentView(Resource.Layout.Activity_BuscaNotaView);
 
-            Button btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
-
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
-            ListViewNota.Clickable = true;
+
+            FindViews();
 
             btnPesquisar.Click += BtnPesquisar_Click;                        
             ListViewNota.ItemClick += OnListItemClick;
+        }
+
+        private void FindViews()
+        {
+            btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
+            txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
+        }
+
+        private bool ValidateViews()
+        {
+            var validacao = true;
+            if (txtNumNota.Length() == 0)
+            {
+                validacao = false;
+                txtNumNota.Error = "Número da nota inválido!";
+            }
+
+            return validacao;
 
         }
 
@@ -39,6 +59,9 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
+            if (!ValidateViews())
+                return;
+
             FillList();
         }
 
