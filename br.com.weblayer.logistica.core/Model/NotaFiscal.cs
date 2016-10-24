@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace br.com.weblayer.logistica.core.Model
 {
-    public class NotaFiscal
+    public class Performance
     {
 
         public virtual int id_nota
