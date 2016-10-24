@@ -11,7 +11,7 @@ using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHel
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Infomar Entrega")]
+    [Activity(Label = "Informar Entrega")]
     public class Activity_InformaEntrega : Activity
     {
         private TextView txtNomeCliente;
@@ -75,6 +75,12 @@ namespace br.com.weblayer.logistica.android.Activities
 
         }
 
+        private void SetStyles()
+        {
+            txtData.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+            btnConfirmarEntrega.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+
+        }
         private void EnviaDadosEntrega()
         {
             try

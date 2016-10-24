@@ -17,7 +17,6 @@ namespace br.com.weblayer.logistica.core.BLL
     {
         public List<Performance> GetPerformance()
         {
-
             var lista = new List<Performance>();
 
             lista.Add(new Performance { id_periodo= 1, ds_titulo= "Transportadora1", ds_cor="VERDE", ds_percentual_performance="98%"});
@@ -25,7 +24,6 @@ namespace br.com.weblayer.logistica.core.BLL
             lista.Add(new Performance { id_periodo = 1, ds_titulo = "Transportadora3", ds_cor = "VERMELHO", ds_percentual_performance = "20%" });
 
             return lista ;
-
         }
     }
 }

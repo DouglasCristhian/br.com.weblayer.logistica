@@ -10,7 +10,7 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = true, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(MainLauncher = false, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 
     public class Activity_BuscaNotaView : Activity
 	{
@@ -27,15 +27,20 @@ namespace br.com.weblayer.logistica.android.Activities
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
             FindViews();
-
-            btnPesquisar.Click += BtnPesquisar_Click;                        
-            ListViewNota.ItemClick += OnListItemClick;
+            BindData();
+           
         }
 
         private void FindViews()
         {
             btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
+        }
+
+        private void BindData()
+        {
+            btnPesquisar.Click += BtnPesquisar_Click;
+            ListViewNota.ItemClick += OnListItemClick;
         }
 
         private bool ValidateViews()

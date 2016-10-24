@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
-
 using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Adapters
