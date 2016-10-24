@@ -9,40 +9,32 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Java.IO;
 
 namespace br.com.weblayer.logistica.core.Model
 {
-    public class NotaFiscal  
+    public class NotaFiscal
     {
 
-        public NotaFiscal()
-        {
-        }
-
-        public int id_nota
+        public virtual int id_nota
         { get; set; }
 
-        public string ds_numeronota
+        public virtual string ds_numeronota
         { get; set; }
 
-        public string ds_serienota
+        public virtual string ds_serienota
         { get; set; }
 
-        public string ds_cliente
+        public virtual string ds_cliente
         { get; set; }
 
-        public string ds_valor
+        public virtual string ds_valor
         { get; set; }
 
-        public   DateTime? dt_entrega
+        public virtual DateTime? dt_entrega
         { get; set; }
 
-        public string ds_destino
+        public virtual string ds_destino
         { get; set; }
-
-       
-
 
     }
 }
