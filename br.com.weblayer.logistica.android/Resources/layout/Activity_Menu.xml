@@ -16,7 +16,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lblUsuario" />
+            android:id="@+id/lblMenuUsuario" />
         <Button
             android:text="Informar Entrega"
             android:layout_width="match_parent"
@@ -26,11 +26,11 @@
             android:text="Performance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPerformanceEntrega" />
+            android:id="@+id/btnMenuPerformanceEntrega" />
         <Button
             android:text="Simular Frete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSimularFrete" />
+            android:id="@+id/btnMenuSimularFrete" />
     </LinearLayout>
 </LinearLayout>
