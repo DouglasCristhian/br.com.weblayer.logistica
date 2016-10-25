@@ -12,9 +12,8 @@ using Android.Widget;
 
 namespace br.com.weblayer.logistica.core.Model
 {
-    public class NotaFiscal
+    public class Cidade
     {
-
         public virtual int id_nota
         { get; set; }
 
