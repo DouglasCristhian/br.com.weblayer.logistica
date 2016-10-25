@@ -5,10 +5,12 @@ using Android.Widget;
 using br.com.weblayer.logistica.core.Model;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.android.Adapters;
+using static Android.Resource;
+using System;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simular Frete", MainLauncher = true)]
+    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
     public class Activity_SimularFrete : Activity
     {
         EditText txtOrigem;
@@ -26,6 +28,43 @@ namespace br.com.weblayer.logistica.android.Activities
 
             FindViews();
             SetStyle();
+            btnEnviar.Click += BtnEnviar_Click;
+            txtOrigem.Click += TxtOrigem_Click;
+            txtDestino.Click += TxtDestino_Click;
+
+        }
+
+        private void TxtOrigem_Click(object sender, System.EventArgs e)
+        {
+
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
+            dialog.DialogClosed += Dialog_DialogClosedOrigem;
+            dialog.Show(transaction, "dialog");
+            
+        }
+
+        private void Dialog_DialogClosedOrigem(object sender, Helpers.DialogEventArgs e)
+        {
+            txtOrigem.Text = e.ReturnValue;
+        }
+
+        private void TxtDestino_Click(object sender, System.EventArgs e)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
+            dialog.DialogClosed += Dialog_DialogClosedDestino;
+            dialog.Show(transaction, "dialog");
+        }
+
+        private void Dialog_DialogClosedDestino(object sender, Helpers.DialogEventArgs e)
+        {
+            txtDestino.Text = e.ReturnValue;
+        }
+
+        private void BtnEnviar_Click(object sender, System.EventArgs e)
+        {
+            Toast.MakeText(this, "Testando", ToastLength.Short).Show();
         }
 
         private void FindViews()

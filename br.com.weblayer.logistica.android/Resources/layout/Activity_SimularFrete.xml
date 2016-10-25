@@ -4,26 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
   <TextView
       android:id="@+id/lblOrigem"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop = "20dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:text="Origem"/>
+      android:text="Origem" />
 
   <EditText
       android:id="@+id/txtOrigem"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop = "5dip"
       android:layout_marginRight = "15dip"
       android:layout_marginLeft = "15dip"
-      android:textAppearance="?android:attr/textAppearanceMedium" />
-  
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:editable="false" />
+
   <TextView
     android:id="@+id/lblDestino"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "20dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Destino"/>
 
@@ -31,14 +36,17 @@
     android:id="@+id/txtDestino"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "5dip"
     android:layout_marginRight = "15dip"
     android:layout_marginLeft = "15dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    android:textAppearance="?android:attr/textAppearanceMedium"
+      android:editable="false" />
 
     <TextView
     android:id="@+id/lblValorNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "20dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Valor NF"/>
 
@@ -46,6 +54,7 @@
     android:id="@+id/txtValorNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "5dip"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
@@ -54,6 +63,7 @@
     android:id="@+id/lblPesoNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "20dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Peso NF"/>
 
@@ -61,6 +71,7 @@
     android:id="@+id/txtPesoNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "5dip"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
@@ -69,6 +80,7 @@
     android:id="@+id/lblVolume"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "20dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Volume"/>
 
@@ -76,6 +88,7 @@
     android:id="@+id/txtVolume"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "5dip"
     android:layout_marginRight = "15dip"
     android:layout_marginLeft = "15dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
@@ -84,7 +97,8 @@
     android:id="@+id/btnEnviar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop = "50dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Enviar"/>
-  
+
 </LinearLayout>

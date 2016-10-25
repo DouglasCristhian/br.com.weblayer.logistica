@@ -48,19 +48,22 @@ namespace br.com.weblayer.logistica.android
 			public const int BordaBotoes = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int EditTextStyle = 2130837505;
+			public const int dialog_BuscaCidadeStyle = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Icon = 2130837506;
+			public const int EditTextStyle = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int PerformanceAmarelo = 2130837507;
+			public const int Icon = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int PerformanceVerde = 2130837508;
+			public const int PerformanceAmarelo = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int PerformanceVermelho = 2130837509;
+			public const int PerformanceVerde = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int PerformanceVermelho = 2130837510;
 			
 			static Drawable()
 			{
@@ -80,6 +83,12 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f05001b
 			public const int PerformanceListView = 2131034139;
+			
+			// aapt resource value: 0x7f05002e
+			public const int btn1 = 2131034158;
+			
+			// aapt resource value: 0x7f05002f
+			public const int btn2 = 2131034159;
 			
 			// aapt resource value: 0x7f05000c
 			public const int btnConfirmarEntrega = 2131034124;
@@ -249,6 +258,9 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f030007
 			public const int Adapter_Performance_ListView = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int Dialog_BuscarCidade = 2130903048;
 			
 			static Layout()
 			{
