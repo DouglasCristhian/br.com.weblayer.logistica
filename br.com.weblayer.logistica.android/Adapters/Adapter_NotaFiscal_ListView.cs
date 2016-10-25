@@ -6,12 +6,12 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Adapters
 {
-    public class Adapter_NotaFiscal_ListView : BaseAdapter<NotaFiscal>
+    public class Adapter_NotaFiscal_ListView : BaseAdapter<Cidade>
     {
-        public List<NotaFiscal> mItems;
+        public List<Cidade> mItems;
         public Context mContext;
 
-        public Adapter_NotaFiscal_ListView(Context context, List<NotaFiscal> items)
+        public Adapter_NotaFiscal_ListView(Context context, List<Cidade> items)
         {
             mItems = items;
             mContext = context;
@@ -30,7 +30,7 @@ namespace br.com.weblayer.logistica.android.Adapters
             return position;
         }
 
-        public override NotaFiscal this[int position]
+        public override Cidade this[int position]
         {
             get
             {

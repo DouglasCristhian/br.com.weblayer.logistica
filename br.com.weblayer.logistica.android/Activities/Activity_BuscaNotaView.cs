@@ -15,7 +15,7 @@ namespace br.com.weblayer.logistica.android.Activities
     public class Activity_BuscaNotaView : Activity
 	{
 		ListView ListViewNota;
-        List<NotaFiscal> ListaNotas;
+        List<Cidade> ListaNotas;
         Button btnPesquisar;
         EditText txtNumNota;
 
