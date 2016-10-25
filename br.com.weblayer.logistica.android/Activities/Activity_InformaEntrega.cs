@@ -22,7 +22,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private TextView lblMensagem;
         private Button btnConfirmarEntrega;
 
-        private Cidade nota;
+        private NotaFiscal nota;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,7 +33,7 @@ namespace br.com.weblayer.logistica.android.Activities
             var jsonnota = Intent.GetStringExtra("JsonNota");
 
             //transforma a string no objeto
-            nota = Newtonsoft.Json.JsonConvert.DeserializeObject<Cidade>(jsonnota);
+            nota = Newtonsoft.Json.JsonConvert.DeserializeObject<NotaFiscal>(jsonnota);
 
             FindViews();
             BindData();

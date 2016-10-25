@@ -15,9 +15,8 @@ namespace br.com.weblayer.logistica.core.BLL
 {
     public class CidadeManager
     {
-        public List<Cidade> GetCidade(string filtro)
+        public List<Cidade> GetCidade(/*string filtro*/)
         {
-
             var lista = new List<Cidade>();
 
             lista.Add(new Cidade { ds_cidade = "Porto Feliz", ds_estado = "SP"});

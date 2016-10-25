@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\Activity_Cidade.cs" />
+    <Compile Include="Adapters\Adapter_Cidade_ListView.cs" />
     <Compile Include="Fragments\Dialog_BuscarCidade.cs" />
     <Compile Include="Activities\Activity_Performance.cs" />
     <Compile Include="Activities\Activity_SimularFrete.cs" />
@@ -144,7 +146,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dialog_BuscaCidadeStyle.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Adapter_Cidade_ListView.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Activity_Cidade.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

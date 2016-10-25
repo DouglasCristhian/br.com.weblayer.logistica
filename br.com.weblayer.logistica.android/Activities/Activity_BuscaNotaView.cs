@@ -10,12 +10,12 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = true, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(MainLauncher = false, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 
     public class Activity_BuscaNotaView : Activity
 	{
 		ListView ListViewNota;
-        List<Cidade> ListaNotas;
+        List<NotaFiscal> ListaNotas;
         Button btnPesquisar;
         EditText txtNumNota;
 
