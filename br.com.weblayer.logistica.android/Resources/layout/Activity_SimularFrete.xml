@@ -11,6 +11,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop = "20dip"
+      android:padding="5dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:text="Origem" />
 
@@ -18,17 +19,17 @@
       android:id="@+id/txtOrigem"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop = "5dip"
-      android:layout_marginRight = "15dip"
-      android:layout_marginLeft = "15dip"
+      android:layout_marginTop = "1dip"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:editable="false" />
+      android:focusable="false" />
 
   <TextView
     android:id="@+id/lblDestino"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "20dip"
+    android:padding="5dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Destino"/>
 
@@ -36,17 +37,16 @@
     android:id="@+id/txtDestino"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "5dip"
-    android:layout_marginRight = "15dip"
-    android:layout_marginLeft = "15dip"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
-      android:editable="false" />
+    android:focusable="false" />
 
     <TextView
     android:id="@+id/lblValorNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "20dip"
+    android:padding="5dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Valor NF"/>
 
@@ -54,7 +54,6 @@
     android:id="@+id/txtValorNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "5dip"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
@@ -63,7 +62,7 @@
     android:id="@+id/lblPesoNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "20dip"
+    android:padding="5dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Peso NF"/>
 
@@ -71,7 +70,6 @@
     android:id="@+id/txtPesoNF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "5dip"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
@@ -80,7 +78,7 @@
     android:id="@+id/lblVolume"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "20dip"
+    android:padding="5dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Volume"/>
 
@@ -88,16 +86,17 @@
     android:id="@+id/txtVolume"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "5dip"
-    android:layout_marginRight = "15dip"
-    android:layout_marginLeft = "15dip"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
   <Button
     android:id="@+id/btnEnviar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop = "50dip"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
+    android:layout_marginTop = "40dip"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Enviar"/>
 

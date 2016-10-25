@@ -10,7 +10,7 @@ using System;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
+    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
     public class Activity_SimularFrete : Activity
     {
         EditText txtOrigem;
@@ -64,6 +64,9 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BtnEnviar_Click(object sender, System.EventArgs e)
         {
+            if (!ValidateViews())
+                return;
+
             Toast.MakeText(this, "Testando", ToastLength.Short).Show();
         }
 
@@ -85,6 +88,42 @@ namespace br.com.weblayer.logistica.android.Activities
             txtPesoNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtVolume.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnEnviar.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+        }
+
+        private bool ValidateViews()
+        {
+            var validacao = true;
+            if (txtOrigem.Length() == 0)
+            {
+                validacao = false;
+                txtOrigem.Error = "Origem inválida!";
+            }
+
+            if (txtDestino.Length() == 0)
+            {
+                validacao = false;
+                txtDestino.Error = "Destino inválido!";
+            }
+
+            if (txtValorNF.Length() == 0)
+            {
+                validacao = false;
+                txtValorNF.Error = "Valor do NF inválido!";
+            }
+
+            if (txtPesoNF.Length() == 0)
+            {
+                validacao = false;
+                txtPesoNF.Error = "Peso do NF inválido!";
+            }
+
+            if (txtVolume.Length() == 0)
+            {
+                validacao = false;
+                txtVolume.Error = "Volume inválido!";
+            }
+
+            return validacao;
         }
     }
 }
