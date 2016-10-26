@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -6,11 +6,10 @@ using br.com.weblayer.logistica.core.Model;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.android.Adapters;
 using static Android.Resource;
-using System;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
+    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
     public class Activity_SimularFrete : Activity
     {
         EditText txtOrigem;
@@ -36,12 +35,14 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
         {
+            //FragmentManager fm = SupportManagerFragment
+            //Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
+            //fm.BeginTransaction().Replace(Resource.Id.CidadeListView, dialog).Commit();
 
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
             dialog.DialogClosed += Dialog_DialogClosedOrigem;
             dialog.Show(transaction, "dialog");
-            
         }
 
         private void Dialog_DialogClosedOrigem(object sender, Helpers.DialogEventArgs e)

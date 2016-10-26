@@ -59,7 +59,9 @@
   <TextView
     android:id="@+id/txtDataEntrega"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="35sp"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
     android:clickable="true"
     android:textSize="18sp"
     android:text=""/>
@@ -69,9 +71,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
     android:textSize="18sp"
     android:text="Confirmar Entrega"
-      tools:visibility="visible" />
+    tools:visibility="visible" />
 
   <TextView
      android:id="@+id/lblMensagem"
@@ -79,6 +83,6 @@
      android:layout_height="wrap_content"
      android:textSize="17sp"
      android:text="Mensagem"
-      android:textColor="@android:color/holo_red_dark" />
+     android:textColor="@android:color/holo_red_dark" />
   
 </LinearLayout>

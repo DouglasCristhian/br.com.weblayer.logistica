@@ -36,6 +36,7 @@ namespace br.com.weblayer.logistica.android.Activities
             nota = Newtonsoft.Json.JsonConvert.DeserializeObject<NotaFiscal>(jsonnota);
 
             FindViews();
+            SetStyles();
             BindData();
             txtData.Click += EventtxtData_Click;
             btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
@@ -66,14 +67,15 @@ namespace br.com.weblayer.logistica.android.Activities
             if (nota.dt_entrega.HasValue)
             {
                 txtData.Text = nota.dt_entrega.Value.ToString("dd/MM/yyyy"); //Caso a nota já tenha sido entegue, mostrar a data de entrega.
-                                                                             // btnConfirmarEntrega.Enabled = false; //TODO: deixar o botão invisível
+                                                                             // btnConfirmarEntrega.Enabled = false; 
                 btnConfirmarEntrega.Visibility = ViewStates.Invisible;
 
             }
             else
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
-
         }
+
+
 
         private void SetStyles()
         {
