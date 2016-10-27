@@ -6,6 +6,7 @@ using br.com.weblayer.logistica.core.Model;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.android.Adapters;
 using static Android.Resource;
+using Android.Content;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -22,7 +23,6 @@ namespace br.com.weblayer.logistica.android.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             SetContentView(Resource.Layout.Activity_SimularFrete);
 
             FindViews();
@@ -35,14 +35,13 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
         {
-            //FragmentManager fm = SupportManagerFragment
-            //Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
-            //fm.BeginTransaction().Replace(Resource.Id.CidadeListView, dialog).Commit();
-
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
             dialog.DialogClosed += Dialog_DialogClosedOrigem;
             dialog.Show(transaction, "dialog");
+
+          //  string txt = Intent.GetStringExtra("valor");
+           // txtOrigem.Text = txt;
         }
 
         private void Dialog_DialogClosedOrigem(object sender, Helpers.DialogEventArgs e)

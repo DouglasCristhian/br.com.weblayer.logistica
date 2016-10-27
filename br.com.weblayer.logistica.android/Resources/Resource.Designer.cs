@@ -159,6 +159,9 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f05000e
 			public const int linearLayout1 = 2131034126;
 			
+			// aapt resource value: 0x7f050031
+			public const int svInformarCidade = 2131034161;
+			
 			// aapt resource value: 0x7f050027
 			public const int tbl1 = 2131034151;
 			
@@ -176,9 +179,6 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f050029
 			public const int txtEstado = 2131034153;
-			
-			// aapt resource value: 0x7f050031
-			public const int txtInformarCidade = 2131034161;
 			
 			// aapt resource value: 0x7f050016
 			public const int txtMensagem = 2131034134;

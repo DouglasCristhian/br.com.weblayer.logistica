@@ -56,6 +56,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
+    android:inputType="numberDecimal"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
@@ -72,6 +73,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
+    android:inputType="numberDecimal"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
@@ -88,6 +90,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight = "18dip"
     android:layout_marginLeft = "18dip"
+    android:inputType="number"
     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
   <Button
