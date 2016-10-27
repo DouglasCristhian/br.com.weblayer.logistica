@@ -19,8 +19,8 @@
     android:textSize="18sp"
     android:text="Informe a Cidade" />
 
-  <SearchView
-    android:id="@+id/svInformarCidade"
+  <EditText
+    android:id="@+id/txtInformarCidade"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginRight = "18dip"

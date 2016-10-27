@@ -39,9 +39,6 @@ namespace br.com.weblayer.logistica.android.Activities
             Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
             dialog.DialogClosed += Dialog_DialogClosedOrigem;
             dialog.Show(transaction, "dialog");
-
-          //  string txt = Intent.GetStringExtra("valor");
-           // txtOrigem.Text = txt;
         }
 
         private void Dialog_DialogClosedOrigem(object sender, Helpers.DialogEventArgs e)
@@ -67,7 +64,7 @@ namespace br.com.weblayer.logistica.android.Activities
             if (!ValidateViews())
                 return;
 
-            Toast.MakeText(this, "Testando", ToastLength.Short).Show();
+            StartActivity(typeof(Activity_SimulacaoFreteResultado));
         }
 
         private void FindViews()

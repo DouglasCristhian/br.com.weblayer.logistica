@@ -20,7 +20,7 @@ namespace br.com.weblayer.logistica.android.Activities
         ListView ListViewCidades;
         List<Cidade> ListaCidades;
         string Retorno;
-        SearchView svInformarCidade;
+        EditText txtInformarCidade;
         Button btnPesquisarCidade;
         private ArrayAdapter _adapter;
 
@@ -31,15 +31,15 @@ namespace br.com.weblayer.logistica.android.Activities
             var view = inflater.Inflate(Resource.Layout.Fragment_BuscarCidade, container, false); 
 
             btnPesquisarCidade = (Button)view.FindViewById(Resource.Id.btnPesquisarCidade);
-            svInformarCidade = (SearchView)view.FindViewById(Resource.Id.svInformarCidade);
+            txtInformarCidade = (EditText)view.FindViewById(Resource.Id.txtInformarCidade);
             ListViewCidades = (ListView)view.FindViewById(Resource.Id.CidadeListView);
 
-            _adapter = new ArrayAdapter(Activity, Resource.Layout.Fragment_BuscarCidade, ListaCidades);
-            svInformarCidade.QueryTextChange += SvInformarCidade_QueryTextChange;
+            _adapter = new ArrayAdapter(this.Activity, Resource.Layout.Fragment_BuscarCidade, ListaCidades);
+            txtInformarCidade.TextChanged += TxtInformarCidade_TextChanged;
 
-            ListViewCidades.Adapter = _adapter;
             BindData();
             SetStyle();
+           // FillList();
 
             Retorno = "";
 
@@ -48,9 +48,10 @@ namespace br.com.weblayer.logistica.android.Activities
             return view;
         }
 
-        private void SvInformarCidade_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
+        private void TxtInformarCidade_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
         {
-            _adapter.Filter.InvokeFilter(e.NewText);
+            //_adapter.Filter.InvokeFilter(e.ToString);
+
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)
@@ -87,7 +88,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void SetStyle()
         {
-            svInformarCidade.SetBackgroundResource(Resource.Drawable.EditTextStyle);
+            txtInformarCidade.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnPesquisarCidade.SetBackgroundResource(Resource.Drawable.BordaBotoes);
         }
     
@@ -96,9 +97,9 @@ namespace br.com.weblayer.logistica.android.Activities
             ListViewCidades.ItemClick += OnListItemClick;
         }
 
-        private void FillList()
+        private void FillList(/*string /*filtro*/)
         {
-           ListaCidades = new CidadeManager().GetCidade();
+           ListaCidades = new CidadeManager().GetCidade(/*filtro*/);
            ListViewCidades.Adapter = new Adapter_Cidade_ListView(this.Activity, ListaCidades);
            
         }
