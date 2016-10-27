@@ -53,10 +53,12 @@
     <Compile Include="BLL\CidadeManager.cs" />
     <Compile Include="BLL\NotaFiscalManager.cs" />
     <Compile Include="BLL\PerformanceManager.cs" />
+    <Compile Include="BLL\SimulacaoFreteManager.cs" />
     <Compile Include="BLL\UsuarioManager.cs" />
     <Compile Include="Model\Cidade.cs" />
     <Compile Include="Model\NotaFiscal.cs" />
     <Compile Include="Model\Performance.cs" />
+    <Compile Include="Model\SimulacaoFrete.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\WebService\Reference.cs">
