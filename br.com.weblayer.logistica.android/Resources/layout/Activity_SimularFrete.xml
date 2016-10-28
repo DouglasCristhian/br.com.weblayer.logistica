@@ -1,46 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:orientation="vertical"
-    android:weightSum="1">
-  <TextView
-      android:id="@+id/lblOrigem"
+    android:fillViewport="true">
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:baselineAligned="false"
+      android:orientation="vertical"
+      android:weightSum="1">
+    <TextView
+        android:id="@+id/lblOrigem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "20dip"
+        android:padding="5dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Origem" />
+
+    <EditText
+        android:id="@+id/txtOrigem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "1dip"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:focusable="false" />
+
+    <TextView
+      android:id="@+id/lblDestino"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop = "20dip"
       android:padding="5dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:text="Origem" />
+      android:text="Destino"/>
 
-  <EditText
-      android:id="@+id/txtOrigem"
+    <EditText
+      android:id="@+id/txtDestino"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop = "1dip"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:focusable="false" />
-
-  <TextView
-    android:id="@+id/lblDestino"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Destino"/>
-
-  <EditText
-    android:id="@+id/txtDestino"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginRight = "18dip"
-    android:layout_marginLeft = "18dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:focusable="false" />
 
     <TextView
     android:id="@+id/lblValorNF"
@@ -50,14 +54,14 @@
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Valor NF"/>
 
-  <EditText
-    android:id="@+id/txtValorNF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginRight = "18dip"
-    android:layout_marginLeft = "18dip"
-    android:inputType="numberDecimal"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    <EditText
+      android:id="@+id/txtValorNF"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:inputType="numberDecimal"
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
     android:id="@+id/lblPesoNF"
@@ -67,14 +71,14 @@
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Peso NF"/>
 
-  <EditText
-    android:id="@+id/txtPesoNF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginRight = "18dip"
-    android:layout_marginLeft = "18dip"
-    android:inputType="numberDecimal"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    <EditText
+      android:id="@+id/txtPesoNF"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:inputType="numberDecimal"
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
     android:id="@+id/lblVolume"
@@ -84,23 +88,23 @@
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:text="Volume"/>
 
-  <EditText
-    android:id="@+id/txtVolume"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginRight = "18dip"
-    android:layout_marginLeft = "18dip"
-    android:inputType="number"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    <EditText
+      android:id="@+id/txtVolume"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:inputType="number"
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-  <Button
-    android:id="@+id/btnEnviar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginRight = "18dip"
-    android:layout_marginLeft = "18dip"
-    android:layout_marginTop = "40dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Enviar"/>
-
-</LinearLayout>
+    <Button
+      android:id="@+id/btnEnviar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop = "40dip"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:text="Enviar"/>
+  </LinearLayout>
+</ScrollView>
