@@ -12,8 +12,8 @@ namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(MainLauncher = false, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 
-    public class Activity_BuscaNotaView : Activity
-	{
+    public class Activity_BuscaNotaView : Activity_Base
+    {
 		ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
         Button btnPesquisar;

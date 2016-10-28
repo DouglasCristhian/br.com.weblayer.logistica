@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\Activity_Base.cs" />
     <Compile Include="Activities\Activity_SimulacaoFreteResultado.cs" />
+    <Compile Include="Activities\Activity_TabelaResultadoFrete.cs" />
     <Compile Include="Adapters\Adapter_Cidade_ListView.cs" />
     <Compile Include="Adapters\Adapter_SimulacaoFrete_ListView.cs" />
     <Compile Include="Fragments\Fragment_BuscarCidade.cs" />
@@ -158,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Activity_SimulacaoFreteResultado.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Activity_TabelaResultadoFrete.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Menu\XMLFile1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

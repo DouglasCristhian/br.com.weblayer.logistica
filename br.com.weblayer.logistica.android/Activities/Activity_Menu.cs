@@ -8,8 +8,8 @@ using br.com.weblayer.logistica.core.BLL;
 namespace br.com.weblayer.logistica.android.Activities
 {
 	[Activity(MainLauncher = false)]
-	public class Activity_Menu : Activity
-	{
+	public class Activity_Menu : Activity_Base
+    {
         TextView lblusuario;
 
         private Button btnInformarEntrega;

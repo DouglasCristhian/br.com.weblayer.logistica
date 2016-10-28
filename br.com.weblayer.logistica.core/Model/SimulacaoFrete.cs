@@ -27,10 +27,11 @@ namespace br.com.weblayer.logistica.core.Model
 
         public virtual string ds_memoriacalculo_clear
         {
-            get
+            get; set;
+           /* get
             {
                 return Regex.Replace(this.ds_memoriacalculo, @"<[^>]+>|&nbsp;", "").Trim();
-            }
+            }*/
         }
 
         public List<SimulacaoFreteDetalhe> Detalhes

@@ -12,7 +12,7 @@ using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHel
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(Label = "Informar Entrega")]
-    public class Activity_InformaEntrega : Activity
+    public class Activity_InformaEntrega : Activity_Base
     {
         private TextView txtNomeCliente;
         private TextView txtValor;

@@ -9,7 +9,7 @@ using br.com.weblayer.logistica.android.Adapters;
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(MainLauncher = false, Label = "Performance", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
-    public class Activity_Performance : Activity
+    public class Activity_Performance : Activity_Base
     {
         ListView ListViewPerformance;
         List<Performance> ListaPerformances;

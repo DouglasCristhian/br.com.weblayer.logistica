@@ -10,8 +10,8 @@ using Android.Content;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
-    public class Activity_SimularFrete : Activity
+    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
+    public class Activity_SimularFrete : Activity_Base
     {
         EditText txtOrigem;
         EditText txtDestino;
@@ -24,6 +24,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Activity_SimularFrete);
+
 
             FindViews();
             SetStyle();
