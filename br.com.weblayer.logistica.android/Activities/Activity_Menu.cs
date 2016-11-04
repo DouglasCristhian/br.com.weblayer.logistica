@@ -7,7 +7,7 @@ using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-	[Activity(MainLauncher = false)]
+	[Activity(MainLauncher = true)]
 	public class Activity_Menu : Activity_Base
     {
         TextView lblusuario;
@@ -24,7 +24,7 @@ namespace br.com.weblayer.logistica.android.Activities
             FindViews();
             BindData();
 
-			lblusuario.Text = UsuarioManager.Instance.usuario.ds_empresa;
+			//lblusuario.Text = UsuarioManager.Instance.usuario.ds_empresa;
         }
 
         private void BtnInformarEntrega_Click(object sender, EventArgs e)

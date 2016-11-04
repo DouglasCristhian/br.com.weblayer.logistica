@@ -131,6 +131,8 @@ namespace br.com.weblayer.logistica.android.Activities
         private void BtnConfirmarEntrega_Click(object sender, EventArgs e)
         {
 
+            
+
             var progressDialog = ProgressDialog.Show(this, "Por favor aguarde...", "Enviando os dados...", true);
             new Thread(new ThreadStart(delegate
             {

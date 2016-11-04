@@ -8,7 +8,7 @@ using br.com.weblayer.logistica.core.Model;
 using System.Collections.Generic;
 using br.com.weblayer.logistica.android.Adapters;
 using br.com.weblayer.logistica.core.BLL;
-using Android.Support.V4;
+//using Android.Support.V4;
 using Android.OS;
 
 namespace br.com.weblayer.logistica.android.Activities
