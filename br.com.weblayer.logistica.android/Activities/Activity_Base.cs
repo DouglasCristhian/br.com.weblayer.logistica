@@ -19,7 +19,7 @@ namespace br.com.weblayer.logistica.android.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            //ActionBar.SetDisplayHomeAsUpEnabled(true);
 
         }
 

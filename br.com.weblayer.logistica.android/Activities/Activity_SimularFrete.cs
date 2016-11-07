@@ -10,7 +10,7 @@ using Android.Content;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
+    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
     public class Activity_SimularFrete : Activity_Base
     {
         EditText txtOrigem;
