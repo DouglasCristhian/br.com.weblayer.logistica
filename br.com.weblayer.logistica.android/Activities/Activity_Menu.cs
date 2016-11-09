@@ -21,6 +21,7 @@ namespace br.com.weblayer.logistica.android.Activities
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.Activity_Menu);
+        
             FindViews();
             BindData();
 
