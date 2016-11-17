@@ -1651,8 +1651,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b00a0
 			public const int CidadeListView = 2131427488;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int NotaListView = 2131427433;
+			// aapt resource value: 0x7f0b006a
+			public const int NotaListView = 2131427434;
 			
 			// aapt resource value: 0x7f0b0082
 			public const int PerformanceListView = 2131427458;
@@ -1717,11 +1717,11 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b002a
 			public const int bottom = 2131427370;
 			
-			// aapt resource value: 0x7f0b0072
-			public const int btnConfirmarEntrega = 2131427442;
+			// aapt resource value: 0x7f0b0073
+			public const int btnConfirmarEntrega = 2131427443;
 			
-			// aapt resource value: 0x7f0b007b
-			public const int btnEntrar = 2131427451;
+			// aapt resource value: 0x7f0b007c
+			public const int btnEntrar = 2131427452;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int btnEnviar = 2131427470;
@@ -1735,8 +1735,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0081
 			public const int btnMenuSimularFrete = 2131427457;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int btnPesquisar = 2131427432;
+			// aapt resource value: 0x7f0b0069
+			public const int btnPesquisar = 2131427433;
 			
 			// aapt resource value: 0x7f0b009f
 			public const int btnPesquisarCidade = 2131427487;
@@ -1798,14 +1798,14 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0059
 			public const int edit_query = 2131427417;
 			
-			// aapt resource value: 0x7f0b007a
-			public const int edtSenha = 2131427450;
+			// aapt resource value: 0x7f0b007b
+			public const int edtSenha = 2131427451;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int edtServidor = 2131427446;
+			// aapt resource value: 0x7f0b0077
+			public const int edtServidor = 2131427447;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int edtUsuario = 2131427448;
+			// aapt resource value: 0x7f0b0079
+			public const int edtUsuario = 2131427449;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int end = 2131427349;
@@ -1861,8 +1861,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b00ae
 			public const int info = 2131427502;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int lblDataEntrega = 2131427440;
+			// aapt resource value: 0x7f0b0071
+			public const int lblDataEntrega = 2131427441;
 			
 			// aapt resource value: 0x7f0b0086
 			public const int lblDestino = 2131427462;
@@ -1870,17 +1870,17 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b009d
 			public const int lblInformarCidade = 2131427485;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int lblMensagem = 2131427443;
+			// aapt resource value: 0x7f0b0074
+			public const int lblMensagem = 2131427444;
 			
 			// aapt resource value: 0x7f0b007e
 			public const int lblMenuUsuario = 2131427454;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int lblNome = 2131427434;
+			// aapt resource value: 0x7f0b006b
+			public const int lblNome = 2131427435;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int lblNota = 2131427438;
+			// aapt resource value: 0x7f0b006f
+			public const int lblNota = 2131427439;
 			
 			// aapt resource value: 0x7f0b0084
 			public const int lblOrigem = 2131427460;
@@ -1888,8 +1888,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b008a
 			public const int lblPesoNF = 2131427466;
 			
-			// aapt resource value: 0x7f0b006c
-			public const int lblValor = 2131427436;
+			// aapt resource value: 0x7f0b006d
+			public const int lblValor = 2131427437;
 			
 			// aapt resource value: 0x7f0b0088
 			public const int lblValorNF = 2131427464;
@@ -1906,8 +1906,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b00ac
 			public const int line3 = 2131427500;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int linearLayout1 = 2131427444;
+			// aapt resource value: 0x7f0b0075
+			public const int linearLayout1 = 2131427445;
 			
 			// aapt resource value: 0x7f0b000a
 			public const int listMode = 2131427338;
@@ -2068,8 +2068,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0046
 			public const int title_template = 2131427398;
 			
-			// aapt resource value: 0x7f0b007d
-			public const int toolbar = 2131427453;
+			// aapt resource value: 0x7f0b0066
+			public const int toolbar = 2131427430;
 			
 			// aapt resource value: 0x7f0b0036
 			public const int top = 2131427382;
@@ -2092,8 +2092,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0097
 			public const int txtCliente = 2131427479;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int txtDataEntrega = 2131427441;
+			// aapt resource value: 0x7f0b0072
+			public const int txtDataEntrega = 2131427442;
 			
 			// aapt resource value: 0x7f0b0087
 			public const int txtDestino = 2131427463;
@@ -2110,23 +2110,23 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b009e
 			public const int txtInformarCidade = 2131427486;
 			
-			// aapt resource value: 0x7f0b007c
-			public const int txtMensagem = 2131427452;
+			// aapt resource value: 0x7f0b007d
+			public const int txtMensagem = 2131427453;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int txtNomeCliente = 2131427435;
+			// aapt resource value: 0x7f0b006c
+			public const int txtNomeCliente = 2131427436;
 			
 			// aapt resource value: 0x7f0b009a
 			public const int txtNomeTransportadora = 2131427482;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int txtNota = 2131427439;
+			// aapt resource value: 0x7f0b0070
+			public const int txtNota = 2131427440;
+			
+			// aapt resource value: 0x7f0b0068
+			public const int txtNumNota = 2131427432;
 			
 			// aapt resource value: 0x7f0b0067
-			public const int txtNumNota = 2131427431;
-			
-			// aapt resource value: 0x7f0b0066
-			public const int txtNumerodaNota = 2131427430;
+			public const int txtNumerodaNota = 2131427431;
 			
 			// aapt resource value: 0x7f0b0085
 			public const int txtOrigem = 2131427461;
@@ -2140,17 +2140,17 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0095
 			public const int txtRelativeLayout1 = 2131427477;
 			
-			// aapt resource value: 0x7f0b0079
-			public const int txtSenha = 2131427449;
+			// aapt resource value: 0x7f0b007a
+			public const int txtSenha = 2131427450;
 			
 			// aapt resource value: 0x7f0b0098
 			public const int txtSerie = 2131427480;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int txtServidor = 2131427445;
+			// aapt resource value: 0x7f0b0076
+			public const int txtServidor = 2131427446;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int txtUsuario = 2131427447;
+			// aapt resource value: 0x7f0b0078
+			public const int txtUsuario = 2131427448;
 			
 			// aapt resource value: 0x7f0b0096
 			public const int txtValor = 2131427478;
@@ -2158,8 +2158,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b0089
 			public const int txtValorNF = 2131427465;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int txtValorNota = 2131427437;
+			// aapt resource value: 0x7f0b006e
+			public const int txtValorNota = 2131427438;
 			
 			// aapt resource value: 0x7f0b008d
 			public const int txtVolume = 2131427469;
@@ -2299,103 +2299,106 @@ namespace br.com.weblayer.logistica.android
 			public const int abc_simple_dropdown_hint = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int Activity_BuscaNotaView = 2130903065;
+			public const int activity_base = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int Activity_InformaEntrega = 2130903066;
+			public const int Activity_BuscaNotaView = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int Activity_Login = 2130903067;
+			public const int Activity_InformaEntrega = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int Activity_Menu = 2130903068;
+			public const int Activity_Login = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int Activity_Performance = 2130903069;
+			public const int Activity_Menu = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int Activity_SimulacaoFreteResultado = 2130903070;
+			public const int Activity_Performance = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int Activity_SimularFrete = 2130903071;
+			public const int Activity_SimulacaoFreteResultado = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int Activity_TabelaResultadoFrete = 2130903072;
+			public const int Activity_SimularFrete = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int Adapter_Cidade_ListView = 2130903073;
+			public const int Activity_TabelaResultadoFrete = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int Adapter_NotaFiscal_ListView = 2130903074;
+			public const int Adapter_Cidade_ListView = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int Adapter_Performance_ListView = 2130903075;
+			public const int Adapter_NotaFiscal_ListView = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int Adapter_SimulacaoFrete_ListView = 2130903076;
+			public const int Adapter_Performance_ListView = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int design_navigation_item = 2130903077;
+			public const int Adapter_SimulacaoFrete_ListView = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int design_navigation_item_header = 2130903078;
+			public const int design_navigation_item = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int design_navigation_item_separator = 2130903079;
+			public const int design_navigation_item_header = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int design_navigation_item_subheader = 2130903080;
+			public const int design_navigation_item_separator = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int design_navigation_menu = 2130903081;
+			public const int design_navigation_item_subheader = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int Fragment_BuscarCidade = 2130903082;
+			public const int design_navigation_menu = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int layout_snackbar = 2130903083;
+			public const int Fragment_BuscarCidade = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int layout_snackbar_include = 2130903084;
+			public const int layout_snackbar = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_media_action = 2130903085;
+			public const int layout_snackbar_include = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_media_cancel_action = 2130903086;
+			public const int notification_media_action = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_big_media = 2130903087;
+			public const int notification_media_cancel_action = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_template_big_media_narrow = 2130903088;
+			public const int notification_template_big_media = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int notification_template_lines = 2130903089;
+			public const int notification_template_big_media_narrow = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int notification_template_media = 2130903090;
+			public const int notification_template_lines = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int notification_template_part_chronometer = 2130903091;
+			public const int notification_template_media = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int notification_template_part_time = 2130903092;
+			public const int notification_template_part_chronometer = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_item_material = 2130903093;
+			public const int notification_template_part_time = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_multichoice_material = 2130903094;
+			public const int select_dialog_item_material = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_singlechoice_material = 2130903095;
+			public const int select_dialog_multichoice_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int support_simple_spinner_dropdown_item = 2130903096;
+			public const int select_dialog_singlechoice_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int Toolbar = 2130903097;
+			public const int support_simple_spinner_dropdown_item = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int Toolbar = 2130903098;
 			
 			static Layout()
 			{

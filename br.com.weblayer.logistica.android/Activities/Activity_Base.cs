@@ -14,29 +14,31 @@ using Android.Support.V7.App;
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(Label = "Activity_Base")]
-    public class Activity_Base : Activity
+    public class Activity_Base :Activity
     {
     
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            SetContentView(Resource.Layout.activity_base);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
-          
+            ActionBar.Title = "My Toolbar";
+
+
         }
 
-        //public override bool OnOptionsItemSelected(IMenuItem item)
-        //{
-        //    switch (item.ItemId)
-        //    {
-        //        case Android.Resource.Id.Home:
-        //            Finish();
-        //            return true;
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+                    return true;
 
-        //        default:
-        //            return base.OnOptionsItemSelected(item);
-        //    }
-        //}
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
     }
 }
