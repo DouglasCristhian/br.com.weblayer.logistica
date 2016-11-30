@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<resources>
-  <style name="MyTheme" parent="MyTheme.Base">
-    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-  
-  </style>
-</resources>
-<!--<item name="android:statusBarColor">@android:color/transparent</item>-->
