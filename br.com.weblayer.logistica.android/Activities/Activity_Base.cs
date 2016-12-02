@@ -14,13 +14,17 @@ using Android.Support.V7.App;
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(Label = "Activity_Base")]
-    public class Activity_Base : Activity
+    public class Activity_Base :Activity
     {
     
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-           // ActionBar.SetDisplayHomeAsUpEnabled(true);
+            SetContentView(Resource.Layout.activity_base);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
+            ActionBar.Title = "My Toolbar";
+
 
         }
 

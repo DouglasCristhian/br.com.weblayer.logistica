@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar" />
   <ListView
     android:minWidth="25px"
     android:minHeight="25px"

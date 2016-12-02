@@ -9,10 +9,10 @@
       android:id="@+id/iconVoltar"
     
       android:showAsAction="always"/>
-
-   
+   <include layout="@layout/toolbar"/>   
 
   </menu>
 
+   
 </linearLayout>
 
