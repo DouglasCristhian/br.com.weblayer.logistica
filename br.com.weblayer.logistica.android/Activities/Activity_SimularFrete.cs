@@ -13,6 +13,7 @@ namespace br.com.weblayer.logistica.android.Activities
     [Activity(Label = "Simulação do Frete", MainLauncher = false)]
     public class Activity_SimularFrete : Activity_Base
     {
+        Android.Support.V7.Widget.Toolbar toolbar;
         EditText txtOrigem;
         EditText txtDestino;
         EditText txtValorNF;
@@ -76,6 +77,9 @@ namespace br.com.weblayer.logistica.android.Activities
             txtPesoNF = FindViewById<EditText>(Resource.Id.txtPesoNF);
             txtVolume = FindViewById<EditText>(Resource.Id.txtVolume);
             btnEnviar = FindViewById<Button>(Resource.Id.btnEnviar);
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Simular Frete";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void SetStyle()
@@ -86,6 +90,7 @@ namespace br.com.weblayer.logistica.android.Activities
             txtPesoNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtVolume.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnEnviar.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+
         }
 
         private bool ValidateViews()

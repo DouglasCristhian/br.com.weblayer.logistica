@@ -16,6 +16,7 @@ namespace br.com.weblayer.logistica.android.Activities
     {
         ListView ListViewResult;
         List<SimulacaoFrete> ListaSimulacao;
+        Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,6 +30,9 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             ListViewResult = FindViewById<ListView>(Resource.Id.lstResultadoSimulacaoFrete);
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Resultado da Simulação";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void BindData()

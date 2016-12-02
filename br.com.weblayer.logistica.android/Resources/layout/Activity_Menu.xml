@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  
-
-
-  
+ 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-        <TextView
-            android:text="Nome do Usuario"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lblMenuUsuario" />
-        <Button
-            android:text="Informar Entrega"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuInformaEntrega" />
-        <Button
-            android:text="Performance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuPerformanceEntrega" />
-        <Button
-            android:text="Simular Frete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuSimularFrete" />
-
+        layout="@layout/toolbar"/>
   
+    <TextView
+        android:text="Nome do Usuario"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblMenuUsuario" />
+  
+     <Button
+        android:text="Informar Entrega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMenuInformaEntrega" />
+  
+     <Button
+        android:text="Performance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMenuPerformanceEntrega" />
+  
+     <Button
+        android:text="Simular Frete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMenuSimularFrete" />
 
 </LinearLayout>

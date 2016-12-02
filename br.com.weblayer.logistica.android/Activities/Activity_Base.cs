@@ -20,25 +20,23 @@ namespace br.com.weblayer.logistica.android.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_base);
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetActionBar(toolbar);
-            ActionBar.Title = "My Toolbar";
-
-
+           // SetContentView(Resource.Layout.activity_base);
+           // var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+           // SetActionBar(toolbar);
+          //  ActionBar.Title = "My Toolbar";
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    Finish();
-                    return true;
+        //public override bool OnOptionsItemSelected(IMenuItem item)
+        //{
+        //    switch (item.ItemId)
+        //    {
+        //        case Android.Resource.Id.Home:
+        //            Finish();
+        //            return true;
 
-                default:
-                    return base.OnOptionsItemSelected(item);
-            }
-        }
+        //        default:
+        //            return base.OnOptionsItemSelected(item);
+        //    }
+        //}
     }
 }

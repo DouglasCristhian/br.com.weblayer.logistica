@@ -14,6 +14,7 @@ namespace br.com.weblayer.logistica.android.Activities
     [Activity(Label = "Informar Entrega")]
     public class Activity_InformaEntrega : Activity_Base
     {
+        Android.Support.V7.Widget.Toolbar toolbar;
         private TextView txtNomeCliente;
         private TextView txtValor;
         private TextView txtNota;
@@ -51,12 +52,15 @@ namespace br.com.weblayer.logistica.android.Activities
             txtSerie = FindViewById<TextView>(Resource.Id.txtSerie);
             txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
             lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
-
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Informar Entrega";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
             btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
         }
 
         private void BindData()
         {
+
             txtNomeCliente.Text = nota.ds_cliente;
             txtValor.Text = nota.ds_valor;
             txtNota.Text = nota.ds_numeronota + "/" + nota.ds_serienota;

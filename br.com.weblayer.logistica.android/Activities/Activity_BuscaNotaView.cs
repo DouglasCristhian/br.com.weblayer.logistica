@@ -14,7 +14,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
     public class Activity_BuscaNotaView : Activity_Base
     {
-		ListView ListViewNota;
+        Android.Support.V7.Widget.Toolbar toolbar;
+        ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
         Button btnPesquisar;
         EditText txtNumNota;
@@ -36,10 +37,12 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
         }
 
         private void BindData()
         {
+            toolbar.Title = "Buscar Notas";
             btnPesquisar.Click += BtnPesquisar_Click;
             ListViewNota.ItemClick += OnListItemClick;
         }

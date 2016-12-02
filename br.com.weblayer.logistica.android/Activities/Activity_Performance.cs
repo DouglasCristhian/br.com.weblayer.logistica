@@ -13,6 +13,7 @@ namespace br.com.weblayer.logistica.android.Activities
     {
         ListView ListViewPerformance;
         List<Performance> ListaPerformances;
+        Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,6 +28,10 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Performance";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+
         }
 
         private void FillList()
