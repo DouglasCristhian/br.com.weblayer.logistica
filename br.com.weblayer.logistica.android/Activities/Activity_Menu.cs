@@ -3,8 +3,6 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 
-using br.com.weblayer.logistica.core.BLL;
-
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(MainLauncher = true)]
@@ -44,19 +42,20 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void FindViews()
         {
-            lblusuario = FindViewById<TextView>(Resource.Id.lblMenuUsuario);
             btnInformarEntrega = FindViewById<Button>(Resource.Id.btnMenuInformaEntrega);
             btnPerformance = FindViewById<Button>(Resource.Id.btnMenuPerformanceEntrega);
             btnSimularFrete = FindViewById<Button>(Resource.Id.btnMenuSimularFrete);
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "  w/ embarcador";
+            toolbar.SetLogo(Resource.Mipmap.ic_launcher);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);           
+
         }
 
         private void BindData()
         {
-            toolbar.Title = "Home Page";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            toolbar.SetNavigationIcon(Resource.Mipmap.ic_launcherback);          
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
-
             btnInformarEntrega.Click += BtnInformarEntrega_Click;
             btnPerformance.Click += BtnPerformance_Click;
             btnSimularFrete.Click += BtnSimularFrete_Click;
@@ -66,12 +65,9 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             switch (e.Item.ItemId)
             {
-                case Resource.Id.finish:
+                case Resource.Mipmap.ic_launcherback:
                     Finish();
-                    //Toast.MakeText(this, "discard", ToastLength.Short).Show();
                     break;
-
-
             }
         }
     }

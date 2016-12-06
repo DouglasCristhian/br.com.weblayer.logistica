@@ -8,31 +8,35 @@
  
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-  
-    <TextView
-        android:text="Nome do Usuario"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblMenuUsuario" />
+        layout="@layout/toolbar"/>       
   
      <Button
         android:text="Informar Entrega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
         android:id="@+id/btnMenuInformaEntrega" />
   
      <Button
         android:text="Performance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
         android:id="@+id/btnMenuPerformanceEntrega" />
   
      <Button
         android:text="Simular Frete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
         android:id="@+id/btnMenuSimularFrete" />
 
 </LinearLayout>

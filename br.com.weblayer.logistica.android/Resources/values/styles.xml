@@ -15,8 +15,8 @@
   </style>
 
   <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
-    <item name="android:textColorPrimary">@android:color/white</item> <!--Textcolor do título da toolbar-->
-    <item name="android:textColorSecondary">@android:color/white</item> <!--Color do Overflow Menu (Os três pontinhos)-->
+    <item name="android:textColorPrimary">@android:color/black</item> <!--Textcolor do título da toolbar-->
+    <item name="android:textColorSecondary">@android:color/black</item> <!--Color do Overflow Menu (Os três pontinhos)-->
   </style>
 
   <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Light">

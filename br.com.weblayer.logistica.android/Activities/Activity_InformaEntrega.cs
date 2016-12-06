@@ -5,8 +5,8 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-
 using br.com.weblayer.logistica.core.Model;
+
 using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
 
 namespace br.com.weblayer.logistica.android.Activities
@@ -83,7 +83,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void SetStyles()
         {
-            txtData.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+            txtData.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnConfirmarEntrega.SetBackgroundResource(Resource.Drawable.BordaBotoes);
 
         }

@@ -1,12 +1,6 @@
-using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-using br.com.weblayer.logistica.core.BLL;
-using br.com.weblayer.logistica.android.Adapters;
-using static Android.Resource;
-using Android.Content;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -28,6 +22,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
 
             FindViews();
+            //BindData();
             SetStyle();
             btnEnviar.Click += BtnEnviar_Click;
             txtOrigem.Click += TxtOrigem_Click;
@@ -82,6 +77,13 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
+        /*private void BindData()
+        {
+            txtValorNF.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagDecimal;
+            txtPesoNF.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned;
+            txtVolume.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagDecimal;
+        }*/
+
         private void SetStyle()
         {
             txtOrigem.SetBackgroundResource(Resource.Drawable.BordaBotoes);
@@ -89,7 +91,6 @@ namespace br.com.weblayer.logistica.android.Activities
             txtValorNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtPesoNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtVolume.SetBackgroundResource(Resource.Drawable.EditTextStyle);
-            btnEnviar.SetBackgroundResource(Resource.Drawable.BordaBotoes);
 
         }
 
@@ -101,7 +102,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 validacao = false;
                 txtOrigem.Error = "Origem inválida!";
             }
-
+        
             if (txtDestino.Length() == 0)
             {
                 validacao = false;
