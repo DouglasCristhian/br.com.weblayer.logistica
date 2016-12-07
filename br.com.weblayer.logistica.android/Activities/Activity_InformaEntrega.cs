@@ -22,13 +22,19 @@ namespace br.com.weblayer.logistica.android.Activities
         private TextView txtData;
         private TextView lblMensagem;
         private Button btnConfirmarEntrega;
-
         private NotaFiscal nota;
+
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_InformaEntrega;
+            }
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Activity_InformaEntrega);
 
             //string da nota
             var jsonnota = Intent.GetStringExtra("JsonNota");
@@ -52,15 +58,15 @@ namespace br.com.weblayer.logistica.android.Activities
             txtSerie = FindViewById<TextView>(Resource.Id.txtSerie);
             txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
             lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
+            btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
+
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Informar Entrega";
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
-            btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
         }
 
         private void BindData()
         {
-
             txtNomeCliente.Text = nota.ds_cliente;
             txtValor.Text = nota.ds_valor;
             txtNota.Text = nota.ds_numeronota + "/" + nota.ds_serienota;
@@ -79,14 +85,13 @@ namespace br.com.weblayer.logistica.android.Activities
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
         }
 
-
-
         private void SetStyles()
         {
             txtData.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnConfirmarEntrega.SetBackgroundResource(Resource.Drawable.BordaBotoes);
 
         }
+
         private void EnviaDadosEntrega()
         {
             try
@@ -149,6 +154,18 @@ namespace br.com.weblayer.logistica.android.Activities
                 RunOnUiThread(() => progressDialog.Hide());
             })).Start();
            
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
     }

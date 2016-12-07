@@ -18,11 +18,18 @@ namespace br.com.weblayer.logistica.android.Activities
         List<SimulacaoFrete> ListaSimulacao;
         Android.Support.V7.Widget.Toolbar toolbar;
 
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_SimulacaoFreteResultado;
+            }
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Activity_SimulacaoFreteResultado);
             FindViews();
             BindData();
         }
@@ -30,6 +37,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             ListViewResult = FindViewById<ListView>(Resource.Id.lstResultadoSimulacaoFrete);
+
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Resultado da Simulação";
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
@@ -58,7 +66,18 @@ namespace br.com.weblayer.logistica.android.Activities
 
             StartActivity(intent);
            // StartActivityForResult(intent, 0);
+        }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

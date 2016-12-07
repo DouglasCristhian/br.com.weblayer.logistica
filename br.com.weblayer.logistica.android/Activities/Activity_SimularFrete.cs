@@ -1,5 +1,6 @@
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 
 namespace br.com.weblayer.logistica.android.Activities
@@ -15,14 +16,19 @@ namespace br.com.weblayer.logistica.android.Activities
         EditText txtVolume;
         Button btnEnviar;
 
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_SimularFrete;
+            }
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Activity_SimularFrete);
-
 
             FindViews();
-            //BindData();
             SetStyle();
             btnEnviar.Click += BtnEnviar_Click;
             txtOrigem.Click += TxtOrigem_Click;
@@ -72,17 +78,11 @@ namespace br.com.weblayer.logistica.android.Activities
             txtPesoNF = FindViewById<EditText>(Resource.Id.txtPesoNF);
             txtVolume = FindViewById<EditText>(Resource.Id.txtVolume);
             btnEnviar = FindViewById<Button>(Resource.Id.btnEnviar);
+
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Simular Frete";
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
-
-        /*private void BindData()
-        {
-            txtValorNF.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagDecimal;
-            txtPesoNF.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned;
-            txtVolume.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagDecimal;
-        }*/
 
         private void SetStyle()
         {
@@ -128,6 +128,18 @@ namespace br.com.weblayer.logistica.android.Activities
             }
 
             return validacao;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

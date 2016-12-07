@@ -8,11 +8,12 @@ using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = false, Icon = "@drawable/icon")]
-    public class Activity_Login : Activity_Base
+    [Activity(MainLauncher = true, NoHistory = true)]
+    public class Activity_Login : Activity
     {
 		public static string MyPREFERENCES = "MyPrefs";
 
+        Android.Support.V7.Widget.Toolbar toolbar;
         EditText edtServidor, edtUsuario, edtSenha;
 		TextView lblmensagem;
 		Button btnEntrar;
@@ -20,7 +21,6 @@ namespace br.com.weblayer.logistica.android.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             SetContentView (Resource.Layout.Activity_Login);
 
             FindViews();
@@ -37,6 +37,11 @@ namespace br.com.weblayer.logistica.android.Activities
             edtSenha = FindViewById<EditText>(Resource.Id.edtSenha);
             btnEntrar = FindViewById<Button>(Resource.Id.btnEntrar);
             lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
+
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "w/ embarcador";
+            toolbar.SetLogo(Resource.Mipmap.ic_launcher);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private bool ValidateViews()
