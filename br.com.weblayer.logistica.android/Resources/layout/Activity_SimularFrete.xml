@@ -7,15 +7,18 @@
       xmlns:tools="http://schemas.android.com/tools"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:baselineAligned="false"
-      android:orientation="vertical"
-      android:weightSum="1">
+      android:orientation="vertical">
+
+    <include
+     android:id="@+id/toolbar"
+     layout="@layout/toolbar"/>
+    
     <TextView
         android:id="@+id/lblOrigem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop = "20dip"
-        android:padding="5dip"
+        android:layout_marginLeft = "18dip"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Origem" />
 
@@ -26,6 +29,7 @@
         android:layout_marginTop = "1dip"
         android:layout_marginRight = "18dip"
         android:layout_marginLeft = "18dip"
+        android:hint="Clique para definir"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:focusable="false" />
 
@@ -33,7 +37,8 @@
       android:id="@+id/lblDestino"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:padding="5dip"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:text="Destino"/>
 
@@ -43,59 +48,78 @@
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
+      android:hint="Clique para definir"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:focusable="false" />
 
     <TextView
-    android:id="@+id/lblValorNF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Valor NF"/>
+      android:id="@+id/lblValorNF"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:text="Valor NF"/>
 
     <EditText
       android:id="@+id/txtValorNF"
-      android:layout_width="match_parent"
+      android:layout_width= "match_parent"
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
-      android:inputType="numberDecimal"
-      android:textAppearance="?android:attr/textAppearanceMedium"/>
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:inputType="numberDecimal"/>
 
     <TextView
-    android:id="@+id/lblPesoNF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Peso NF"/>
+      android:id="@+id/lblPesoNF"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:text="Peso"/>
 
     <EditText
       android:id="@+id/txtPesoNF"
-      android:layout_width="match_parent"
+      android:layout_width= "match_parent"
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
-      android:inputType="numberDecimal"
-      android:textAppearance="?android:attr/textAppearanceMedium"/>
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:inputType="numberDecimal"/>
+          
+
+    <!--<android.support.design.widget.TextInputLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginRight = "25dip"
+         android:layout_marginLeft = "25dip"       
+         android:layout_marginTop="10dp"
+         android:focusable="false">
+         <EditText
+           android:id="@+id/txtPesoNF"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Peso NF"/>
+    </android.support.design.widget.TextInputLayout>-->
 
     <TextView
-    android:id="@+id/lblVolume"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dip"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Volume"/>
+      android:id="@+id/lblVolume"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:text="Volume"/>
 
     <EditText
       android:id="@+id/txtVolume"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:inputType="numberDecimal"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
-      android:inputType="number"
-      android:textAppearance="?android:attr/textAppearanceMedium"/>
+      android:textAppearance="?android:attr/textAppearanceMedium"/>          
 
     <Button
       android:id="@+id/btnEnviar"

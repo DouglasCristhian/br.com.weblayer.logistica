@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1"
+    android:padding ="18dip"            
     android:baselineAligned="false"
     android:orientation="vertical">
 
@@ -48,7 +48,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SERIE"
             android:textSize="17sp"
             android:focusable="false"
             android:id="@+id/txtSerie"

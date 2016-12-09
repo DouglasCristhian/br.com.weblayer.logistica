@@ -7,6 +7,7 @@ using Android.Widget;
 using br.com.weblayer.logistica.android.Adapters;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
+using Android.Views;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -14,16 +15,23 @@ namespace br.com.weblayer.logistica.android.Activities
 
     public class Activity_BuscaNotaView : Activity_Base
     {
-		ListView ListViewNota;
+        Android.Support.V7.Widget.Toolbar toolbar;
+        ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
         Button btnPesquisar;
         EditText txtNumNota;
 
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_BuscaNotaView;
+            }
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState); 
-			SetContentView(Resource.Layout.Activity_BuscaNotaView);
-
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
             FindViews();
@@ -32,14 +40,23 @@ namespace br.com.weblayer.logistica.android.Activities
            
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_toolbarvazia, menu);
+            return true;
+        }
+
         private void FindViews()
         {
             btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
+
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void BindData()
-        {
+        {          
             btnPesquisar.Click += BtnPesquisar_Click;
             ListViewNota.ItemClick += OnListItemClick;
         }
@@ -97,13 +114,23 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-
                 var mensagem  = data.GetStringExtra("mensagem");
                 Toast.MakeText(this, mensagem, ToastLength.Long).Show();
                 
                 FillList();
-
             }
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

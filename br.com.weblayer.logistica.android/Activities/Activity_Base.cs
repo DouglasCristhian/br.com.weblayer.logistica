@@ -1,38 +1,41 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
     [Activity(Label = "Activity_Base")]
-    public class Activity_Base : Activity
+    public abstract class Activity_Base : AppCompatActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        public Toolbar Toolbar
         {
-            base.OnCreate(savedInstanceState);
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
-
+            get;
+            set;
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        protected override void OnCreate(Bundle bundle)
         {
-            switch (item.ItemId)
+            base.OnCreate(bundle);
+            SetContentView(LayoutResource);
+            Toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            if (Toolbar != null)
             {
-                case Android.Resource.Id.Home:
-                    Finish();
-                    return true;
-
-                default:
-                    return base.OnOptionsItemSelected(item);
+                Toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+                SetSupportActionBar(Toolbar);
+                SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+                SupportActionBar.SetHomeButtonEnabled(true);
             }
+        }
+
+        protected abstract int LayoutResource
+        {
+            get;
+        }
+
+        protected int ActionBarIcon
+        {
+            set { Toolbar.SetNavigationIcon(value); }
         }
     }
 }

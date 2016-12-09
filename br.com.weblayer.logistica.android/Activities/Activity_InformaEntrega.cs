@@ -5,8 +5,8 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-
 using br.com.weblayer.logistica.core.Model;
+
 using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
 
 namespace br.com.weblayer.logistica.android.Activities
@@ -14,6 +14,7 @@ namespace br.com.weblayer.logistica.android.Activities
     [Activity(Label = "Informar Entrega")]
     public class Activity_InformaEntrega : Activity_Base
     {
+        Android.Support.V7.Widget.Toolbar toolbar;
         private TextView txtNomeCliente;
         private TextView txtValor;
         private TextView txtNota;
@@ -21,13 +22,19 @@ namespace br.com.weblayer.logistica.android.Activities
         private TextView txtData;
         private TextView lblMensagem;
         private Button btnConfirmarEntrega;
-
         private NotaFiscal nota;
+
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_InformaEntrega;
+            }
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Activity_InformaEntrega);
 
             //string da nota
             var jsonnota = Intent.GetStringExtra("JsonNota");
@@ -51,8 +58,11 @@ namespace br.com.weblayer.logistica.android.Activities
             txtSerie = FindViewById<TextView>(Resource.Id.txtSerie);
             txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
             lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
-
             btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
+
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Informar Entrega";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void BindData()
@@ -75,14 +85,13 @@ namespace br.com.weblayer.logistica.android.Activities
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
         }
 
-
-
         private void SetStyles()
         {
-            txtData.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+            txtData.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             btnConfirmarEntrega.SetBackgroundResource(Resource.Drawable.BordaBotoes);
 
         }
+
         private void EnviaDadosEntrega()
         {
             try
@@ -131,6 +140,8 @@ namespace br.com.weblayer.logistica.android.Activities
         private void BtnConfirmarEntrega_Click(object sender, EventArgs e)
         {
 
+            
+
             var progressDialog = ProgressDialog.Show(this, "Por favor aguarde...", "Enviando os dados...", true);
             new Thread(new ThreadStart(delegate
             {
@@ -143,6 +154,18 @@ namespace br.com.weblayer.logistica.android.Activities
                 RunOnUiThread(() => progressDialog.Hide());
             })).Start();
            
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
     }

@@ -5,6 +5,7 @@ using Android.Widget;
 using br.com.weblayer.logistica.core.Model;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.android.Adapters;
+using Android.Views;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -13,26 +14,48 @@ namespace br.com.weblayer.logistica.android.Activities
     {
         ListView ListViewPerformance;
         List<Performance> ListaPerformances;
+        Android.Support.V7.Widget.Toolbar toolbar;
+
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_Performance;
+            }
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Activity_Performance);
-
             FindViews();
-
             FillList();
         }
 
         private void FindViews()
         {
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
+
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Performance";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void FillList()
         {
             ListaPerformances = new PerformanceManager().GetPerformance();
             ListViewPerformance.Adapter = new Adapter_Performance_ListView(this, ListaPerformances);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

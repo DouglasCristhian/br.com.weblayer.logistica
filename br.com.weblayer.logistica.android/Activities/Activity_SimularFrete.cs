@@ -1,18 +1,14 @@
-using System;
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-using br.com.weblayer.logistica.core.BLL;
-using br.com.weblayer.logistica.android.Adapters;
-using static Android.Resource;
-using Android.Content;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = true)]
+    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
     public class Activity_SimularFrete : Activity_Base
     {
+        Android.Support.V7.Widget.Toolbar toolbar;
         EditText txtOrigem;
         EditText txtDestino;
         EditText txtValorNF;
@@ -20,11 +16,17 @@ namespace br.com.weblayer.logistica.android.Activities
         EditText txtVolume;
         Button btnEnviar;
 
+        protected override int LayoutResource
+        {
+            get
+            {
+                return Resource.Layout.Activity_SimularFrete;
+            }
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Activity_SimularFrete);
-
 
             FindViews();
             SetStyle();
@@ -76,6 +78,10 @@ namespace br.com.weblayer.logistica.android.Activities
             txtPesoNF = FindViewById<EditText>(Resource.Id.txtPesoNF);
             txtVolume = FindViewById<EditText>(Resource.Id.txtVolume);
             btnEnviar = FindViewById<Button>(Resource.Id.btnEnviar);
+
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Simular Frete";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 
         private void SetStyle()
@@ -85,7 +91,7 @@ namespace br.com.weblayer.logistica.android.Activities
             txtValorNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtPesoNF.SetBackgroundResource(Resource.Drawable.EditTextStyle);
             txtVolume.SetBackgroundResource(Resource.Drawable.EditTextStyle);
-            btnEnviar.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+
         }
 
         private bool ValidateViews()
@@ -96,7 +102,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 validacao = false;
                 txtOrigem.Error = "Origem inválida!";
             }
-
+        
             if (txtDestino.Length() == 0)
             {
                 validacao = false;
@@ -122,6 +128,18 @@ namespace br.com.weblayer.logistica.android.Activities
             }
 
             return validacao;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

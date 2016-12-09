@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
+ 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>       
+  
+     <Button
+        android:text="Informar Entrega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:id="@+id/linearLayout1">
-        <TextView
-            android:text="Nome do Usuario"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lblMenuUsuario" />
-        <Button
-            android:text="Informar Entrega"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuInformaEntrega" />
-        <Button
-            android:text="Performance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuPerformanceEntrega" />
-        <Button
-            android:text="Simular Frete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMenuSimularFrete" />
-    </LinearLayout>
+        android:layout_marginTop="30dip"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
+        android:id="@+id/btnMenuInformaEntrega" />
+  
+     <Button
+        android:text="Performance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:id="@+id/btnMenuPerformanceEntrega" />
+  
+     <Button
+        android:text="Simular Frete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight = "18dip"
+        android:layout_marginLeft = "18dip"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
+        android:id="@+id/btnMenuSimularFrete" />
+
 </LinearLayout>
