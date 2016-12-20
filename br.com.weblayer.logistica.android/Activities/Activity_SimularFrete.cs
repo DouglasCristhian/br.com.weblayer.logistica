@@ -5,7 +5,7 @@ using Android.Widget;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação do Frete", MainLauncher = false)]
+    [Activity(Label = "Simulação de Frete", MainLauncher = false)]
     public class Activity_SimularFrete : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;

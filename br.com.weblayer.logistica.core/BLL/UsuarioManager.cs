@@ -52,7 +52,9 @@ namespace br.com.weblayer.logistica.core.BLL
 					return false;
 				}
 
-				return true;
+			    usuario.ds_servidor = servidor;
+                
+                return true;
 
 			}
 			catch (System.Exception ex)

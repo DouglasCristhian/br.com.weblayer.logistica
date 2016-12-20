@@ -8,7 +8,7 @@ using Android.Views;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity]
+    [Activity(Label = "Resultado da Simulação", MainLauncher = false)]
     public class Activity_TabelaResultadoFrete : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;

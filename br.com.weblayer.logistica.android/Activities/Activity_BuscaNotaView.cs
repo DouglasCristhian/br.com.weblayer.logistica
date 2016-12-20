@@ -82,7 +82,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void FillList()
         {
-            ListaNotas = new NotaFiscalManager().GetNotaFiscal("");
+
+            ListaNotas = new NotaFiscalManager().GetNotaFiscal(txtNumNota.Text);
             ListViewNota.Adapter = new Adapter_NotaFiscal_ListView(this, ListaNotas);
         }
 

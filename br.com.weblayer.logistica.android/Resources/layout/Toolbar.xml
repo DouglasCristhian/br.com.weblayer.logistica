@@ -9,6 +9,5 @@
   android:maxHeight="?attr/actionBarSize"
   android:navigationIcon="?homeAsUpIndicator"
   android:theme="@style/ToolbarTheme">
-  <!--android:popupTheme="@style/PopupTheme">-->
 
 </android.support.v7.widget.Toolbar>

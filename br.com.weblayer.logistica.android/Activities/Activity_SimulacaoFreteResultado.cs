@@ -11,7 +11,7 @@ using System.Runtime.Remoting.Contexts;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Simulação de Frete", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(Label = "Resultado da Simulação", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class Activity_SimulacaoFreteResultado : Activity_Base
     {
         ListView ListViewResult;

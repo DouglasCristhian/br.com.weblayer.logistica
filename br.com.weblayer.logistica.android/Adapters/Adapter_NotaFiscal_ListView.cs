@@ -48,7 +48,7 @@ namespace br.com.weblayer.logistica.android.Adapters
 
             row.FindViewById<TextView>(Resource.Id.txtCliente).Text= mItems[position].ds_cliente;
             row.FindViewById<TextView>(Resource.Id.txtNumNota).Text = "Nota/Série: " + mItems[position].ds_numeronota + "/" + mItems[position].ds_serienota;
-            row.FindViewById<TextView>(Resource.Id.txtValor).Text = "Valor: R$" + mItems[position].ds_valor;
+            row.FindViewById<TextView>(Resource.Id.txtValor).Text = "Valor: " + mItems[position].ds_valor;
 
             if (mItems[position].dt_entrega.HasValue)
                 row.FindViewById<TextView>(Resource.Id.txtDataEntrega).Text = "Entrega: " + mItems[position].dt_entrega.Value.ToString("dd/MM/yyyy");
