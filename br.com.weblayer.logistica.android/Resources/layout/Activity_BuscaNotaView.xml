@@ -9,7 +9,7 @@
   <include
       android:id="@+id/toolbar"
       layout="@layout/toolbar"/>
-  
+
   <TextView
     android:id="@+id/txtNumerodaNota"
     android:layout_width="match_parent"
@@ -45,4 +45,14 @@
       android:layout_height="match_parent"
       android:focusable="false"
       android:id="@+id/NotaListView" />
+
+  <TextView android:id="@+id/txtListEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
+    android:layout_marginTop="15dp"
+    android:textSize="18sp"
+    android:text="Não existem resultados a serem exibidos." />
+
 </LinearLayout>

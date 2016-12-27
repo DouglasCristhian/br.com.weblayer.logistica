@@ -19,6 +19,10 @@ namespace br.com.weblayer.logistica.core.BLL
         {
             var lista = new List<Performance>();
 
+            //Mês atual
+
+
+            //Mês anterior
             lista.Add(new Performance { id_periodo= 1, ds_titulo= "Transportadora1", ds_cor="VERDE", ds_percentual_performance="98%"});
             lista.Add(new Performance { id_periodo = 1, ds_titulo = "Transportadora2", ds_cor = "AMARELO", ds_percentual_performance = "60%" });
             lista.Add(new Performance { id_periodo = 1, ds_titulo = "Transportadora3", ds_cor = "VERMELHO", ds_percentual_performance = "20%" });

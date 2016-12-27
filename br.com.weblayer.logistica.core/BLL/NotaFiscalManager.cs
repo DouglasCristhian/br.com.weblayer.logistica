@@ -27,7 +27,7 @@ namespace br.com.weblayer.logistica.core.BLL
             try
             {
                 //Acessar serviço remoto e validar usuário.
-                WebService.Performance service = new WebService.Performance
+                var service = new WebService.Performance
                 {
                     Url = UsuarioManager.Instance.usuario.ds_servidor
                 };
@@ -45,23 +45,29 @@ namespace br.com.weblayer.logistica.core.BLL
                 return null;
             }
 
-            //lista.Add(new NotaFiscal { id_nota = 1, ds_cliente = "SDB COMERCIO DE ALIMENTOS LTDA", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/04/01") });
-            //lista.Add(new NotaFiscal { id_nota = 2, ds_cliente = "EMPRESA CATARINENSE DE SM LTDA", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/04/01") });
-            //lista.Add(new NotaFiscal { id_nota = 3, ds_cliente = "CEREALISTA TUCABU LTDA ME", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/04/01") });
-            //lista.Add(new NotaFiscal { id_nota = 4, ds_cliente = "N E N COMERCIO DE ALIMENTOS LT.", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/04/01") });
-            //lista.Add(new NotaFiscal { id_nota = 5, ds_cliente = "DIA BRASIL SOCIEDADE LIMITADA", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/05/01") });
-            //lista.Add(new NotaFiscal { id_nota = 6, ds_cliente = "ZENILDA REBOUCAS DE ALMEIDA M", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = DateTime.Parse("2016/05/01") });
-            //lista.Add(new NotaFiscal { id_nota = 7, ds_cliente = "COVABRA SUPERMERCADOS LTDA", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = null });
-            //lista.Add(new NotaFiscal { id_nota = 8, ds_cliente = "COOP. D PLANT. DE CANA DO OES", ds_destino = "BRUSQUE", ds_numeronota = "000245183", ds_serienota = "1", ds_valor = "154,35", dt_entrega = null });
-
         }
 
         public bool InformarEntregaNotaFiscal(int id_nota, DateTime dt_entrega)
         {
 
-            //mandar a informação de entrega para o webservice.
+            var service = new WebService.Performance
+            {
+                Url = UsuarioManager.Instance.usuario.ds_servidor
+            };
 
-            return true;
+            var retorno = service.InformarEntrega(UsuarioManager.Instance.usuario.id_empresa, id_nota, dt_entrega, UsuarioManager.Instance.usuario.id_usuario,"Android","-","-","-");
+
+            var resultado = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Resultado>>(retorno);
+
+            mensagem = resultado[0].ds_observacao;
+
+            if (resultado[0].ds_resultado=="OK")
+                return true;
+            else
+                return false;
+
+
+
 
         }
 

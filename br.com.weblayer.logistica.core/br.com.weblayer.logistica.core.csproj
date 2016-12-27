@@ -55,6 +55,7 @@
     <Compile Include="BLL\PerformanceManager.cs" />
     <Compile Include="BLL\SimulacaoFreteManager.cs" />
     <Compile Include="BLL\UsuarioManager.cs" />
+    <Compile Include="Model\Resultado.cs" />
     <Compile Include="Model\Cidade.cs" />
     <Compile Include="Model\NotaFiscal.cs" />
     <Compile Include="Model\Performance.cs" />

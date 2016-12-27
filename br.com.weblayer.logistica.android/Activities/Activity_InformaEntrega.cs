@@ -45,13 +45,16 @@ namespace br.com.weblayer.logistica.android.Activities
             FindViews();
             SetStyles();
             BindData();
-            txtData.Click += EventtxtData_Click;
-            btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
+            
 
         }
 
         private void FindViews()
         {
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Informar Entrega";
+            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+
             txtNomeCliente = FindViewById<TextView>(Resource.Id.txtNomeCliente);
             txtValor = FindViewById<TextView>(Resource.Id.txtValorNota);
             txtNota = FindViewById<TextView>(Resource.Id.txtNota);
@@ -60,29 +63,31 @@ namespace br.com.weblayer.logistica.android.Activities
             lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
             btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
 
-            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Informar Entrega";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            txtData.Click += EventtxtData_Click;
+            btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
+            
         }
 
         private void BindData()
         {
+
             txtNomeCliente.Text = nota.ds_cliente;
             txtValor.Text = nota.ds_valor;
             txtNota.Text = nota.ds_numeronota + "/" + nota.ds_serienota;
             lblMensagem.Text = "";
-
+            txtData.Text = "";
             btnConfirmarEntrega.Visibility = ViewStates.Visible;
 
             if (nota.dt_entrega.HasValue)
             {
                 txtData.Text = nota.dt_entrega.Value.ToString("dd/MM/yyyy"); //Caso a nota já tenha sido entegue, mostrar a data de entrega.
-                                                                             // btnConfirmarEntrega.Enabled = false; 
                 btnConfirmarEntrega.Visibility = ViewStates.Invisible;
-
             }
             else
+            { 
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
+            }
+
         }
 
         private void SetStyles()
@@ -139,8 +144,6 @@ namespace br.com.weblayer.logistica.android.Activities
         
         private void BtnConfirmarEntrega_Click(object sender, EventArgs e)
         {
-
-            
 
             var progressDialog = ProgressDialog.Show(this, "Por favor aguarde...", "Enviando os dados...", true);
             new Thread(new ThreadStart(delegate

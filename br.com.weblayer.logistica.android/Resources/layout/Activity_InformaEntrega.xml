@@ -15,14 +15,15 @@
       android:layout_marginTop="5dip"          
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="vertical" >
+      android:orientation="vertical"
+                >
   
     <TextView
         android:id="@+id/lblNome"   
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="17sp"
-        android:text="Nome"/>
+        android:text="Cliente"/>
   
     <TextView
       android:id="@+id/txtNomeCliente"
@@ -64,7 +65,7 @@
     <TextView
       android:id="@+id/lblDataEntrega"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       android:layout_marginTop="20dp"
       android:textSize="18sp"
       android:text="Data da Entrega"/>
@@ -73,20 +74,15 @@
       android:id="@+id/txtDataEntrega"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:paddingLeft="8dp"
-      android:paddingRight= "8dp"
-      android:paddingTop="8dp"
-      android:paddingBottom="8dp"
       android:clickable="true"
-      android:textSize="18sp"/>
+      android:textSize="18sp"
+      android:text="---------"/>
   
     <Button
       android:id="@+id/btnConfirmarEntrega"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="20dp"
-      android:layout_marginRight = "18dip"
-      android:layout_marginLeft = "18dip"
       android:textSize="18sp"
       android:text="Confirmar Entrega"
       tools:visibility="visible" />
@@ -99,4 +95,5 @@
        android:text="Mensagem"
        android:textColor="@android:color/holo_red_dark" />
     </LinearLayout>  
+  
 </LinearLayout>

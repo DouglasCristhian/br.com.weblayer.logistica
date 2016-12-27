@@ -20,6 +20,7 @@ namespace br.com.weblayer.logistica.android.Activities
         List<NotaFiscal> ListaNotas;
         Button btnPesquisar;
         EditText txtNumNota;
+        TextView EmpytText;
 
         protected override int LayoutResource
         {
@@ -33,6 +34,10 @@ namespace br.com.weblayer.logistica.android.Activities
 		{
 			base.OnCreate(savedInstanceState); 
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
+
+            //((ViewGroup)this.ListViewNota.getParent()).addView(EmpytText);
+
+            
 
             FindViews();
             SetStyle();
@@ -50,6 +55,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
+            EmpytText = FindViewById<TextView>(Resource.Id.txtListEmpty);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
@@ -85,6 +91,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
             ListaNotas = new NotaFiscalManager().GetNotaFiscal(txtNumNota.Text);
             ListViewNota.Adapter = new Adapter_NotaFiscal_ListView(this, ListaNotas);
+            ListViewNota.EmptyView = EmpytText;
+
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)

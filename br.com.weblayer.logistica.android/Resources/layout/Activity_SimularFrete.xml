@@ -87,21 +87,6 @@
       android:layout_marginLeft = "18dip"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:inputType="numberDecimal"/>
-          
-
-    <!--<android.support.design.widget.TextInputLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginRight = "25dip"
-         android:layout_marginLeft = "25dip"       
-         android:layout_marginTop="10dp"
-         android:focusable="false">
-         <EditText
-           android:id="@+id/txtPesoNF"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:hint="Peso NF"/>
-    </android.support.design.widget.TextInputLayout>-->
 
     <TextView
       android:id="@+id/lblVolume"
