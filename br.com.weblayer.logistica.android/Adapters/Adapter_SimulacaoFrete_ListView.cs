@@ -47,7 +47,7 @@ namespace br.com.weblayer.logistica.android.Adapters
 
             row.FindViewById<TextView>(Resource.Id.txtNomeTransportadora).Text = mItems[position].ds_transportadora;
             row.FindViewById<TextView>(Resource.Id.txtFrete).Text = "Frete: R$" + mItems[position].vl_frete;
-            row.FindViewById<TextView>(Resource.Id.txtFreteImposto).Text = "Frete + Imposto: R$" + mItems[position].vl_frete;
+            row.FindViewById<TextView>(Resource.Id.txtFreteImposto).Text = "Frete + Imposto: R$" + mItems[position].vl_frete_imposto;
 
             return row;
         }

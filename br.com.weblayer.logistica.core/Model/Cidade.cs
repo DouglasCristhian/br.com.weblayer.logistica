@@ -20,5 +20,8 @@ namespace br.com.weblayer.logistica.core.Model
         public virtual string ds_estado
         { get; set; }
 
+        public virtual string ds_codmun
+        { get; set; }
+
     }
 }

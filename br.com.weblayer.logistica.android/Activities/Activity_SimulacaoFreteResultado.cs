@@ -16,6 +16,7 @@ namespace br.com.weblayer.logistica.android.Activities
     {
         ListView ListViewResult;
         List<SimulacaoFrete> ListaSimulacao;
+        TextView EmpytText;
         Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override int LayoutResource
@@ -37,6 +38,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             ListViewResult = FindViewById<ListView>(Resource.Id.lstResultadoSimulacaoFrete);
+            EmpytText = FindViewById<TextView>(Resource.Id.txtListEmpty);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Resultado da Simulação";
@@ -45,14 +47,17 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BindData()
         {
-            ListaSimulacao = new SimulacaoFreteManager().GetSimulacaoFrete("","",0,0,0);
+
+            var simulafrete = new SimulacaoFreteManager();
+
+            ListaSimulacao = simulafrete.GetSimulacaoFrete("3513801", "3534401", 100, 5, 20);
+            
             ListViewResult.Adapter = new Adapter_SimulacaoFrete_ListView(this, ListaSimulacao);
-
             ListViewResult.ItemClick += OnListItemClick;
+            EmpytText.Text = simulafrete.mensagem;
+            ListViewResult.EmptyView = EmpytText;
+             
 
-            //txtnometransp.Text = sim.ds_transportadora;
-            //txtfrete.Text = sim.vl_frete.ToString();
-            //txtfreteimp.Text = sim.vl_frete_imposto.ToString();           
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -65,7 +70,7 @@ namespace br.com.weblayer.logistica.android.Activities
             intent.PutExtra("dadossimulacao", Newtonsoft.Json.JsonConvert.SerializeObject(l));
 
             StartActivity(intent);
-           // StartActivityForResult(intent, 0);
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

@@ -38,7 +38,7 @@ namespace br.com.weblayer.logistica.core.BLL
 			try
 			{
 				//Acessar serviço remoto e validar usuário.
-				WebService.Performance service = new WebService.Performance();
+				var service = new WebService.EmbarcadorService();
 				service.Url = servidor;
 				string retorno = service.Login(login, senha);
 

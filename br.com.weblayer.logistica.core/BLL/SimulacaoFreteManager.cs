@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Web.Services.Protocols;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -14,16 +16,44 @@ namespace br.com.weblayer.logistica.core.BLL
 {
     public class SimulacaoFreteManager
     {
+
+        public string mensagem
+        {
+            get;
+            set;
+        }
+
         public List<SimulacaoFrete> GetSimulacaoFrete(string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf)
         {
-            var lista = new List<SimulacaoFrete>();
+           
+            mensagem = "";
 
-            lista.Add(new SimulacaoFrete { ds_transportadora = "TRANSP 1", vl_frete = decimal.Parse("10.99"),vl_frete_imposto=decimal.Parse("12.99") });
-            lista.Add(new SimulacaoFrete { ds_transportadora = "TRANSP 2", vl_frete = decimal.Parse("13.56"), vl_frete_imposto = decimal.Parse("15.99") });
-            lista.Add(new SimulacaoFrete { ds_transportadora = "TRANSP 3", vl_frete = decimal.Parse("15.22"), vl_frete_imposto = decimal.Parse("17.12") });
-            lista.Add(new SimulacaoFrete { ds_transportadora = "TRANSP 4", vl_frete = decimal.Parse("17.33"), vl_frete_imposto = decimal.Parse("19.99") });
+            var service = new WebService.EmbarcadorService
+            {
+                Url = UsuarioManager.Instance.usuario.ds_servidor
+            };
 
-            return lista;
+
+            try
+            {
+                var retorno = service.SimularFrete(UsuarioManager.Instance.usuario.id_empresa, origemcodmun, destinocodmun, valornf, pesonf, volumenf);
+
+                var ResultadoSimulacao = Newtonsoft.Json.JsonConvert.DeserializeObject<List<SimulacaoFrete>>(retorno);
+
+                return ResultadoSimulacao;
+            }
+            catch (SoapException ex)
+            {
+                mensagem = ex.Actor;
+                return new List<SimulacaoFrete>();
+            }
+            catch (Exception ex)
+            {
+                mensagem = ex.Message;
+                return new List<SimulacaoFrete>();
+            }
+            
+
         }
 
     }

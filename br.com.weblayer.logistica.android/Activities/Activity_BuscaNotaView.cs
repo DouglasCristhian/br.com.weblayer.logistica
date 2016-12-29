@@ -35,10 +35,6 @@ namespace br.com.weblayer.logistica.android.Activities
 			base.OnCreate(savedInstanceState); 
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
-            //((ViewGroup)this.ListViewNota.getParent()).addView(EmpytText);
-
-            
-
             FindViews();
             SetStyle();
             BindData();

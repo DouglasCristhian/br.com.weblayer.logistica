@@ -16,6 +16,10 @@ namespace br.com.weblayer.logistica.android.Activities
         EditText txtVolume;
         Button btnEnviar;
 
+        private string codmunorigem;
+        private string codmundestino;
+
+
         protected override int LayoutResource
         {
             get
@@ -38,6 +42,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
         {
+            codmunorigem = "";
+
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
             dialog.DialogClosed += Dialog_DialogClosedOrigem;
@@ -46,11 +52,15 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void Dialog_DialogClosedOrigem(object sender, Helpers.DialogEventArgs e)
         {
-            txtOrigem.Text = e.ReturnValue;
+            var retorno = SplitString(e.ReturnValue);
+            txtOrigem.Text = retorno[0];
+            codmunorigem = retorno[1];
         }
 
         private void TxtDestino_Click(object sender, System.EventArgs e)
         {
+            codmundestino = "";
+
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Dialog_BuscarCidade dialog = new Dialog_BuscarCidade();
             dialog.DialogClosed += Dialog_DialogClosedDestino;
@@ -59,8 +69,11 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void Dialog_DialogClosedDestino(object sender, Helpers.DialogEventArgs e)
         {
-            txtDestino.Text = e.ReturnValue;
+            var retorno = SplitString(e.ReturnValue);
+            txtDestino.Text = retorno[0];
+            codmundestino = retorno[1];
         }
+        
 
         private void BtnEnviar_Click(object sender, System.EventArgs e)
         {
@@ -140,6 +153,15 @@ namespace br.com.weblayer.logistica.android.Activities
                     return true;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        public static string[] SplitString(string texto)
+        {
+            char[] delimiterChars =
+            {
+                '|'
+            };
+            return texto.Split(delimiterChars);
         }
     }
 }

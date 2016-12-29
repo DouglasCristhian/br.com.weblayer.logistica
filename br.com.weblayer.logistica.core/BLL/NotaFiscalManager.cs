@@ -27,7 +27,7 @@ namespace br.com.weblayer.logistica.core.BLL
             try
             {
                 //Acessar serviço remoto e validar usuário.
-                var service = new WebService.Performance
+                var service = new WebService.EmbarcadorService
                 {
                     Url = UsuarioManager.Instance.usuario.ds_servidor
                 };
@@ -50,7 +50,7 @@ namespace br.com.weblayer.logistica.core.BLL
         public bool InformarEntregaNotaFiscal(int id_nota, DateTime dt_entrega)
         {
 
-            var service = new WebService.Performance
+            var service = new WebService.EmbarcadorService
             {
                 Url = UsuarioManager.Instance.usuario.ds_servidor
             };

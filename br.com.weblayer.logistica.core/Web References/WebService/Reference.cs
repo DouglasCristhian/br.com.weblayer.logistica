@@ -26,8 +26,8 @@ namespace br.com.weblayer.logistica.core.WebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="PerformanceSoap", Namespace="http://www.weblayer.com.br/")]
-    public partial class Performance : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="EmbarcadorServiceSoap", Namespace="http://www.weblayer.com.br/")]
+    public partial class EmbarcadorService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback RetornaPerformanceOperationCompleted;
         
@@ -44,8 +44,8 @@ namespace br.com.weblayer.logistica.core.WebService {
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public Performance() {
-            this.Url = "http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx";
+        public EmbarcadorService() {
+            this.Url = "http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

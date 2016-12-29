@@ -64,7 +64,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             var ListViewCidades = sender as ListView;
             var t = ListaCidades[e.Position];
-            var cidadeestado = t.ds_cidade + "  " + t.ds_estado;
+            var cidadeestado = t.ds_cidade + "  " + t.ds_estado + "|" + t.ds_codmun;
 
             Retorno = cidadeestado;
 

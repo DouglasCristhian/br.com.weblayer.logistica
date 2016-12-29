@@ -19,13 +19,13 @@ namespace br.com.weblayer.logistica.core.BLL
         {
             var lista = new List<Cidade>();
 
-            lista.Add(new Cidade { ds_cidade = "Porto Feliz", ds_estado = "SP"});
-            lista.Add(new Cidade { ds_cidade = "Itu", ds_estado = "SP" });
-            lista.Add(new Cidade { ds_cidade = "Sorocaba", ds_estado = "SP" });
-            lista.Add(new Cidade { ds_cidade = "Osasco", ds_estado = "SP" });
-            lista.Add(new Cidade { ds_cidade = "Baruri", ds_estado = "SP" });
-            lista.Add(new Cidade { ds_cidade = "São Paulo", ds_estado = "SP" });
-            lista.Add(new Cidade { ds_cidade = "Rio de Janeiro", ds_estado = "RJ" });
+            
+            lista.Add(new Cidade { ds_cidade = "Diadema", ds_estado = "SP", ds_codmun = "3513801" });
+            lista.Add(new Cidade { ds_cidade = "Sorocaba", ds_estado = "SP", ds_codmun = "3552205" });
+            lista.Add(new Cidade { ds_cidade = "Osasco", ds_estado = "SP", ds_codmun = "3534401" });
+            lista.Add(new Cidade { ds_cidade = "Barueri", ds_estado = "SP", ds_codmun = "3505708" });
+            lista.Add(new Cidade { ds_cidade = "São Paulo", ds_estado = "SP", ds_codmun = "3550308" });
+            lista.Add(new Cidade { ds_cidade = "Rio de Janeiro", ds_estado = "RJ", ds_codmun = "3304557" });
 
             return lista;
 

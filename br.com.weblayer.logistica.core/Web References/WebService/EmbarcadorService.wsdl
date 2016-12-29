@@ -140,7 +140,7 @@
   <wsdl:message name="SimularFreteSoapOut">
     <wsdl:part name="parameters" element="tns:SimularFreteResponse" />
   </wsdl:message>
-  <wsdl:portType name="PerformanceSoap">
+  <wsdl:portType name="EmbarcadorServiceSoap">
     <wsdl:operation name="RetornaPerformance">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna uma lista com os dados da performance. Possiveis Visoes: TRANSPORTADORA, ESTADO, CANAL</wsdl:documentation>
       <wsdl:input message="tns:RetornaPerformanceSoapIn" />
@@ -172,7 +172,7 @@
       <wsdl:output message="tns:SimularFreteSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="PerformanceSoap" type="tns:PerformanceSoap">
+  <wsdl:binding name="EmbarcadorServiceSoap" type="tns:EmbarcadorServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="RetornaPerformance">
       <soap:operation soapAction="http://www.weblayer.com.br/RetornaPerformance" style="document" />
@@ -229,7 +229,7 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="PerformanceSoap12" type="tns:PerformanceSoap">
+  <wsdl:binding name="EmbarcadorServiceSoap12" type="tns:EmbarcadorServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="RetornaPerformance">
       <soap12:operation soapAction="http://www.weblayer.com.br/RetornaPerformance" style="document" />
@@ -286,13 +286,13 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="Performance">
+  <wsdl:service name="EmbarcadorService">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">weblayer - Serviço de Integração App. Logistica</wsdl:documentation>
-    <wsdl:port name="PerformanceSoap" binding="tns:PerformanceSoap">
-      <soap:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx" />
+    <wsdl:port name="EmbarcadorServiceSoap" binding="tns:EmbarcadorServiceSoap">
+      <soap:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx" />
     </wsdl:port>
-    <wsdl:port name="PerformanceSoap12" binding="tns:PerformanceSoap12">
-      <soap12:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx" />
+    <wsdl:port name="EmbarcadorServiceSoap12" binding="tns:EmbarcadorServiceSoap12">
+      <soap12:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

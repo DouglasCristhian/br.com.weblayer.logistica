@@ -57,7 +57,9 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             txtTransp.Text = simu.ds_transportadora;
             txtFret.Text = simu.vl_frete.ToString();
-            txtFreteImpos.Text = simu.vl_frete_imposto.ToString();
+            //txtFreteImpos.Text = simu.vl_frete_imposto.ToString();
+            txtFreteImpos.Text = simu.ds_memoriacalculo_clear;
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

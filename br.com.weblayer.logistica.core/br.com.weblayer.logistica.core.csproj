@@ -73,8 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Web References\WebService\Service.disco" />
-    <None Include="Web References\WebService\Service.wsdl" />
+    <None Include="Web References\WebService\EmbarcadorService.wsdl" />
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -84,10 +83,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx">
+    <WebReferenceUrl Include="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebService\</RelPath>
-      <UpdateFromURL>http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx</UpdateFromURL>
+      <UpdateFromURL>http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -97,6 +96,9 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebService\EmbarcadorService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
