@@ -1,4 +1,5 @@
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -80,7 +81,17 @@ namespace br.com.weblayer.logistica.android.Activities
             if (!ValidateViews())
                 return;
 
-            StartActivity(typeof(Activity_SimulacaoFreteResultado));
+            Intent intent = new Intent();
+            intent.SetClass(this, typeof(Activity_SimulacaoFreteResultado));
+
+            intent.PutExtra("origem", codmunorigem);
+            intent.PutExtra("destino", codmundestino);
+            intent.PutExtra("valor", txtValorNF.Text);
+            intent.PutExtra("peso", txtPesoNF.Text);
+            intent.PutExtra("volume", txtVolume.Text);
+
+            StartActivity(intent);
+
         }
 
         private void FindViews()

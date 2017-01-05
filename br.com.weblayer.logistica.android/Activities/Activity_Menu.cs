@@ -52,8 +52,8 @@ namespace br.com.weblayer.logistica.android.Activities
             btnSimularFrete = FindViewById<Button>(Resource.Id.btnMenuSimularFrete);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = " w/embarcador";
-            toolbar.SetLogo(Resource.Mipmap.ic_launcher);
+            toolbar.Title = " W/Embarcador";
+            toolbar.SetLogo(Resource.Mipmap.ic_menu);
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);           
         }
 

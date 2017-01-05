@@ -7,7 +7,7 @@ using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.android.Adapters;
 using Android.Content;
 using Android.Views;
-using System.Runtime.Remoting.Contexts;
+
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -18,6 +18,12 @@ namespace br.com.weblayer.logistica.android.Activities
         List<SimulacaoFrete> ListaSimulacao;
         TextView EmpytText;
         Android.Support.V7.Widget.Toolbar toolbar;
+
+        private string codmunorigem;
+        private string codmundestino;
+        private string valornf;
+        private string valorpesonf;
+        private string volumenf;
 
         protected override int LayoutResource
         {
@@ -43,6 +49,14 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Resultado da Simulação";
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+
+            codmunorigem = Intent.GetStringExtra("origem");
+            codmundestino = Intent.GetStringExtra("destino");
+            valornf = Intent.GetStringExtra("valor");
+            valorpesonf = Intent.GetStringExtra("peso");
+            volumenf = Intent.GetStringExtra("volume");
+
+
         }
 
         private void BindData()
@@ -50,7 +64,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
             var simulafrete = new SimulacaoFreteManager();
 
-            ListaSimulacao = simulafrete.GetSimulacaoFrete("3513801", "3534401", 100, 5, 20);
+            ListaSimulacao = simulafrete.GetSimulacaoFrete(codmunorigem, codmundestino, decimal.Parse(valornf), decimal.Parse(valorpesonf), decimal.Parse(volumenf));
             
             ListViewResult.Adapter = new Adapter_SimulacaoFrete_ListView(this, ListaSimulacao);
             ListViewResult.ItemClick += OnListItemClick;
