@@ -3,6 +3,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using Android.Views;
+using br.com.weblayer.logistica.core.BLL;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -51,6 +52,9 @@ namespace br.com.weblayer.logistica.android.Activities
             btnPerformance = FindViewById<Button>(Resource.Id.btnMenuPerformanceEntrega);
             btnSimularFrete = FindViewById<Button>(Resource.Id.btnMenuSimularFrete);
 
+            if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
+                btnSimularFrete.Visibility = ViewStates.Gone;
+            
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = " W/Embarcador";
             toolbar.SetLogo(Resource.Mipmap.ic_menu);

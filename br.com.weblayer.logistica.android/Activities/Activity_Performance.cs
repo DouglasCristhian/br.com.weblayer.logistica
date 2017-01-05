@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.OS;
@@ -9,7 +10,7 @@ using Android.Views;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = false, Label = "Performance", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(MainLauncher = false, ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class Activity_Performance : Activity_Base
     {
         ListView ListViewPerformance;
@@ -35,8 +36,10 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
 
+            this.Title= "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
+
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Performance";
+            toolbar.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") +")";
             toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
         }
 

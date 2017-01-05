@@ -2661,10 +2661,7 @@ namespace br.com.weblayer.logistica.android
 			public const int ic_launcher = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int ic_launcherback = 2130903041;
-			
-			// aapt resource value: 0x7f030002
-			public const int ic_menu = 2130903042;
+			public const int ic_menu = 2130903041;
 			
 			static Mipmap()
 			{

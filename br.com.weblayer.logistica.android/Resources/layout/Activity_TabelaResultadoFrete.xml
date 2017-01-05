@@ -7,11 +7,10 @@
     android:layout_height="match_parent">
 
   <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"/>
 
   <LinearLayout
-    
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:layout_marginTop="10dip"
@@ -25,30 +24,30 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:textSize="20sp"
-       android:layout_marginRight = "18dip"
-            android:layout_marginLeft = "18dip"/>
+      android:layout_marginRight = "6dip"
+      android:layout_marginLeft = "6dip"/>
 
     <TextView
       android:id="@+id/txt2"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:textSize="20sp"
-       android:layout_marginRight = "18dip"
-            android:layout_marginLeft = "18dip"/>
+      android:layout_marginRight = "6dip"
+      android:layout_marginLeft = "6dip"/>
 
     <TextView
       android:id="@+id/txt3"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:textSize="20sp"
-       android:layout_marginRight = "18dip"
-            android:layout_marginLeft = "18dip"/>
+      android:layout_marginRight = "6dip"
+      android:layout_marginLeft = "6dip"/>
 
     <WebView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/webView1" />
-
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/webView1" />
 
   </LinearLayout>
+
 </LinearLayout>
