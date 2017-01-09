@@ -77,6 +77,22 @@
       android:clickable="true"
       android:textSize="18sp"
       android:text="---------"/>
+
+    <TextView
+     android:id="@+id/lblHoraEntrega"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp"
+     android:textSize="18sp"
+     android:text="Hora da Entrega"/>
+
+    <TextView
+      android:id="@+id/txtHoraEntrega"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:clickable="true"
+      android:textSize="18sp"
+      android:text="---------"/>
   
     <Button
       android:id="@+id/btnConfirmarEntrega"

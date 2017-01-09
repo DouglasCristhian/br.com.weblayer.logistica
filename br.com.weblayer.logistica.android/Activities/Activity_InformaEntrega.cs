@@ -8,6 +8,7 @@ using Android.Widget;
 using br.com.weblayer.logistica.core.Model;
 
 using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
+using br.com.weblayer.logistica.android.Helpers;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -20,6 +21,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private TextView txtNota;
         private TextView txtSerie;
         private TextView txtData;
+        public TextView txtHora;
         private TextView lblMensagem;
         private Button btnConfirmarEntrega;
         private NotaFiscal nota;
@@ -60,34 +62,39 @@ namespace br.com.weblayer.logistica.android.Activities
             txtNota = FindViewById<TextView>(Resource.Id.txtNota);
             txtSerie = FindViewById<TextView>(Resource.Id.txtSerie);
             txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
+            txtHora = FindViewById<TextView>(Resource.Id.txtHoraEntrega);
             lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
             btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
 
-            txtData.Click += EventtxtData_Click;
+            //txtData.Click += EventtxtData_Click;
+            //txtHora.Click += EventtxtHora_Click;
             btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
             
         }
 
         private void BindData()
         {
-
             txtNomeCliente.Text = nota.ds_cliente;
             txtValor.Text = nota.ds_valor;
             txtNota.Text = nota.ds_numeronota + "/" + nota.ds_serienota;
             lblMensagem.Text = "";
             txtData.Text = "";
+            txtHora.Text = "";
             btnConfirmarEntrega.Visibility = ViewStates.Visible;
 
             if (nota.dt_entrega.HasValue)
             {
-                txtData.Text = nota.dt_entrega.Value.ToString("dd/MM/yyyy"); //Caso a nota já tenha sido entegue, mostrar a data de entrega.
+                txtData.Text = nota.dt_entrega.Value.ToString("dd/MM/yyyy");
+                txtHora.Text = nota.dt_entrega.Value.ToString("HH:mm"); //Caso a nota já tenha sido entegue, mostrar a data de entrega.
                 btnConfirmarEntrega.Visibility = ViewStates.Invisible;
             }
             else
             { 
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
+                txtHora.Text = DateTime.Now.ToString("HH:mm");
+                txtData.Click += EventtxtData_Click;
+                txtHora.Click += EventtxtHora_Click;
             }
-
         }
 
         private void SetStyles()
@@ -101,8 +108,10 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             try
             {
+                //var dataentrega = DateTime.Parse(txtData.Text);
 
-                var dataentrega = DateTime.Parse(txtData.Text);
+                string data = (txtData.Text + " " + txtHora.Text);
+                var dataentrega = DateTime.Parse(data);
 
                 var notamanager = new core.BLL.NotaFiscalManager();
 
@@ -141,7 +150,18 @@ namespace br.com.weblayer.logistica.android.Activities
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
         }
-        
+
+        private void EventtxtHora_Click(object sender, EventArgs e)
+        {
+            //Call Fragment
+            TimePickerHelper frag = TimePickerHelper.NewInstance(delegate (DateTime time)
+            {
+                txtHora.Text = time.ToString("hh:mm tt");
+            });
+
+            frag.Show(FragmentManager, TimePickerHelper.TAG);
+        }
+
         private void BtnConfirmarEntrega_Click(object sender, EventArgs e)
         {
 
