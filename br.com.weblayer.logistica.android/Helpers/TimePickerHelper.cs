@@ -34,7 +34,7 @@ namespace br.com.weblayer.logistica.android.Helpers
                 this,
                 currently.Hour,
                 currently.Minute,
-                false
+                true
             );
             return dialog;
         }
