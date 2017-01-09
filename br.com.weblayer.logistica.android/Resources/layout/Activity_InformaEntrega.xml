@@ -74,6 +74,7 @@
       android:id="@+id/txtDataEntrega"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:textColor="#000000"
       android:clickable="true"
       android:textSize="18sp"
       android:text="---------"/>
@@ -90,6 +91,7 @@
       android:id="@+id/txtHoraEntrega"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:textColor="#000000"
       android:clickable="true"
       android:textSize="18sp"
       android:text="---------"/>
