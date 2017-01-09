@@ -146,7 +146,7 @@ namespace br.com.weblayer.logistica.android.Activities
             //Call Fragment
             DatePickerHelper frag = DatePickerHelper.NewInstance(delegate (DateTime time)
             {
-                txtData.Text = time.ToString("dd/MM/yyyy");
+                txtData.Text = time.ToString("dd/MM/yyyy", CultureInfo.GetCultureInfo("pt-BR"));
             });
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
