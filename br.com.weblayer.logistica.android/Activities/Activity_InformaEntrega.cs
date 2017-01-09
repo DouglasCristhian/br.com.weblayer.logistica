@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Threading;
 using Android.App;
 using Android.Content;
@@ -111,7 +112,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 //var dataentrega = DateTime.Parse(txtData.Text);
 
                 string data = (txtData.Text + " " + txtHora.Text);
-                var dataentrega = DateTime.Parse(data);
+                var dataentrega = DateTime.Parse(data, CultureInfo.CreateSpecificCulture("pt-BR"));
 
                 var notamanager = new core.BLL.NotaFiscalManager();
 
@@ -145,7 +146,7 @@ namespace br.com.weblayer.logistica.android.Activities
             //Call Fragment
             DatePickerHelper frag = DatePickerHelper.NewInstance(delegate (DateTime time)
             {
-                txtData.Text = time.ToShortDateString();
+                txtData.Text = time.ToString("dd/MM/yyyy");
             });
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
@@ -156,7 +157,7 @@ namespace br.com.weblayer.logistica.android.Activities
             //Call Fragment
             TimePickerHelper frag = TimePickerHelper.NewInstance(delegate (DateTime time)
             {
-                txtHora.Text = time.ToString("hh:mm tt");
+                txtHora.Text = time.ToString("HH:mm");
             });
 
             frag.Show(FragmentManager, TimePickerHelper.TAG);
