@@ -50,11 +50,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CenarioEntregaManager.cs" />
     <Compile Include="BLL\CidadeManager.cs" />
     <Compile Include="BLL\NotaFiscalManager.cs" />
     <Compile Include="BLL\PerformanceManager.cs" />
     <Compile Include="BLL\SimulacaoFreteManager.cs" />
     <Compile Include="BLL\UsuarioManager.cs" />
+    <Compile Include="Model\CenarioEntrega.cs" />
     <Compile Include="Model\Resultado.cs" />
     <Compile Include="Model\Cidade.cs" />
     <Compile Include="Model\NotaFiscal.cs" />
