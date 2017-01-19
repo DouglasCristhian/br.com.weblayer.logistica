@@ -13,6 +13,7 @@ namespace br.com.weblayer.logistica.android.Activities
         Android.Support.V7.Widget.Toolbar toolbar;
         private Button btnInformarEntrega;
         private Button btnPerformance;
+        private Button btnCenarioEntrega;
         private Button btnSimularFrete;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -41,6 +42,11 @@ namespace br.com.weblayer.logistica.android.Activities
             StartActivity(typeof(Activity_Performance));
         }
 
+        private void BtnCenarioEntrega_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(Activity_CenarioEntrega));
+        }
+
         private void BtnSimularFrete_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(Activity_SimularFrete));
@@ -50,6 +56,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             btnInformarEntrega = FindViewById<Button>(Resource.Id.btnMenuInformaEntrega);
             btnPerformance = FindViewById<Button>(Resource.Id.btnMenuPerformanceEntrega);
+            btnCenarioEntrega = FindViewById<Button>(Resource.Id.btnMenuCenarioEntrega);
             btnSimularFrete = FindViewById<Button>(Resource.Id.btnMenuSimularFrete);
 
             if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
@@ -65,6 +72,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {        
             btnInformarEntrega.Click += BtnInformarEntrega_Click;
             btnPerformance.Click += BtnPerformance_Click;
+            btnCenarioEntrega.Click += BtnCenarioEntrega_Click;
             btnSimularFrete.Click += BtnSimularFrete_Click;
         }
 
