@@ -8,17 +8,23 @@ using br.com.weblayer.logistica.android.Adapters;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
 using Android.Views;
+using Android.Text;
+using Java.Lang;
+using ZXing.Mobile;
+using br.com.weblayer.logistica.android.Helpers;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = false, Label = "Busca Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(MainLauncher = false, Label = "Buscar Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 
     public class Activity_BuscaNotaView : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
+        MobileBarcodeScanner scanner;
         ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
-        Button btnPesquisar;
+        Button btnEscanear;
+        SearchView searchView;
         EditText txtNumNota;
         TextView EmpytText;
 
@@ -38,64 +44,69 @@ namespace br.com.weblayer.logistica.android.Activities
             FindViews();
             SetStyle();
             BindData();
-           
+
+            MobileBarcodeScanner.Initialize(Application);
+            scanner = new MobileBarcodeScanner();
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_toolbarvazia, menu);
-            return true;
-        }
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+        //    return true;
+        //}
 
         private void FindViews()
         {
-            btnPesquisar = FindViewById<Button>(Resource.Id.btnPesquisar);
+            btnEscanear = FindViewById<Button>(Resource.Id.btnEscanear);
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
             EmpytText = FindViewById<TextView>(Resource.Id.txtListEmpty);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
         }
 
         private void BindData()
-        {          
-            btnPesquisar.Click += BtnPesquisar_Click;
+        {
+            btnEscanear.Click += BtnEscanear_Click;
             ListViewNota.ItemClick += OnListItemClick;
+
+            txtNumNota.TextChanged += TxtNumNota_TextChanged;
+        }
+
+        private void TxtNumNota_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            FillList();
         }
 
         private void SetStyle()
         {
             txtNumNota.SetBackgroundResource(Resource.Drawable.EditTextStyle);
-            btnPesquisar.SetBackgroundResource(Resource.Drawable.BordaBotoes);
-        }
-
-        private bool ValidateViews()
-        {
-            var validacao = true;
-            if (txtNumNota.Length() == 0)
-            {
-                validacao = false;
-                txtNumNota.Error = "Número da nota inválido!";
-            }
-
-            return validacao;
-
+            btnEscanear.SetBackgroundResource(Resource.Drawable.BordaBotoes);
         }
 
         private void FillList()
         {
-
             ListaNotas = new NotaFiscalManager().GetNotaFiscal(txtNumNota.Text);
             ListViewNota.Adapter = new Adapter_NotaFiscal_ListView(this, ListaNotas);
             ListViewNota.EmptyView = EmpytText;
-
         }
 
-        private void BtnPesquisar_Click(object sender, EventArgs e)
+        private async void BtnEscanear_Click(object sender, EventArgs e)
         {
-            if (!ValidateViews())
+            scanner.UseCustomOverlay = false;
+            scanner.TopText = "Aguarde o escaneamento do código de barras";
+
+            var result = await scanner.Scan();
+            HandleScanResult(result);
+        }
+
+        public void HandleScanResult(ZXing.Result result)
+        {
+            if (result == null)
                 return;
 
+            txtNumNota.Text = result.ToString();
             FillList();
         }
 

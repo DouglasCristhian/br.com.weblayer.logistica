@@ -56,7 +56,8 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Informar Entrega";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
 
             txtNomeCliente = FindViewById<TextView>(Resource.Id.txtNomeCliente);
             txtValor = FindViewById<TextView>(Resource.Id.txtValorNota);

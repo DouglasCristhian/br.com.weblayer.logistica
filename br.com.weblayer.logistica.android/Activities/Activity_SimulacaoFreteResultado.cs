@@ -48,7 +48,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Resultado da Simulação";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
 
             codmunorigem = Intent.GetStringExtra("origem");
             codmundestino = Intent.GetStringExtra("destino");

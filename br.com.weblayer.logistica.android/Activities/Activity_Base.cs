@@ -5,7 +5,7 @@ using Android.Support.V7.Widget;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Activity_Base")]
+    [Activity]
     public abstract class Activity_Base : AppCompatActivity
     {
         public Toolbar Toolbar
@@ -21,7 +21,7 @@ namespace br.com.weblayer.logistica.android.Activities
             Toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             if (Toolbar != null)
             {
-                Toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+                Toolbar.InflateMenu(Resource.Menu.menu_toolbar);
                 SetSupportActionBar(Toolbar);
                 SupportActionBar.SetDisplayHomeAsUpEnabled(true);
                 SupportActionBar.SetHomeButtonEnabled(true);

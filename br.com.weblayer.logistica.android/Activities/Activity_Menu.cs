@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Android.Views;
 using br.com.weblayer.logistica.core.BLL;
+using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -11,10 +12,8 @@ namespace br.com.weblayer.logistica.android.Activities
     public class Activity_Menu : Activity
     {
         Android.Support.V7.Widget.Toolbar toolbar;
-        private Button btnInformarEntrega;
-        private Button btnPerformance;
-        private Button btnCenarioEntrega;
-        private Button btnSimularFrete;
+        private List<string> lstItensMenu;
+        private ListView ListView_Menu;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,53 +26,69 @@ namespace br.com.weblayer.logistica.android.Activities
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_toolbarvazia, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
             return true;
-        }
-
-        private void BtnInformarEntrega_Click(object sender, EventArgs e)
-        {
-
-            StartActivity(typeof(Activity_BuscaNotaView));
-        }
-
-        private void BtnPerformance_Click(object sender, EventArgs e)
-        {
-            StartActivity(typeof(Activity_Performance));
-        }
-
-        private void BtnCenarioEntrega_Click(object sender, EventArgs e)
-        {
-            StartActivity(typeof(Activity_CenarioEntrega));
-        }
-
-        private void BtnSimularFrete_Click(object sender, EventArgs e)
-        {
-            StartActivity(typeof(Activity_SimularFrete));
         }
 
         private void FindViews()
         {
-            btnInformarEntrega = FindViewById<Button>(Resource.Id.btnMenuInformaEntrega);
-            btnPerformance = FindViewById<Button>(Resource.Id.btnMenuPerformanceEntrega);
-            btnCenarioEntrega = FindViewById<Button>(Resource.Id.btnMenuCenarioEntrega);
-            btnSimularFrete = FindViewById<Button>(Resource.Id.btnMenuSimularFrete);
+            ListView_Menu = FindViewById<ListView>(Resource.Id.ListView_Menu);
 
-            if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
-                btnSimularFrete.Visibility = ViewStates.Gone;
+            //if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
+            //    btnSimularFrete.Visibility = ViewStates.Gone;
             
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = " W/Embarcador";
             toolbar.SetLogo(Resource.Mipmap.ic_menu);
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);           
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);       
+        }
+
+        private void ListView_Menu_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e.Id == 0)
+            {
+                StartActivity(typeof(Activity_BuscaNotaView));
+            }
+
+            if (e.Id == 1)
+            {
+                StartActivity(typeof(Activity_Performance));
+            }
+
+            if (e.Id == 2)
+            {
+                StartActivity(typeof(Activity_CenarioEntrega));
+            }
+
+            if (e.Id == 3)
+            {
+                StartActivity(typeof(Activity_SimularFrete));
+            }
         }
 
         private void BindData()
-        {        
-            btnInformarEntrega.Click += BtnInformarEntrega_Click;
-            btnPerformance.Click += BtnPerformance_Click;
-            btnCenarioEntrega.Click += BtnCenarioEntrega_Click;
-            btnSimularFrete.Click += BtnSimularFrete_Click;
+        {
+          lstItensMenu = GetData();
+
+          ListView_Menu.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lstItensMenu);
+
+          ListView_Menu.ItemClick += ListView_Menu_ItemClick;
+          toolbar.MenuItemClick += Toolbar_MenuItemClick;
+        }
+
+        private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
+        {
+            switch (e.Item.ItemId)
+            {
+                case Resource.Id.action_sobre:
+                    StartActivity(typeof(Activity_Sobre));
+                    break;
+            }
+        }
+
+        private string GetVersion()
+        {
+            return Application.Context.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -86,6 +101,24 @@ namespace br.com.weblayer.logistica.android.Activities
                     return true;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        private List<string> GetData()
+        {
+            //Teste da condição
+            //UsuarioManager.Instance.usuario.ds_perfil = "TRANSPORTADOR";
+
+            List<string> lista = new List<string>();
+            lista.Add("Informar Entrega");
+            lista.Add("Performance do Transportador");
+            lista.Add("Cenário de Entrega");
+
+            if (UsuarioManager.Instance.usuario.ds_perfil != "TRANSPORTADOR")
+            {
+                lista.Add("Simular Frete");
+            }
+
+            return lista;
         }
     }
 }

@@ -40,7 +40,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_toolbarvazia, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+            menu.RemoveItem(Resource.Id.action_sobre);
             return true;
         }
 
@@ -55,7 +56,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarvazia);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
         }
 
         private void BindData()

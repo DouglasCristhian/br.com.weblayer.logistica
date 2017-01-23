@@ -19,10 +19,11 @@ using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Activity_CenarioEntrega")]
+    [Activity(Label = "Cenário de Entrega", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class Activity_CenarioEntrega : Activity_Base
     {
         private PlotView view;
+        Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override int LayoutResource
         {
@@ -36,7 +37,23 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             base.OnCreate(savedInstanceState);
 
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
+
             FindViews();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+                    return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
         }
 
         private void FindViews()

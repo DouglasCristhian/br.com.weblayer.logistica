@@ -32,9 +32,11 @@
             android:layout_marginRight = "18dip"
             android:layout_marginLeft = "18dip"
             android:id="@+id/edtServidor"
-            android:text="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx" />
+            android:text="http://teste.weblayer.com.br/logistica_fischerbr/Mobile/EmbarcadorService.asmx" />
+            
+            <!--http://teste.weblayer.com.br/Logistica_Gdc/Mobile/Service.asmx"-->
 
-        <TextView
+            <TextView
             android:text="Usuário"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

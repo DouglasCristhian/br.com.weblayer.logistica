@@ -10,7 +10,13 @@
       android:id="@+id/toolbar"
       layout="@layout/toolbar"/>
 
-  <Button
+  <ListView
+     android:id="@+id/ListView_Menu"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="18dip"/>
+  
+  <!--<Button
      android:text="Informar Entrega"
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
@@ -45,6 +51,6 @@
      android:layout_marginLeft = "18dip"
      android:paddingLeft="30dip"
      android:paddingRight="30dip"
-     android:id="@+id/btnMenuSimularFrete" />
+     android:id="@+id/btnMenuSimularFrete" />-->
 
 </LinearLayout>
