@@ -7,5 +7,9 @@
       android:id="@+id/action_sobre"
       android:title="Sobre"
       app:showAsAction="never"/>
-      
+
+  <item
+      android:id="@+id/action_ajuda"
+      android:title="Ajuda"
+      app:showAsAction="never"/>
 </menu>

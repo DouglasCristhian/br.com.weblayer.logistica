@@ -2,5 +2,38 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">W/Embarcador</string>
+
+    <string name="Introducao">
+    "      Este aplicativo tem por objetivo auxiliar aos embarcadores, oferecendo um meio simples e rápido de analisar a performance dos transportadores, ter acesso sobre o cenário das entregas e, inclusive, fazer uma simulação de frete."
+    </string>
+
+    <string name="UtilizandoApp">
+    "      A primeira tela apresentada ao usuário é a tela de login. Nela são inseridas as informações necessárias para se conectar na aplicação W/Embarcador. O campos necessários são Servidor: Local do W/Embarcador, Usuário e Senha."
+    </string>
+
+    <string name="UtilizandoApp2">
+    "      Uma vez que estes dados sejam inseridos e autenticados, somos levados ao menu principal. A partir dele é possível selecionar uma das quatro opções apresentadas: Informar Entrega, Performance do Transportador, Cenário de Entrega e Simular Frete. Além destas, podemos ainda abrir um novo menu ao clicar sobre o ícone no canto superior direito da tela (1) como mostrado na imagem abaixo."
+    </string>
+
+    <string name="InformarEntrega">
+    "      A partir desta opção, é possível localizar e informar a data e hora da entrega das NFs. A nota fiscal pode ser inserida manualmente (Usando o teclado do dispositivo) ou via escaneamento através da câmera."
+    </string>
+
+    <string name="InformarEntrega2">
+    "      Após seleção da nota, defina a data e hora da entrega. Uma vez que estas informações estejam corretas, basta clicar sobre “Confirmar Entrega"."
+    </string>
+
+  <string name="Performance">
+    "      Esta tela apresenta a performance referente ao mês corrente. Nela são apresentados os percentuais e a transportadora correspondente."
+  </string>
+
+  <string name="CenarioEntrega">
+    "      Para maior controle sobre entregas feitas dentro ou fora da data, estas informações são apresentadas em forma de gráfico de colunas. As barras em vermelho mostram notas entregues com atraso. As verdes definem as entregues na data ou mesmo adiantadas."
+           Observação: Esta é a única tela do aplicativo que é apresentada especificamente em formato landscape.
+  </string>
+
+  <string name="SimularFrete">
+    "      Através dessa opção é possível simular o custo do frete com base na tabela de preço previamente cadastrada no Portal. Ao clicar sobre (1) ou (2), podemos escolher as cidades de origem e de destino para o cálculo. Com todos os dados inseridos, clicamos sobre “Enviar” para ter o retorno do cálculo e seu resultado."
+  </string>
   
 </resources>

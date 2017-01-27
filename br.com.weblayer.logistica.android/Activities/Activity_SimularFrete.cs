@@ -38,7 +38,6 @@ namespace br.com.weblayer.logistica.android.Activities
             btnEnviar.Click += BtnEnviar_Click;
             txtOrigem.Click += TxtOrigem_Click;
             txtDestino.Click += TxtDestino_Click;
-
         }
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
@@ -55,7 +54,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             var retorno = SplitString(e.ReturnValue);
             txtOrigem.Text = retorno[0];
-            codmunorigem = retorno[1];
+            //codmunorigem = retorno[1];
         }
 
         private void TxtDestino_Click(object sender, System.EventArgs e)
@@ -72,7 +71,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             var retorno = SplitString(e.ReturnValue);
             txtDestino.Text = retorno[0];
-            codmundestino = retorno[1];
+            //codmundestino = retorno[1];
         }
         
 
