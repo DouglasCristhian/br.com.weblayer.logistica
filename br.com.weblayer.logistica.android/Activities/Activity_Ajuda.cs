@@ -14,7 +14,7 @@ using br.com.weblayer.logistica.android.exp.Fragments;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Activity_Ajuda")]
+    [Activity(Label = "Ajuda")]
     public class Activity_Ajuda : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
