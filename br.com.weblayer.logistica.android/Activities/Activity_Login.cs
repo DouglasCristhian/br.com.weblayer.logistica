@@ -43,7 +43,18 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_ajuda);
+            toolbar.MenuItemClick += Toolbar_MenuItemClick;
 
+        }
+
+        private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
+        {
+            switch (e.Item.ItemId)
+            {
+                case Resource.Id.action_sair:
+                    Finish();
+                    break;
+            }
         }
 
         private bool ValidateViews()

@@ -1960,6 +1960,9 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f0b003b
 			public const int action_mode_close_button = 2131427387;
 			
+			// aapt resource value: 0x7f0b00bb
+			public const int action_sair = 2131427515;
+			
 			// aapt resource value: 0x7f0b00b9
 			public const int action_sobre = 2131427513;
 			
@@ -3393,9 +3396,6 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f08001d
 			public const int Platform_Widget_AppCompat_Spinner = 2131230749;
-			
-			// aapt resource value: 0x7f08015d
-			public const int PopupTheme = 2131231069;
 			
 			// aapt resource value: 0x7f08002a
 			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131230762;

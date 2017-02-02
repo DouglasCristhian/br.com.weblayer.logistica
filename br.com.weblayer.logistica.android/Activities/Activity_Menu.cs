@@ -87,6 +87,10 @@ namespace br.com.weblayer.logistica.android.Activities
                 case Resource.Id.action_ajuda:
                     StartActivity(typeof(Activity_Ajuda));
                     break;
+
+                case Resource.Id.action_sair:
+                    Finish();
+                    break;
             }
         }
 

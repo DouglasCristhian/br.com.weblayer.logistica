@@ -42,6 +42,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
             menu.RemoveItem(Resource.Id.action_sobre);
+            menu.RemoveItem(Resource.Id.action_sair);
             return true;
         }
 
