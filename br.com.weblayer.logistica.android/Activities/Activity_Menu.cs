@@ -38,8 +38,7 @@ namespace br.com.weblayer.logistica.android.Activities
             //    btnSimularFrete.Visibility = ViewStates.Gone;
             
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = " W/Embarcador";
-            toolbar.SetLogo(Resource.Mipmap.ic_menu);
+            toolbar.Title = "W/Embarcador";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);       
         }
 

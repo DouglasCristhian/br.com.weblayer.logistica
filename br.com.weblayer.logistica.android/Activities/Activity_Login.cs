@@ -38,8 +38,7 @@ namespace br.com.weblayer.logistica.android.Activities
             lblmensagem = FindViewById<TextView>(Resource.Id.txtMensagem);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = " W/Embarcador";
-            toolbar.SetLogo(Resource.Mipmap.ic_menu);
+            toolbar.Title = "W/Embarcador";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_ajuda);
