@@ -176,6 +176,7 @@
     <Compile Include="Adapters\Adapter_Performance_ListView.cs" />
     <Compile Include="Fragments\GenericFragmentPagerAdapter.cs" />
     <Compile Include="Fragments\GenericViewPagerFragment.cs" />
+    <Compile Include="Helpers\CurrencyConverterHelper.cs" />
     <Compile Include="Helpers\DatePickerHelper.cs" />
     <Compile Include="Activities\Activity_Login.cs" />
     <Compile Include="Activities\Activity_BuscaNotaView.cs" />

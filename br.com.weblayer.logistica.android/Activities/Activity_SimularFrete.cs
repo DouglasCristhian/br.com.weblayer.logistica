@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using br.com.weblayer.logistica.android.Helpers;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -20,7 +21,6 @@ namespace br.com.weblayer.logistica.android.Activities
         private string codmunorigem;
         private string codmundestino;
 
-
         protected override int LayoutResource
         {
             get
@@ -34,10 +34,9 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnCreate(savedInstanceState);
 
             FindViews();
+            BindData();
             SetStyle();
-            btnEnviar.Click += BtnEnviar_Click;
-            txtOrigem.Click += TxtOrigem_Click;
-            txtDestino.Click += TxtDestino_Click;
+
         }
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
@@ -71,9 +70,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             var retorno = SplitString(e.ReturnValue);
             txtDestino.Text = retorno[0];
-            //codmundestino = retorno[1];
         }
-        
 
         private void BtnEnviar_Click(object sender, System.EventArgs e)
         {
@@ -108,6 +105,14 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
         }
 
+        private void BindData()
+        {
+            btnEnviar.Click += BtnEnviar_Click;
+            txtOrigem.Click += TxtOrigem_Click;
+            txtDestino.Click += TxtDestino_Click;
+            txtValorNF.AddTextChangedListener(new CurrencyConverterHelper(txtValorNF));
+        }
+
         private void SetStyle()
         {
             txtOrigem.SetBackgroundResource(Resource.Drawable.BordaBotoes);
@@ -126,7 +131,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 validacao = false;
                 txtOrigem.Error = "Origem inválida!";
             }
-        
+
             if (txtDestino.Length() == 0)
             {
                 validacao = false;

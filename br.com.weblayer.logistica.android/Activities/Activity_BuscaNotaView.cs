@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using br.com.weblayer.logistica.android.Adapters;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
-using Android.Views;
-using Android.Text;
-using Java.Lang;
+using System;
+using System.Collections.Generic;
 using ZXing.Mobile;
-using br.com.weblayer.logistica.android.Helpers;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = false, Label = "Buscar Nota Fiscal", ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(MainLauncher = false, Label = "Buscar Nota Fiscal", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 
     public class Activity_BuscaNotaView : Activity_Base
     {
@@ -24,7 +21,6 @@ namespace br.com.weblayer.logistica.android.Activities
         ListView ListViewNota;
         List<NotaFiscal> ListaNotas;
         Button btnEscanear;
-        SearchView searchView;
         EditText txtNumNota;
         TextView EmpytText;
 
@@ -37,8 +33,8 @@ namespace br.com.weblayer.logistica.android.Activities
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
-		{
-			base.OnCreate(savedInstanceState); 
+        {
+            base.OnCreate(savedInstanceState);
             ListViewNota = FindViewById<ListView>(Resource.Id.NotaListView);
 
             FindViews();
@@ -48,12 +44,6 @@ namespace br.com.weblayer.logistica.android.Activities
             MobileBarcodeScanner.Initialize(Application);
             scanner = new MobileBarcodeScanner();
         }
-
-        //public override bool OnCreateOptionsMenu(IMenu menu)
-        //{
-        //    MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
-        //    return true;
-        //}
 
         private void FindViews()
         {
@@ -111,17 +101,17 @@ namespace br.com.weblayer.logistica.android.Activities
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        { 
+        {
             var ListViewNotaClick = sender as ListView;
             var t = ListaNotas[e.Position];
 
             Intent intent = new Intent();
             intent.SetClass(this, typeof(Activity_InformaEntrega));
-            
+
             //Passa a string do objeto para a próxima tela
             intent.PutExtra("JsonNota", Newtonsoft.Json.JsonConvert.SerializeObject(t));
 
-            StartActivityForResult(intent,0);
+            StartActivityForResult(intent, 0);
 
         }
 
@@ -130,9 +120,9 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-                var mensagem  = data.GetStringExtra("mensagem");
+                var mensagem = data.GetStringExtra("mensagem");
                 Toast.MakeText(this, mensagem, ToastLength.Long).Show();
-                
+
                 FillList();
             }
         }
