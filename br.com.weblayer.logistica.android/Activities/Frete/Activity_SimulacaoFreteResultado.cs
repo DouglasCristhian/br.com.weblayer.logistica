@@ -1,12 +1,12 @@
-using System.Collections.Generic;
 using Android.App;
-using Android.OS;
-using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-using br.com.weblayer.logistica.core.BLL;
-using br.com.weblayer.logistica.android.Adapters;
 using Android.Content;
+using Android.OS;
 using Android.Views;
+using Android.Widget;
+using br.com.weblayer.logistica.android.Adapters;
+using br.com.weblayer.logistica.core.BLL;
+using br.com.weblayer.logistica.core.Model;
+using System.Collections.Generic;
 
 
 namespace br.com.weblayer.logistica.android.Activities
@@ -46,33 +46,33 @@ namespace br.com.weblayer.logistica.android.Activities
             ListViewResult = FindViewById<ListView>(Resource.Id.lstResultadoSimulacaoFrete);
             EmpytText = FindViewById<TextView>(Resource.Id.txtListEmpty);
 
+            GetToolbar();
+        }
+
+        private void GetToolbar()
+        {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Resultado da Simulação";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
+        }
 
+        private void BindData()
+        {
             codmunorigem = Intent.GetStringExtra("origem");
             codmundestino = Intent.GetStringExtra("destino");
             valornf = Intent.GetStringExtra("valor");
             valorpesonf = Intent.GetStringExtra("peso");
             volumenf = Intent.GetStringExtra("volume");
 
-
-        }
-
-        private void BindData()
-        {
-
             var simulafrete = new SimulacaoFreteManager();
 
             ListaSimulacao = simulafrete.GetSimulacaoFrete(codmunorigem, codmundestino, decimal.Parse(valornf), decimal.Parse(valorpesonf), decimal.Parse(volumenf));
-            
+
             ListViewResult.Adapter = new Adapter_SimulacaoFrete_ListView(this, ListaSimulacao);
             ListViewResult.ItemClick += OnListItemClick;
             EmpytText.Text = simulafrete.mensagem;
             ListViewResult.EmptyView = EmpytText;
-             
-
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)

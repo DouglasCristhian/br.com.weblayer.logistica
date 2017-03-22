@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
 using Android.App;
 using Android.OS;
-using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-using br.com.weblayer.logistica.core.BLL;
-using br.com.weblayer.logistica.android.Adapters;
 using Android.Views;
+using Android.Widget;
+using br.com.weblayer.logistica.android.Adapters;
+using br.com.weblayer.logistica.core.BLL;
+using br.com.weblayer.logistica.core.Model;
+using System;
+using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -36,10 +36,13 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
 
-            this.Title= "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
+            GetToolbar();
+            this.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
+        }
 
+        private void GetToolbar()
+        {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") +")";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
         }

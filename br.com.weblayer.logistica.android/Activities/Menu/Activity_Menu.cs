@@ -1,8 +1,7 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
-using Android.Widget;
 using Android.Views;
+using Android.Widget;
 using br.com.weblayer.logistica.core.BLL;
 using System.Collections.Generic;
 
@@ -33,13 +32,17 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             ListView_Menu = FindViewById<ListView>(Resource.Id.ListView_Menu);
+            GetToolbar();
+        }
 
+        private void GetToolbar()
+        {
             //if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
             //    btnSimularFrete.Visibility = ViewStates.Gone;
-            
+
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "W/Embarcador";
-            toolbar.InflateMenu(Resource.Menu.menu_toolbar);       
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
         }
 
         private void ListView_Menu_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -67,12 +70,12 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BindData()
         {
-          lstItensMenu = GetData();
+            lstItensMenu = GetData();
 
-          ListView_Menu.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lstItensMenu);
+            ListView_Menu.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lstItensMenu);
 
-          ListView_Menu.ItemClick += ListView_Menu_ItemClick;
-          toolbar.MenuItemClick += Toolbar_MenuItemClick;
+            ListView_Menu.ItemClick += ListView_Menu_ItemClick;
+            toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }
 
         private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)

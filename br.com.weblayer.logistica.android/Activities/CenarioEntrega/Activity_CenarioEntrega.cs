@@ -1,25 +1,18 @@
-using System;
+using Android.App;
+using Android.OS;
+using Android.Views;
+using br.com.weblayer.logistica.core.BLL;
+using br.com.weblayer.logistica.core.Model;
+using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using OxyPlot.Xamarin.Android;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using OxyPlot.Xamarin.Android;
-using OxyPlot;
-using OxyPlot.Series;
-using OxyPlot.Axes;
-using br.com.weblayer.logistica.core.BLL;
-using System.Collections;
-using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Cenário de Entrega", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class Activity_CenarioEntrega : Activity_Base
     {
         private PlotView view;
@@ -38,6 +31,7 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnCreate(savedInstanceState);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            this.Title = "Cenário de Entrega";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_sair);
@@ -64,7 +58,7 @@ namespace br.com.weblayer.logistica.android.Activities
         }
 
         private PlotModel GraficoColunas()
-        { 
+        {
             var plotModel = new PlotModel()
             {
                 LegendPlacement = LegendPlacement.Outside,
@@ -83,7 +77,7 @@ namespace br.com.weblayer.logistica.android.Activities
             var categoryAxis1 = new CategoryAxis()
             {
                 Title = "Período da Entrega",
-                
+
                 MaximumRange = 15,
             };
 
@@ -96,9 +90,9 @@ namespace br.com.weblayer.logistica.android.Activities
 
             };
 
-            for (int i = 0; i<SortedList.Count; i++)
+            for (int i = 0; i < SortedList.Count; i++)
             {
-                if (SortedList[i].nr_dias< 0)
+                if (SortedList[i].nr_dias < 0)
                 {
                     categoryAxis1.Labels.Add((SortedList[i].nr_dias * -1).ToString() + " dias");
                     columnSeries.Items.Add(new ColumnItem(SortedList[i].nr_notas) { Color = OxyColors.Red });
@@ -113,7 +107,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 LabelPlacement = LabelPlacement.Outside,
             };
 
-            for (int i = 0; i<SortedList.Count; i++)
+            for (int i = 0; i < SortedList.Count; i++)
             {
                 if (SortedList[i].nr_dias >= 0)
                 {

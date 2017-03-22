@@ -51,6 +51,11 @@ namespace br.com.weblayer.logistica.android.Activities
             txtNumNota = FindViewById<EditText>(Resource.Id.txtNumNota);
             EmpytText = FindViewById<TextView>(Resource.Id.txtListEmpty);
 
+            GetToolbar();
+        }
+
+        private void GetToolbar()
+        {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
@@ -72,7 +77,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private void SetStyle()
         {
             txtNumNota.SetBackgroundResource(Resource.Drawable.EditTextStyle);
-            btnEscanear.SetBackgroundResource(Resource.Drawable.BordaBotoes);
+            //btnEscanear.SetBackgroundResource(Resource.Drawable.BordaBotoes);
         }
 
         private void FillList()

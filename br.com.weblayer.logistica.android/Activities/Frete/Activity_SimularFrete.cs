@@ -36,7 +36,6 @@ namespace br.com.weblayer.logistica.android.Activities
             FindViews();
             BindData();
             SetStyle();
-
         }
 
         private void TxtOrigem_Click(object sender, System.EventArgs e)
@@ -87,7 +86,6 @@ namespace br.com.weblayer.logistica.android.Activities
             intent.PutExtra("volume", txtVolume.Text);
 
             StartActivity(intent);
-
         }
 
         private void FindViews()
@@ -99,6 +97,11 @@ namespace br.com.weblayer.logistica.android.Activities
             txtVolume = FindViewById<EditText>(Resource.Id.txtVolume);
             btnEnviar = FindViewById<Button>(Resource.Id.btnEnviar);
 
+            GetToolbar();
+        }
+
+        private void GetToolbar()
+        {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Simular Frete";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
@@ -110,6 +113,7 @@ namespace br.com.weblayer.logistica.android.Activities
             btnEnviar.Click += BtnEnviar_Click;
             txtOrigem.Click += TxtOrigem_Click;
             txtDestino.Click += TxtDestino_Click;
+
             txtValorNF.AddTextChangedListener(new CurrencyConverterHelper(txtValorNF));
         }
 

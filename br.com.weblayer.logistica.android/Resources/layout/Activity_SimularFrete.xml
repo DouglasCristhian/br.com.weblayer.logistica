@@ -7,12 +7,13 @@
       xmlns:tools="http://schemas.android.com/tools"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="vertical">
+      android:orientation="vertical"
+      android:focusableInTouchMode="true" >
 
     <include
      android:id="@+id/toolbar"
      layout="@layout/toolbar"/>
-    
+
     <TextView
         android:id="@+id/lblOrigem"
         android:layout_width="match_parent"
@@ -69,6 +70,7 @@
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
+      android:gravity="right"
       android:textColor="#000000"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:inputType="numberDecimal"/>
@@ -88,6 +90,7 @@
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
+      android:gravity="right"     
       android:textColor="#000000"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:inputType="numberDecimal"/>
@@ -108,8 +111,9 @@
       android:inputType="numberDecimal"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
+      android:gravity="right"
       android:textColor="#000000"
-      android:textAppearance="?android:attr/textAppearanceMedium"/>          
+      android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <Button
       android:id="@+id/btnEnviar"
@@ -117,7 +121,7 @@
       android:layout_height="wrap_content"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
-      android:layout_marginTop = "40dip"
+      android:layout_marginTop = "20dip"
       android:textColor="#000"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:text="Enviar"/>

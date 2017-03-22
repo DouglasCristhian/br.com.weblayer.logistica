@@ -20,7 +20,7 @@
             android:text="Servidor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dip"
+            android:layout_marginTop="10dip"
             android:layout_marginRight = "18dip"
             android:layout_marginLeft = "18dip"
             android:id="@+id/txtServidor" />

@@ -1,15 +1,14 @@
-using System;
-using System.Globalization;
-using System.Threading;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
-
-using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
 using br.com.weblayer.logistica.android.Helpers;
+using br.com.weblayer.logistica.core.Model;
+using System;
+using System.Globalization;
+using System.Threading;
+using DatePickerHelper = br.com.weblayer.logistica.android.Helpers.DatePickerHelper;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -20,7 +19,6 @@ namespace br.com.weblayer.logistica.android.Activities
         private TextView txtNomeCliente;
         private TextView txtValor;
         private TextView txtNota;
-        private TextView txtSerie;
         private TextView txtData;
         public TextView txtHora;
         private TextView lblMensagem;
@@ -48,30 +46,27 @@ namespace br.com.weblayer.logistica.android.Activities
             FindViews();
             SetStyles();
             BindData();
-            
-
         }
 
         private void FindViews()
+        {
+            GetToolbar();
+
+            txtNomeCliente = FindViewById<TextView>(Resource.Id.txtNomeCliente);
+            txtValor = FindViewById<TextView>(Resource.Id.txtValorNota);
+            txtNota = FindViewById<TextView>(Resource.Id.txtNota);
+            txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
+            txtHora = FindViewById<TextView>(Resource.Id.txtHoraEntrega);
+            lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
+            btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
+        }
+
+        private void GetToolbar()
         {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Informar Entrega";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
-
-            txtNomeCliente = FindViewById<TextView>(Resource.Id.txtNomeCliente);
-            txtValor = FindViewById<TextView>(Resource.Id.txtValorNota);
-            txtNota = FindViewById<TextView>(Resource.Id.txtNota);
-            txtSerie = FindViewById<TextView>(Resource.Id.txtSerie);
-            txtData = FindViewById<TextView>(Resource.Id.txtDataEntrega);
-            txtHora = FindViewById<TextView>(Resource.Id.txtHoraEntrega);
-            lblMensagem = FindViewById<TextView>(Resource.Id.lblMensagem);
-            btnConfirmarEntrega = FindViewById<Button>(Resource.Id.btnConfirmarEntrega);
-
-            //txtData.Click += EventtxtData_Click;
-            //txtHora.Click += EventtxtHora_Click;
-            btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
-            
         }
 
         private void BindData()
@@ -83,27 +78,37 @@ namespace br.com.weblayer.logistica.android.Activities
             txtData.Text = "";
             txtHora.Text = "";
             btnConfirmarEntrega.Visibility = ViewStates.Visible;
+            btnConfirmarEntrega.Click += BtnConfirmarEntrega_Click;
 
             if (nota.dt_entrega.HasValue)
             {
                 txtData.Text = nota.dt_entrega.Value.ToString("dd/MM/yyyy");
                 txtHora.Text = nota.dt_entrega.Value.ToString("HH:mm"); //Caso a nota já tenha sido entegue, mostrar a data de entrega.
                 btnConfirmarEntrega.Visibility = ViewStates.Invisible;
+                txtData.Enabled = false;
+                txtHora.Enabled = false;
             }
             else
-            { 
+            {
                 txtData.Text = DateTime.Now.ToString("dd/MM/yyyy"); //Caso contrário sugerir a data de hoje.
                 txtHora.Text = DateTime.Now.ToString("HH:mm");
                 txtData.Click += EventtxtData_Click;
                 txtHora.Click += EventtxtHora_Click;
             }
+
+            txtNomeCliente.Enabled = false;
+            txtValor.Enabled = false;
+            txtNota.Enabled = false;
+
         }
 
         private void SetStyles()
         {
             txtData.SetBackgroundResource(Resource.Drawable.EditTextStyle);
-            btnConfirmarEntrega.SetBackgroundResource(Resource.Drawable.BordaBotoes);
-
+            txtValor.SetBackgroundResource(Resource.Drawable.EditTextStyle);
+            txtNota.SetBackgroundResource(Resource.Drawable.EditTextStyle);
+            txtNomeCliente.SetBackgroundResource(Resource.Drawable.EditTextStyle);
+            txtHora.SetBackgroundResource(Resource.Drawable.EditTextStyle);
         }
 
         private void EnviaDadosEntrega()
@@ -178,7 +183,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 //HIDE PROGRESS DIALOG
                 RunOnUiThread(() => progressDialog.Hide());
             })).Start();
-           
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

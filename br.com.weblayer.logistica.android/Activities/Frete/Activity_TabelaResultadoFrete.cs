@@ -1,11 +1,11 @@
-using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
 using Android.Views;
 using Android.Webkit;
+using Android.Widget;
+using br.com.weblayer.logistica.core.Model;
+using System;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -55,6 +55,11 @@ namespace br.com.weblayer.logistica.android.Activities
             webview1 = FindViewById<WebView>(Resource.Id.webView1);
             webview1.Settings.JavaScriptEnabled = true;
 
+            GetToolbar();
+        }
+
+        private void GetToolbar()
+        {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);

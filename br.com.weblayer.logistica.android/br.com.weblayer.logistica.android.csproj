@@ -161,33 +161,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\Activity_Ajuda.cs" />
-    <Compile Include="Activities\Activity_Base.cs" />
-    <Compile Include="Activities\Activity_CenarioEntrega.cs" />
-    <Compile Include="Activities\Activity_Novidades.cs" />
-    <Compile Include="Activities\Activity_SimulacaoFreteResultado.cs" />
-    <Compile Include="Activities\Activity_Sobre.cs" />
-    <Compile Include="Activities\Activity_TabelaResultadoFrete.cs" />
+    <Compile Include="Activities\Menu\Activity_Ajuda.cs" />
+    <Compile Include="Activities\Menu\Activity_Base.cs" />
+    <Compile Include="Activities\CenarioEntrega\Activity_CenarioEntrega.cs" />
+    <Compile Include="Activities\Menu\Activity_Novidades.cs" />
+    <Compile Include="Activities\Frete\Activity_SimulacaoFreteResultado.cs" />
+    <Compile Include="Activities\Menu\Activity_Sobre.cs" />
+    <Compile Include="Activities\Frete\Activity_TabelaResultadoFrete.cs" />
+    <Compile Include="Activities\Menu\Activity_SplashIntro.cs" />
     <Compile Include="Adapters\Adapter_Cidade_ListView.cs" />
     <Compile Include="Adapters\Adapter_SimulacaoFrete_ListView.cs" />
     <Compile Include="Fragments\Fragment_BuscarCidade.cs" />
-    <Compile Include="Activities\Activity_Performance.cs" />
-    <Compile Include="Activities\Activity_SimularFrete.cs" />
+    <Compile Include="Activities\Performance\Activity_Performance.cs" />
+    <Compile Include="Activities\Frete\Activity_SimularFrete.cs" />
     <Compile Include="Adapters\Adapter_Performance_ListView.cs" />
     <Compile Include="Fragments\GenericFragmentPagerAdapter.cs" />
     <Compile Include="Fragments\GenericViewPagerFragment.cs" />
     <Compile Include="Helpers\CurrencyConverterHelper.cs" />
     <Compile Include="Helpers\DatePickerHelper.cs" />
-    <Compile Include="Activities\Activity_Login.cs" />
-    <Compile Include="Activities\Activity_BuscaNotaView.cs" />
-    <Compile Include="Activities\Activity_InformaEntrega.cs" />
+    <Compile Include="Activities\Menu\Activity_Login.cs" />
+    <Compile Include="Activities\Entrega\Activity_BuscaNotaView.cs" />
+    <Compile Include="Activities\Entrega\Activity_InformaEntrega.cs" />
     <Compile Include="Adapters\Adapter_NotaFiscal_ListView.cs" />
     <Compile Include="Helpers\DialogEventArgs.cs" />
     <Compile Include="Helpers\Substring_Helper.cs" />
     <Compile Include="Helpers\TimePickerHelper.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Activities\Activity_Menu.cs" />
+    <Compile Include="Activities\Menu\Activity_Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -383,6 +384,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\SImulacaoFrete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconTitleEmbarcador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Activity_SplashIntro.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
