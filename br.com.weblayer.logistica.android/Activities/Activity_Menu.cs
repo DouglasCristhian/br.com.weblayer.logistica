@@ -44,22 +44,25 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void ListView_Menu_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            if (e.Id == 0)
+
+            
+            if (GetData()[(int)e.Id] == "Performance do Transportador" || GetData()[(int)e.Id] == "Minha Performance")
+            {
+                StartActivity(typeof(Activity_Performance)); 
+            }
+
+            if (GetData()[(int)e.Id] == "Informar Entrega")
             {
                 StartActivity(typeof(Activity_BuscaNotaView));
             }
 
-            if (e.Id == 1)
-            {
-                StartActivity(typeof(Activity_Performance));
-            }
-
-            if (e.Id == 2)
+            
+            if (GetData()[(int)e.Id] == "Cenário de Entrega")
             {
                 StartActivity(typeof(Activity_CenarioEntrega));
             }
 
-            if (e.Id == 3)
+            if (GetData()[(int)e.Id] == "Simular Frete")
             {
                 StartActivity(typeof(Activity_SimularFrete));
             }
@@ -112,17 +115,21 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private List<string> GetData()
         {
-            //Teste da condição
-            //UsuarioManager.Instance.usuario.ds_perfil = "TRANSPORTADOR";
 
             List<string> lista = new List<string>();
-            lista.Add("Informar Entrega");
-            lista.Add("Performance do Transportador");
-            lista.Add("Cenário de Entrega");
 
-            if (UsuarioManager.Instance.usuario.ds_perfil != "TRANSPORTADOR")
+            if (UsuarioManager.Instance.usuario.ds_perfil == "ADMIN")
             {
+                lista.Add("Performance do Transportador");
+                lista.Add("Informar Entrega");
+                lista.Add("Cenário de Entrega");
                 lista.Add("Simular Frete");
+            }
+
+            if (UsuarioManager.Instance.usuario.ds_perfil == "TRANSPORTADOR")
+            {
+                lista.Add("Minha Performance");
+                lista.Add("Informar Entrega");
             }
 
             return lista;
