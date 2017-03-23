@@ -3,7 +3,7 @@
 
   <item>
     <bitmap
-        android:src="@drawable/IconTitleEmbarcador"
+        android:src="@drawable/wembarcadorbola"
         android:tileMode="disabled"
         android:gravity="center"/>
   </item>

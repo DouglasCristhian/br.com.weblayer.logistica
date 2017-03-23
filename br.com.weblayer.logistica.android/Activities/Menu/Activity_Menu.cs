@@ -48,10 +48,10 @@ namespace br.com.weblayer.logistica.android.Activities
         private void ListView_Menu_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
 
-            
+
             if (GetData()[(int)e.Id] == "Performance do Transportador" || GetData()[(int)e.Id] == "Minha Performance")
             {
-                StartActivity(typeof(Activity_Performance)); 
+                StartActivity(typeof(Activity_Performance));
             }
 
             if (GetData()[(int)e.Id] == "Informar Entrega")
@@ -59,7 +59,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 StartActivity(typeof(Activity_BuscaNotaView));
             }
 
-            
+
             if (GetData()[(int)e.Id] == "Cenário de Entrega")
             {
                 StartActivity(typeof(Activity_CenarioEntrega));
