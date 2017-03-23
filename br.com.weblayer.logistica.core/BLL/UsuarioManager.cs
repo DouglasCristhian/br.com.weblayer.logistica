@@ -39,8 +39,18 @@ namespace br.com.weblayer.logistica.core.BLL
 			{
 				//Acessar serviço remoto e validar usuário.
 				var service = new WebService.EmbarcadorService();
-				service.Url = servidor;
-				string retorno = service.Login(login, senha);
+
+			    var pathservice = servidor.ToLower();
+
+			    pathservice = pathservice.Replace("http://", "");
+
+			    pathservice = pathservice.Replace("/Mobile/EmbarcadorService.asmx", "");
+
+			    pathservice = "http://" + pathservice.TrimEnd('/') + "/Mobile/EmbarcadorService.asmx";
+
+                service.Url = pathservice;
+
+                string retorno = service.Login(login, senha);
 
 				List<Usuario> Usuarios= Newtonsoft.Json.JsonConvert.DeserializeObject<List<Usuario>>(retorno);
 
