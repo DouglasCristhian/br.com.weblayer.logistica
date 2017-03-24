@@ -43,7 +43,6 @@ namespace br.com.weblayer.logistica.android.Activities
 			toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
 			toolbar.Menu.RemoveItem(Resource.Id.action_ajuda);
 			toolbar.MenuItemClick += Toolbar_MenuItemClick;
-
 		}
 
 		private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
