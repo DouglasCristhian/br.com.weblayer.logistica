@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace br.com.weblayer.logistica.android.Activities.Menu
 {
-    [Activity(NoHistory = true, MainLauncher = true)]
+    [Activity(NoHistory = true, MainLauncher = false)]
     public class Activity_SplashIntro : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,7 +26,7 @@ namespace br.com.weblayer.logistica.android.Activities.Menu
         // Simulates background work that happens behind the splash screen
         async void SimulateStartup()
         {
-            await Task.Delay(4000); // Simulate a bit of startup work.
+            await Task.Delay(2000); // Simulate a bit of startup work.
             StartActivity(new Intent(Application.Context, typeof(Activity_Login)));
         }
     }
