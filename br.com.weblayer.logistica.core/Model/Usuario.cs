@@ -7,7 +7,7 @@
         { get; set; }
 
         public virtual string ds_servidor
-        { get; set; }
+        { get;set; }
 
         public virtual int id_usuario
         { get; set; }
@@ -23,5 +23,9 @@
 
         public virtual string ds_transportadora
         { get; set; }
+
+
+     
+
     }
 }

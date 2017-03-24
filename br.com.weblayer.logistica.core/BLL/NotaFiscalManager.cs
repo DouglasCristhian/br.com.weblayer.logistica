@@ -29,7 +29,7 @@ namespace br.com.weblayer.logistica.core.BLL
                 //Acessar serviço remoto e validar usuário.
                 var service = new WebService.EmbarcadorService
                 {
-                    Url = UsuarioManager.Instance.usuario.ds_servidor
+                    Url = UsuarioManager.Instance.PathWebService()
                 };
 
                 var retorno = service.BuscarNota(UsuarioManager.Instance.usuario.id_empresa, UsuarioManager.Instance.usuario.id_transportadora, filtro);
@@ -53,7 +53,7 @@ namespace br.com.weblayer.logistica.core.BLL
 
             var service = new WebService.EmbarcadorService
             {
-                Url = UsuarioManager.Instance.usuario.ds_servidor
+                Url = UsuarioManager.Instance.PathWebService()
             };
 
             var retorno = service.InformarEntrega(UsuarioManager.Instance.usuario.id_empresa, id_nota, dt_entrega, UsuarioManager.Instance.usuario.id_usuario,"Android","-","-","-");

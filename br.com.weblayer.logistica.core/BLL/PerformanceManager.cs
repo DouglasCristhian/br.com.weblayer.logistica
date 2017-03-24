@@ -17,15 +17,7 @@ namespace br.com.weblayer.logistica.core.BLL
     {
         public List<Performance> GetPerformance()
         {
-            //var lista = new List<Performance>();
-
-            ////Mês atual
-
-
-            ////Mês anterior
-            //lista.Add(new Performance { id_periodo= 1, ds_titulo= "Transportadora1", ds_cor="VERDE", ds_percentual_performance="98%"});
-            //lista.Add(new Performance { id_periodo = 1, ds_titulo = "Transportadora2", ds_cor = "AMARELO", ds_percentual_performance = "60%" });
-            //lista.Add(new Performance { id_periodo = 1, ds_titulo = "Transportadora3", ds_cor = "VERMELHO", ds_percentual_performance = "20%" });
+           
 
             //return lista ;
             var datainicial = GetStartOfMonth(DateTime.Now.Month, DateTime.Now.Year);
@@ -35,7 +27,7 @@ namespace br.com.weblayer.logistica.core.BLL
             //Acessar serviço remoto e validar usuário.
             var service = new WebService.EmbarcadorService
             {
-                Url = UsuarioManager.Instance.usuario.ds_servidor
+                Url = UsuarioManager.Instance.PathWebService()
             };
 
             var retorno = service.RetornaPerformance(UsuarioManager.Instance.usuario.id_empresa, datainicial, datafinal, "",

@@ -30,7 +30,7 @@ namespace br.com.weblayer.logistica.core.BLL
 
             var service = new WebService.EmbarcadorService
             {
-                Url = UsuarioManager.Instance.usuario.ds_servidor
+                Url = UsuarioManager.Instance.PathWebService()
             };
 
 
