@@ -32,7 +32,7 @@ namespace br.com.weblayer.logistica.core.BLL
 
     //    }
 
-        public List<CenarioEntrega> GetCenario2()
+        public List<CenarioEntrega> GetCenario2(int mes, int ano)
         {
             var lista = new List<CenarioEntrega>();
 

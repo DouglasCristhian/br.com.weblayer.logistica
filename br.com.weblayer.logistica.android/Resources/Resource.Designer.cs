@@ -1843,46 +1843,49 @@ namespace br.com.weblayer.logistica.android
 			public const int fab_background = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int InformarCidade = 2130837594;
+			public const int icon = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int InformarEntrega = 2130837595;
+			public const int InformarCidade = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int Menu = 2130837596;
+			public const int InformarEntrega = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int MenuSobreAjuda = 2130837597;
-			
-			// aapt resource value: 0x7f020067
-			public const int notification_template_icon_bg = 2130837607;
+			public const int Menu = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int Performance = 2130837598;
+			public const int MenuSobreAjuda = 2130837598;
+			
+			// aapt resource value: 0x7f020068
+			public const int notification_template_icon_bg = 2130837608;
 			
 			// aapt resource value: 0x7f02005f
-			public const int PerformanceAmarelo = 2130837599;
+			public const int Performance = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int PerformanceVerde = 2130837600;
+			public const int PerformanceAmarelo = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int PerformanceVermelho = 2130837601;
+			public const int PerformanceVerde = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int search = 2130837602;
+			public const int PerformanceVermelho = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int SImulacaoFrete2 = 2130837603;
+			public const int search = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int snackbar_background = 2130837604;
+			public const int SImulacaoFrete2 = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int SplashScreen = 2130837605;
+			public const int snackbar_background = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int TelaLogin = 2130837606;
+			public const int SplashScreen = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int TelaLogin = 2130837607;
 			
 			static Drawable()
 			{

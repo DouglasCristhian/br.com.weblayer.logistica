@@ -70,7 +70,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
             CenarioEntrega ent = new CenarioEntrega();
             CenarioEntregaManager manager = new CenarioEntregaManager();
-            List<CenarioEntrega> list = manager.GetCenario2();
+            List<CenarioEntrega> list = manager.GetCenario2(1, 1);
 
             List<CenarioEntrega> SortedList = list.OrderBy(o => o.nr_dias).ToList();
 

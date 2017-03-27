@@ -15,13 +15,17 @@ namespace br.com.weblayer.logistica.core.BLL
 {
     public class PerformanceManager
     {
-        public List<Performance> GetPerformance()
+
+
+        public List<Performance> GetPerformance(int ano, int mes)
         {
            
 
             //return lista ;
-            var datainicial = GetStartOfMonth(DateTime.Now.Month, DateTime.Now.Year);
-            var datafinal= GetEndOfMonth(DateTime.Now.Month, DateTime.Now.Year);
+            var datainicial = GetStartOfMonth(mes, ano);
+            var datafinal= GetEndOfMonth(mes, ano);
+
+            //TODO DATEHELPER
 
 
             //Acessar serviço remoto e validar usuário.

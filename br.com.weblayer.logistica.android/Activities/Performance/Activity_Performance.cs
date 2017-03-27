@@ -49,7 +49,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void FillList()
         {
-            ListaPerformances = new PerformanceManager().GetPerformance();
+            ListaPerformances = new PerformanceManager().GetPerformance(1, 1);
             ListViewPerformance.Adapter = new Adapter_Performance_ListView(this, ListaPerformances);
         }
 

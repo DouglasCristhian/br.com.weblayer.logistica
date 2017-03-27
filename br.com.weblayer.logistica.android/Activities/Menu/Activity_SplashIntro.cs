@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace br.com.weblayer.logistica.android.Activities.Menu
 {
-    [Activity(Theme = "@style/MyTheme.Splash", NoHistory = true, MainLauncher = true)]
+    [Activity(Theme = "@style/MyTheme.Splash", NoHistory = true, MainLauncher = false)]
     public class Activity_SplashIntro : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,7 +23,7 @@ namespace br.com.weblayer.logistica.android.Activities.Menu
 
         async void SimulateStartup()
         {
-            await Task.Delay(4000); 
+            await Task.Delay(4000);
             StartActivity(new Intent(Application.Context, typeof(Activity_Login)));
         }
     }
