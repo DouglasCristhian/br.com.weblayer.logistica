@@ -318,9 +318,6 @@
     <Folder Include="Resources\values-21\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\wembarcadorbola.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>

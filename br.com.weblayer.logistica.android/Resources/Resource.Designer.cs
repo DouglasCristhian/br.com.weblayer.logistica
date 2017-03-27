@@ -1860,8 +1860,8 @@ namespace br.com.weblayer.logistica.android
 			// aapt resource value: 0x7f02005f
 			public const int MenuSobreAjuda = 2130837599;
 			
-			// aapt resource value: 0x7f02006a
-			public const int notification_template_icon_bg = 2130837610;
+			// aapt resource value: 0x7f020069
+			public const int notification_template_icon_bg = 2130837609;
 			
 			// aapt resource value: 0x7f020060
 			public const int Performance = 2130837600;
@@ -1889,9 +1889,6 @@ namespace br.com.weblayer.logistica.android
 			
 			// aapt resource value: 0x7f020068
 			public const int TelaLogin = 2130837608;
-			
-			// aapt resource value: 0x7f020069
-			public const int wembarcadorbola = 2130837609;
 			
 			static Drawable()
 			{

@@ -61,7 +61,7 @@ namespace br.com.weblayer.logistica.core.BLL
             }
             catch (System.Exception ex)
             {
-                mensagem = ex.Message;
+                mensagem = ex.Message + " - " + PathWebService(servidor);
                 return false;
             }
 
