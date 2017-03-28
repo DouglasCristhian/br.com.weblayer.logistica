@@ -1,5 +1,7 @@
 using Android.App;
+using Android.Content;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
@@ -7,6 +9,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using OxyPlot.Xamarin.Android;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,8 +18,10 @@ namespace br.com.weblayer.logistica.android.Activities
     [Activity(ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class Activity_CenarioEntrega : Activity_Base
     {
-        private PlotView view;
         Android.Support.V7.Widget.Toolbar toolbar;
+        private PlotView view;
+        private string AnoSelecionado;
+        private int MesSelecionado;
 
         protected override int LayoutResource
         {
@@ -31,10 +36,38 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnCreate(savedInstanceState);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            this.Title = "Cenário de Entrega";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_sair);
+
+            Filtro_Spinner();
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+            menu.RemoveItem(Resource.Id.action_sobre);
+            menu.RemoveItem(Resource.Id.action_ajuda);
+            menu.RemoveItem(Resource.Id.action_sair);
+            return true;
+        }
+
+        private void Filtro_Spinner()
+        {
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefEditor = prefs.Edit();
+
+            string ano = prefs.GetString("PrefAnoCenarioEntregaString", DateTime.Now.Year.ToString());
+            AnoSelecionado = ano;
+
+            int mes = prefs.GetInt("PrefMesCenarioEntrega", DateTime.Now.Month);
+
+            if (mes == 0)
+            {
+                mes = DateTime.Now.Month;
+            }
+
+            MesSelecionado = mes;
 
             FindViews();
         }
@@ -46,6 +79,13 @@ namespace br.com.weblayer.logistica.android.Activities
                 case Android.Resource.Id.Home:
                     Finish();
                     return true;
+
+                case Resource.Id.action_filtrar:
+
+                    Intent intent = new Intent();
+                    intent.SetClass(this, typeof(Activity_FiltrarCenarioEntrega));
+                    StartActivityForResult(intent, 0);
+                    return true;
             }
 
             return base.OnOptionsItemSelected(item);
@@ -54,10 +94,19 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             view = FindViewById<PlotView>(Resource.Id.plotView);
-            view.Model = GraficoColunas();
+
+            string DataFinal = (MesSelecionado + "/" + AnoSelecionado).ToString();
+            this.Title = "Cenário de Entrega (" + DataFinal + ")";
+
+            BindData();
         }
 
-        private PlotModel GraficoColunas()
+        private void BindData()
+        {
+            view.Model = GraficoColunas(int.Parse(AnoSelecionado), MesSelecionado);
+        }
+
+        private PlotModel GraficoColunas(int ano, int mes)
         {
             var plotModel = new PlotModel()
             {
@@ -70,7 +119,7 @@ namespace br.com.weblayer.logistica.android.Activities
 
             CenarioEntrega ent = new CenarioEntrega();
             CenarioEntregaManager manager = new CenarioEntregaManager();
-            List<CenarioEntrega> list = manager.GetCenario2(1, 1);
+            List<CenarioEntrega> list = manager.GetCenario2(ano, mes);
 
             List<CenarioEntrega> SortedList = list.OrderBy(o => o.nr_dias).ToList();
 
@@ -86,7 +135,6 @@ namespace br.com.weblayer.logistica.android.Activities
                 FontSize = 15,
                 TextColor = OxyColors.Black,
                 ColumnWidth = 20,
-                //LabelPlacement = LabelPlacement.Inside,         
 
             };
 
@@ -96,7 +144,6 @@ namespace br.com.weblayer.logistica.android.Activities
                 {
                     categoryAxis1.Labels.Add((SortedList[i].nr_dias * -1).ToString() + " dias");
                     columnSeries.Items.Add(new ColumnItem(SortedList[i].nr_notas) { Color = OxyColors.Red });
-                    //columnSeries.
                 }
             }
 
@@ -121,6 +168,30 @@ namespace br.com.weblayer.logistica.android.Activities
             plotModel.Series.Add(columnSeries2);
 
             return plotModel;
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            AnoSelecionado = data.GetStringExtra("AnoCenarioEntregaString");
+            MesSelecionado = data.GetIntExtra("MesCenarioEntregaPosicao", DateTime.Now.Month);
+
+            if (AnoSelecionado == null || MesSelecionado.ToString() == null)
+            {
+                Filtro_Spinner();
+            }
+            else
+            {
+                if (MesSelecionado == 0)
+                {
+                    MesSelecionado = DateTime.Now.Month;
+                }
+
+                FindViews();
+                //GraficoColunas(int.Parse(AnoSelecionado), MesSelecionado);
+            }
+
         }
     }
 }

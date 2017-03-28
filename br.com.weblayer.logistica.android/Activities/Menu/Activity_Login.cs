@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(MainLauncher = true, NoHistory = true)]
+    [Activity(MainLauncher = true, NoHistory = false)]
     public class Activity_Login : Activity
     {
         public static string MyPREFERENCES = "MyPrefs";
@@ -42,6 +42,7 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_ajuda);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }
 

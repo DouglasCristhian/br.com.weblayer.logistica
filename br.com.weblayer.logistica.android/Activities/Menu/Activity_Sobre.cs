@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using br.com.weblayer.logistica.android.Helpers;
-using br.com.weblayer.logistica.android.Adapters;
+using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
@@ -34,6 +26,7 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnCreate(savedInstanceState);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
 
             FindViews();
             BindData();

@@ -59,6 +59,7 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
         }
 
         private void BindData()

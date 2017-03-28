@@ -170,6 +170,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\CenarioEntrega\Activity_FiltrarCenarioEntrega.cs" />
+    <Compile Include="Activities\Performance\Activity_FiltrarPerformance.cs" />
     <Compile Include="Activities\Menu\Activity_Ajuda.cs" />
     <Compile Include="Activities\Menu\Activity_Base.cs" />
     <Compile Include="Activities\CenarioEntrega\Activity_CenarioEntrega.cs" />
@@ -180,6 +182,7 @@
     <Compile Include="Activities\Menu\Activity_SplashIntro.cs" />
     <Compile Include="Adapters\Adapter_Cidade_ListView.cs" />
     <Compile Include="Adapters\Adapter_SimulacaoFrete_ListView.cs" />
+    <Compile Include="Adapters\mySpinnerAdapter.cs" />
     <Compile Include="Fragments\Fragment_BuscarCidade.cs" />
     <Compile Include="Activities\Performance\Activity_Performance.cs" />
     <Compile Include="Activities\Frete\Activity_SimularFrete.cs" />
@@ -312,6 +315,7 @@
     <AndroidResource Include="Resources\drawable\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\drawable-land-hdpi\" />
     <Folder Include="Resources\values-21\" />
   </ItemGroup>
   <ItemGroup>
@@ -321,7 +325,7 @@
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
@@ -336,7 +340,7 @@
     <AndroidResource Include="Resources\mipmap-mdpi\ic_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\mipmap-xhdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_menu.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_menu.png" />
@@ -389,25 +393,46 @@
     <AndroidResource Include="Resources\drawable\SImulacaoFrete2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-land-hdpi\SplashScreen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\SplashScreen.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_tune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_tune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_tune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_tune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_tune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Activity_FiltrarPerformance.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu_toolbar_filtro.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

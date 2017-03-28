@@ -1,4 +1,5 @@
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -13,6 +14,8 @@ namespace br.com.weblayer.logistica.android.Activities
     [Activity(MainLauncher = false, ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class Activity_Performance : Activity_Base
     {
+        private string AnoSelecionado;
+        private int MesSelecionado;
         ListView ListViewPerformance;
         List<Performance> ListaPerformances;
         Android.Support.V7.Widget.Toolbar toolbar;
@@ -29,27 +32,55 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             base.OnCreate(savedInstanceState);
             FindViews();
-            FillList();
         }
 
         private void FindViews()
         {
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
-
+            Filtro_Spinner();
             GetToolbar();
-            this.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
+            //this.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
+            string DataFinal = (MesSelecionado + "/" + AnoSelecionado).ToString();
+            this.Title = "Performance (" + DataFinal + ")";
         }
 
         private void GetToolbar()
         {
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
-            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
         }
 
-        private void FillList()
+        public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            ListaPerformances = new PerformanceManager().GetPerformance(1, 1);
+            MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+            menu.RemoveItem(Resource.Id.action_sobre);
+            menu.RemoveItem(Resource.Id.action_ajuda);
+            menu.RemoveItem(Resource.Id.action_sair);
+            return true;
+        }
+
+        private void Filtro_Spinner()
+        {
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefEditor = prefs.Edit();
+
+            string ano = prefs.GetString("PrefAnoPerformanceString", DateTime.Now.Year.ToString());
+            AnoSelecionado = ano;
+
+            int mes = prefs.GetInt("PrefMesPerformancePosicao", DateTime.Now.Month);
+
+            if (mes == 0)
+            {
+                mes = DateTime.Now.Month;
+            }
+
+            MesSelecionado = mes;
+
+            FillList(int.Parse(AnoSelecionado), MesSelecionado);
+        }
+
+        private void FillList(int ano, int mes)
+        {
+            ListaPerformances = new PerformanceManager().GetPerformance(ano, mes);
             ListViewPerformance.Adapter = new Adapter_Performance_ListView(this, ListaPerformances);
         }
 
@@ -61,8 +92,39 @@ namespace br.com.weblayer.logistica.android.Activities
                     Finish();
 
                     return true;
+
+                case Resource.Id.action_filtrar:
+
+                    Intent intent = new Intent();
+                    intent.SetClass(this, typeof(Activity_FiltrarPerformance));
+                    StartActivityForResult(intent, 0);
+
+                    return true;
             }
+
             return base.OnOptionsItemSelected(item);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            AnoSelecionado = data.GetStringExtra("AnoPerformanceString");
+            MesSelecionado = data.GetIntExtra("MesPerformancePosicao", DateTime.Now.Month);
+
+            if (AnoSelecionado == null || MesSelecionado.ToString() == null)
+            {
+                Filtro_Spinner();
+            }
+            else
+            {
+                if (MesSelecionado == 0)
+                {
+                    MesSelecionado = DateTime.Now.Month;
+                }
+
+                FindViews();
+            }
         }
     }
 }

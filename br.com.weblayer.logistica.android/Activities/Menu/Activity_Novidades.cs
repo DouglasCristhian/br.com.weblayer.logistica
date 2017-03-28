@@ -31,6 +31,7 @@ namespace br.com.weblayer.logistica.android.Activities
             base.OnCreate(savedInstanceState);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
 
             FindViews();
             BindData();
