@@ -15,7 +15,7 @@ namespace br.com.weblayer.logistica.android.Activities
     public class Activity_Performance : Activity_Base
     {
         private string AnoSelecionado;
-        private int MesSelecionado;
+        private string MesSelecionado;
         ListView ListViewPerformance;
         List<Performance> ListaPerformances;
         Android.Support.V7.Widget.Toolbar toolbar;
@@ -39,7 +39,6 @@ namespace br.com.weblayer.logistica.android.Activities
             ListViewPerformance = FindViewById<ListView>(Resource.Id.PerformanceListView);
             Filtro_Spinner();
             GetToolbar();
-            //this.Title = "Performance (" + DateTime.Now.ToString("MM/yyyy") + ")";
             string DataFinal = (MesSelecionado + "/" + AnoSelecionado).ToString();
             this.Title = "Performance (" + DataFinal + ")";
         }
@@ -66,16 +65,10 @@ namespace br.com.weblayer.logistica.android.Activities
             string ano = prefs.GetString("PrefAnoPerformanceString", DateTime.Now.Year.ToString());
             AnoSelecionado = ano;
 
-            int mes = prefs.GetInt("PrefMesPerformancePosicao", DateTime.Now.Month);
-
-            if (mes == 0)
-            {
-                mes = DateTime.Now.Month;
-            }
-
+            string mes = prefs.GetString("PrefMesPerformancePosicao", DateTime.Now.Month.ToString());
             MesSelecionado = mes;
 
-            FillList(int.Parse(AnoSelecionado), MesSelecionado);
+            FillList(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
         }
 
         private void FillList(int ano, int mes)
@@ -108,23 +101,7 @@ namespace br.com.weblayer.logistica.android.Activities
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-
-            AnoSelecionado = data.GetStringExtra("AnoPerformanceString");
-            MesSelecionado = data.GetIntExtra("MesPerformancePosicao", DateTime.Now.Month);
-
-            if (AnoSelecionado == null || MesSelecionado.ToString() == null)
-            {
-                Filtro_Spinner();
-            }
-            else
-            {
-                if (MesSelecionado == 0)
-                {
-                    MesSelecionado = DateTime.Now.Month;
-                }
-
-                FindViews();
-            }
+            FindViews();
         }
     }
 }

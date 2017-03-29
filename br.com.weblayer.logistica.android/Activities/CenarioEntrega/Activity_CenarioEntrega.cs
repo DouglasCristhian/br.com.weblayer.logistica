@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Android.Widget;
 using br.com.weblayer.logistica.core.BLL;
 using br.com.weblayer.logistica.core.Model;
 using OxyPlot;
@@ -21,7 +22,8 @@ namespace br.com.weblayer.logistica.android.Activities
         Android.Support.V7.Widget.Toolbar toolbar;
         private PlotView view;
         private string AnoSelecionado;
-        private int MesSelecionado;
+        private string MesSelecionado;
+        private TextView txt;
 
         protected override int LayoutResource
         {
@@ -60,13 +62,7 @@ namespace br.com.weblayer.logistica.android.Activities
             string ano = prefs.GetString("PrefAnoCenarioEntregaString", DateTime.Now.Year.ToString());
             AnoSelecionado = ano;
 
-            int mes = prefs.GetInt("PrefMesCenarioEntrega", DateTime.Now.Month);
-
-            if (mes == 0)
-            {
-                mes = DateTime.Now.Month;
-            }
-
+            string mes = prefs.GetString("PrefMesCenarioEntrega", DateTime.Now.Month.ToString());
             MesSelecionado = mes;
 
             FindViews();
@@ -94,6 +90,7 @@ namespace br.com.weblayer.logistica.android.Activities
         private void FindViews()
         {
             view = FindViewById<PlotView>(Resource.Id.plotView);
+            txt = FindViewById<TextView>(Resource.Id.titulo);
 
             string DataFinal = (MesSelecionado + "/" + AnoSelecionado).ToString();
             this.Title = "Cenário de Entrega (" + DataFinal + ")";
@@ -103,7 +100,8 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BindData()
         {
-            view.Model = GraficoColunas(int.Parse(AnoSelecionado), MesSelecionado);
+            view.Model = GraficoColunas(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
+            //txt.Text = "Período da Entrega";
         }
 
         private PlotModel GraficoColunas(int ano, int mes)
@@ -174,23 +172,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            AnoSelecionado = data.GetStringExtra("AnoCenarioEntregaString");
-            MesSelecionado = data.GetIntExtra("MesCenarioEntregaPosicao", DateTime.Now.Month);
-
-            if (AnoSelecionado == null || MesSelecionado.ToString() == null)
-            {
-                Filtro_Spinner();
-            }
-            else
-            {
-                if (MesSelecionado == 0)
-                {
-                    MesSelecionado = DateTime.Now.Month;
-                }
-
-                FindViews();
-                //GraficoColunas(int.Parse(AnoSelecionado), MesSelecionado);
-            }
+            Filtro_Spinner();
 
         }
     }

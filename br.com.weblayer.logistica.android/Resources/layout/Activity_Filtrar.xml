@@ -16,11 +16,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dip"
+        android:layout_marginTop="25dip"
         android:layout_marginBottom="18dip"
         android:gravity="center_horizontal"
+        android:id="@+id/titulo"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Período da Performance"/>
+        android:text="Período"/>
 
     <TextView
       android:layout_width="match_parent"
@@ -29,7 +30,7 @@
       android:layout_marginBottom="3dip"
       android:layout_marginLeft = "18dip"
       android:textAppearance="?android:attr/textAppearanceSmall"
-      android:text="Mes"/>
+      android:text="Mês"/>
 
     <Spinner
        android:id="@+id/spinnerMes"

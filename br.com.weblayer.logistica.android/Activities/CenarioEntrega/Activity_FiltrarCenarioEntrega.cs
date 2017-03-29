@@ -9,11 +9,13 @@ using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Activity_FiltrarCenarioEntrega")]
+    [Activity(Label = "Filtro")]
     public class Activity_FiltrarCenarioEntrega : Activity_Base
     {
         private Spinner spinnerMesCenarioEntrega;
         private Spinner spinnerAnoCenarioEntrega;
+        int MesEntregaPosicao;
+        int AnoEntregaPosicao;
         private Button btnLimparFiltro;
         private List<mSpinner> spinnerAnoLista;
         private List<mSpinner> spinnerMesLista;
@@ -24,7 +26,7 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             get
             {
-                return Resource.Layout.Activity_FiltrarPerformance;
+                return Resource.Layout.Activity_Filtrar;
             }
         }
 
@@ -43,11 +45,11 @@ namespace br.com.weblayer.logistica.android.Activities
             spinnerMesCenarioEntrega.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerMesLista);
 
             var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
-            int IdMes = prefs.GetInt("PrefMesCenarioEntrega", DateTime.Now.Month);
-            int IdAno = prefs.GetInt("PrefAnoCenarioEntrega", 0);
+            MesEntregaPosicao = int.Parse(prefs.GetString("PrefMesCenarioEntrega", DateTime.Now.Month.ToString()));
+            AnoEntregaPosicao = prefs.GetInt("PrefAnoCenarioEntrega", 0);
 
-            spinnerAnoCenarioEntrega.SetSelection(getIndexByValue(spinnerAnoCenarioEntrega, IdAno));
-            spinnerMesCenarioEntrega.SetSelection(getIndexByValue(spinnerMesCenarioEntrega, IdMes));
+            spinnerAnoCenarioEntrega.SetSelection(getIndexByValue(spinnerAnoCenarioEntrega, AnoEntregaPosicao));
+            spinnerMesCenarioEntrega.SetSelection(getIndexByValue(spinnerMesCenarioEntrega, MesEntregaPosicao - 1));
 
         }
 
@@ -66,7 +68,6 @@ namespace br.com.weblayer.logistica.android.Activities
 
             return base.OnOptionsItemSelected(item);
         }
-
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -104,13 +105,12 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void BtnLimparFiltro_Click(object sender, System.EventArgs e)
         {
-            spinnerMesCenarioEntrega.SetSelection(0);
+            spinnerMesCenarioEntrega.SetSelection(DateTime.Now.Month - 1);
             spinnerAnoCenarioEntrega.SetSelection(0);
         }
 
         private List<mSpinner> PopulateSpinnerMes()
         {
-            minhalista.Add(new mSpinner(0, "Todos"));
             minhalista.Add(new mSpinner(1, "Janeiro"));
             minhalista.Add(new mSpinner(2, "Fevereiro"));
             minhalista.Add(new mSpinner(3, "Março"));
@@ -151,7 +151,9 @@ namespace br.com.weblayer.logistica.android.Activities
             var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
             var prefEditor = prefs.Edit();
 
-            prefEditor.PutInt("PrefMesCenarioEntrega", spinnerMesCenarioEntrega.SelectedItemPosition);
+            string posicaoMes = spinnerMesCenarioEntrega.SelectedItemPosition.ToString();
+
+            prefEditor.PutString("PrefMesCenarioEntrega", (int.Parse(posicaoMes) + 1).ToString());
             prefEditor.PutInt("PrefAnoCenarioEntrega", spinnerAnoCenarioEntrega.SelectedItemPosition);
             prefEditor.PutString("PrefAnoCenarioEntregaString", spinnerAnoCenarioEntrega.SelectedItem.ToString());
             prefEditor.Commit();
@@ -159,8 +161,6 @@ namespace br.com.weblayer.logistica.android.Activities
             Toast.MakeText(this, "Preferências de filtro atualizadas", ToastLength.Short).Show();
 
             Intent intent = new Intent();
-            intent.PutExtra("AnoCenarioEntregaString", spinnerAnoCenarioEntrega.SelectedItem.ToString());
-            intent.PutExtra("MesCenarioEntregaPosicao", spinnerMesCenarioEntrega.SelectedItemPosition);
             SetResult(Result.Ok, intent);
 
             Finish();

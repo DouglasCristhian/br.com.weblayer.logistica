@@ -37,6 +37,7 @@ namespace br.com.weblayer.logistica.core.BLL
         {
             return new DateTime(year, month, 1, 0, 0, 0, 0);
         }
+
         public static DateTime GetEndOfMonth(int year, int month)
         {
             return new DateTime(year, month, DateTime.DaysInMonth(year, month), 23, 59, 59, 999);

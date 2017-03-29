@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(Label = "Activity_FiltrarPerformance")]
+    [Activity(Label = "Filtro")]
     public class Activity_FiltrarPerformance : Activity_Base
     {
         private Spinner spinnerMesPerformance;
@@ -18,14 +18,17 @@ namespace br.com.weblayer.logistica.android.Activities
         private Button btnLimparFiltro;
         private List<mSpinner> spinnerAnoLista;
         private List<mSpinner> spinnerMesLista;
+        int MesPerformancePosicao;
+        int AnoPerformancePosicao;
         public string MyPREFERENCES = "MyPrefs";
         List<mSpinner> minhalista = new List<mSpinner>();
+        ISharedPreferences prefs;
 
         protected override int LayoutResource
         {
             get
             {
-                return Resource.Layout.Activity_FiltrarPerformance;
+                return Resource.Layout.Activity_Filtrar;
             }
         }
 
@@ -43,12 +46,12 @@ namespace br.com.weblayer.logistica.android.Activities
             spinnerAnoPerformance.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerAnoLista);
             spinnerMesPerformance.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerMesLista);
 
-            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
-            int MesPerformancePosicao = prefs.GetInt("PrefMesPerformancePosicao", 0);
-            int AnoPerformancePosicao = prefs.GetInt("PrefAnoPerformancePosicao", 0);
+            prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+            MesPerformancePosicao = int.Parse(prefs.GetString("PrefMesPerformancePosicao", DateTime.Now.Month.ToString()));
+            AnoPerformancePosicao = prefs.GetInt("PrefAnoPerformancePosicao", 0);
 
             spinnerAnoPerformance.SetSelection(getIndexByValue(spinnerAnoPerformance, AnoPerformancePosicao));
-            spinnerMesPerformance.SetSelection(getIndexByValue(spinnerMesPerformance, MesPerformancePosicao));
+            spinnerMesPerformance.SetSelection(getIndexByValue(spinnerMesPerformance, MesPerformancePosicao - 1));
 
         }
 
@@ -100,17 +103,18 @@ namespace br.com.weblayer.logistica.android.Activities
         private void BindData()
         {
             btnLimparFiltro.Click += BtnLimparFiltro_Click;
+            TextView txt = FindViewById<TextView>(Resource.Id.titulo);
+            txt.Text = "Período da Performance";
         }
 
         private void BtnLimparFiltro_Click(object sender, System.EventArgs e)
         {
-            spinnerMesPerformance.SetSelection(0);
+            spinnerMesPerformance.SetSelection(DateTime.Now.Month - 1);
             spinnerAnoPerformance.SetSelection(0);
         }
 
         private List<mSpinner> PopulateSpinnerMes()
         {
-            minhalista.Add(new mSpinner(0, "Todos"));
             minhalista.Add(new mSpinner(1, "Janeiro"));
             minhalista.Add(new mSpinner(2, "Fevereiro"));
             minhalista.Add(new mSpinner(3, "Março"));
@@ -151,7 +155,9 @@ namespace br.com.weblayer.logistica.android.Activities
             var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
             var prefEditor = prefs.Edit();
 
-            prefEditor.PutInt("PrefMesPerformancePosicao", spinnerMesPerformance.SelectedItemPosition);
+            string posicaoMes = spinnerMesPerformance.SelectedItemPosition.ToString();
+
+            prefEditor.PutString("PrefMesPerformancePosicao", (int.Parse(posicaoMes) + 1).ToString());
             prefEditor.PutInt("PrefAnoPerformancePosicao", spinnerAnoPerformance.SelectedItemPosition);
             prefEditor.PutString("PrefAnoPerformanceString", spinnerAnoPerformance.SelectedItem.ToString());
             prefEditor.Commit();
@@ -159,8 +165,6 @@ namespace br.com.weblayer.logistica.android.Activities
             Toast.MakeText(this, "Preferências de filtro atualizadas", ToastLength.Short).Show();
 
             Intent intent = new Intent();
-            intent.PutExtra("AnoPerformanceString", spinnerAnoPerformance.SelectedItem.ToString());
-            intent.PutExtra("MesPerformancePosicao", spinnerMesPerformance.SelectedItemPosition);
             SetResult(Result.Ok, intent);
 
             Finish();
