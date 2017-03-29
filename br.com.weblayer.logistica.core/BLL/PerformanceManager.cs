@@ -1,27 +1,22 @@
+using br.com.weblayer.logistica.core.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using br.com.weblayer.logistica.core.Model;
 
 namespace br.com.weblayer.logistica.core.BLL
 {
     public class PerformanceManager
     {
-        public List<Performance> GetPerformance()
+
+
+        public List<Performance> GetPerformance(int ano, int mes)
         {
-           
+            //TODO -> LIDAR COM OPÇÃO 0 -> TODOS
 
             //return lista ;
-            var datainicial = GetStartOfMonth(DateTime.Now.Month, DateTime.Now.Year);
-            var datafinal= GetEndOfMonth(DateTime.Now.Month, DateTime.Now.Year);
+            var datainicial = GetStartOfMonth(ano, mes);
+            var datafinal = GetEndOfMonth(ano, mes);
+
+            //TODO DATEHELPER
 
 
             //Acessar serviço remoto e validar usuário.
@@ -36,15 +31,13 @@ namespace br.com.weblayer.logistica.core.BLL
             var Performance = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Performance>>(retorno);
 
             return Performance;
-
-
         }
 
-        public static DateTime GetStartOfMonth(int month, int year)
+        public static DateTime GetStartOfMonth(int year, int month)
         {
             return new DateTime(year, month, 1, 0, 0, 0, 0);
         }
-        public static DateTime GetEndOfMonth(int month, int year)
+        public static DateTime GetEndOfMonth(int year, int month)
         {
             return new DateTime(year, month, DateTime.DaysInMonth(year, month), 23, 59, 59, 999);
         }

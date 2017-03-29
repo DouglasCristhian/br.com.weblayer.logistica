@@ -26,6 +26,7 @@ namespace br.com.weblayer.logistica.android.Activities
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+            menu.RemoveItem(Resource.Id.action_filtrar);
             return true;
         }
 
@@ -37,21 +38,17 @@ namespace br.com.weblayer.logistica.android.Activities
 
         private void GetToolbar()
         {
-            //if (UsuarioManager.Instance.usuario.ds_perfil=="TRANSPORTADOR")
-            //    btnSimularFrete.Visibility = ViewStates.Gone;
-
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "W/Embarcador";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
         }
 
         private void ListView_Menu_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-
-            
             if (GetData()[(int)e.Id] == "Performance do Transportador" || GetData()[(int)e.Id] == "Minha Performance")
             {
-                StartActivity(typeof(Activity_Performance)); 
+                StartActivity(typeof(Activity_Performance));
             }
 
             if (GetData()[(int)e.Id] == "Informar Entrega")
@@ -59,7 +56,7 @@ namespace br.com.weblayer.logistica.android.Activities
                 StartActivity(typeof(Activity_BuscaNotaView));
             }
 
-            
+
             if (GetData()[(int)e.Id] == "Cenário de Entrega")
             {
                 StartActivity(typeof(Activity_CenarioEntrega));

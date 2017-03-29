@@ -55,6 +55,7 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar.Title = "Resultado da Simulação";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
+            toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
         }
 
         private void BindData()
