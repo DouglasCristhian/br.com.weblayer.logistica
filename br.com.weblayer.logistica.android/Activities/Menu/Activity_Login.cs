@@ -40,8 +40,6 @@ namespace br.com.weblayer.logistica.android.Activities
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "W/Embarcador";
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
-            toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
-            toolbar.Menu.RemoveItem(Resource.Id.action_ajuda);
             toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }
@@ -50,6 +48,14 @@ namespace br.com.weblayer.logistica.android.Activities
         {
             switch (e.Item.ItemId)
             {
+                case Resource.Id.action_sobre:
+                    StartActivity(typeof(Activity_Sobre));
+                    break;
+
+                case Resource.Id.action_ajuda:
+                    StartActivity(typeof(Activity_Ajuda));
+                    break;
+
                 case Resource.Id.action_sair:
                     Finish();
                     break;

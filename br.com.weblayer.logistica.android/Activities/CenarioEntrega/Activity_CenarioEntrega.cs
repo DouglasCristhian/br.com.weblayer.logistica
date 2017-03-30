@@ -16,7 +16,7 @@ using System.Linq;
 
 namespace br.com.weblayer.logistica.android.Activities
 {
-    [Activity(ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity()]
     public class Activity_CenarioEntrega : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;

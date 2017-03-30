@@ -12,7 +12,7 @@
 
   <oxyplot.xamarin.android.PlotView
     android:id="@+id/plotView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>  
+    android:layout_width="1000dp"
+    android:layout_height="wrap_content"/>  
   
 </LinearLayout>

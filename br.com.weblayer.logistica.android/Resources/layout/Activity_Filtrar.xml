@@ -20,7 +20,7 @@
         android:layout_marginBottom="18dip"
         android:layout_marginLeft="18dip"
         android:id="@+id/titulo"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Período Emissão NFE"/>
 
     <TextView
