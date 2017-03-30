@@ -103,8 +103,6 @@ namespace br.com.weblayer.logistica.android.Activities
         private void BindData()
         {
             btnLimparFiltro.Click += BtnLimparFiltro_Click;
-            TextView txt = FindViewById<TextView>(Resource.Id.titulo);
-            txt.Text = "Período da Performance";
         }
 
         private void BtnLimparFiltro_Click(object sender, System.EventArgs e)

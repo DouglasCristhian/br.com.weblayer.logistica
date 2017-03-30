@@ -18,10 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dip"
         android:layout_marginBottom="18dip"
-        android:gravity="center_horizontal"
+        android:layout_marginLeft="18dip"
         android:id="@+id/titulo"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Período"/>
+        android:text="Período Emissão NFE"/>
 
     <TextView
       android:layout_width="match_parent"
