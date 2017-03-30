@@ -1843,7 +1843,7 @@ namespace br.com.weblayer.logistica.android
 			public const int fab_background = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int icon = 2130837594;
+			public const int ic_launcher = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
 			public const int InformarCidade = 2130837595;
